@@ -1,0 +1,19 @@
+{
+  "name": "cbbc2",
+  "version": "1.0.0",
+  "description": "CBBC website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CB",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
