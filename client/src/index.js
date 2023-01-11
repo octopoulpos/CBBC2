@@ -9,6 +9,7 @@ import {
 import "./index.css";
 import App from "./App";
 import Portail from "./Portail";
+import Connexion from './Connexion';
 import ErrorPage from "./error-page";
 import Contact from './routes/contact';
 import Root from "./routes/root";
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/Connexion",
+    element: <Connexion />,
     errorElement: <ErrorPage />,
   },
   {

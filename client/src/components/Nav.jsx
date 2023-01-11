@@ -10,6 +10,7 @@ const Nav = () => {
                 <a href="/">Accueil</a>
                 <a href="/apropos">À propos</a>
                 <a href="/Root">Contact</a>
+                <a href="/Connexion">Connexion</a>
                 <a href="/cbbc-enedis">CBBC-Enedis app</a>
             </nav>
 

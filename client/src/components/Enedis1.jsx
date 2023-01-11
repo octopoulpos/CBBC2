@@ -1,11 +1,9 @@
 import React from 'react';
-
 import axios from 'axios';
 
-// require('dotenv').config();
-// console.log(process.env.REACT_APP_API_ID)
 
-const CLIENT_ID = process.env.REACT_APP_API_ID;
+// const CLIENT_ID = Installer react-dotenv.....REACT_APP_API_ID;
+const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
 // const DURATION = '7'; // duration is the duration of the consent that you want (1, 7, 15 or 30 days)
 const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
 

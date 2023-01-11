@@ -5,10 +5,10 @@ function Login(props) {
   return (
     <div className="container">
       {/* <h1>xxx</h1> */}
-      <form className="form">
-        <Input type="text" placeholder="Nom d'utilisateur" />
-        <Input type="password" placeholder="Password" />
-        {props.isRegistered === false && <Input type="password" placeholder="Confirmer Password" />}
+      <form method="post" action="/users" className="form">
+        <Input type="text" placeholder="Nom d'utilisateur" name="nom"/>
+        <Input type="password" placeholder="Password" name="password" />
+        {props.isRegistered === false && <Input type="password" placeholder="Confirmer Password" name="passwordcc" />}
         <button type="submit">{props.isRegistered ? "Connexion" : "S'enregister"}</button>
       </form>
     </div>
@@ -16,3 +16,4 @@ function Login(props) {
 }
 
 export default Login;
+
