@@ -1,42 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {Routes, Route} from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
-import BoutonConnectEnedis from "./components/BoutonConnectEnedis";
-import Login from "./components/Login";
 import Nav from "./components/Nav";
-import Logo from "./components/Logo"
+import Logo from "./components/Logo";
 
-  var isLoggedIn = true;
-  var isRegistered = true;
-
-const App = () => {
-  const [msg, setMsg] = useState('')
-
-  const handleClick = async () => {
-    const data = await window.fetch('/api/xxx')
-    const json = await data.json()
-    console.log(json)
-  }
+function App () {
 
   return (
     <div className="App">
 
       <Nav />
       <header className="App-header">
-
+        <Logo />
         <img src={logo} className="App-logo" alt="logo" />
-        <Logo /><h1 className="App-title">Portail de connexion</h1>
-        {
-          isLoggedIn === false ?
-            <Login isRegistered={isRegistered} /> : null
-        }
-        {
-          isLoggedIn === true ?
-            <BoutonConnectEnedis /> : null
-        }
+
 
       </header>
-      
+
     </div>
   );
 
@@ -44,7 +25,13 @@ const App = () => {
 
 
 // TEST synchro avec proxy vers server
-{/* <div className="App">
+// const [msg, setMsg] = useState('')
+// const handleClick = async () => {
+//   const data = await window.fetch('/api/xxx')
+//   const json = await data.json()
+//   console.log(json)
+// }
+/* <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -53,7 +40,7 @@ const App = () => {
         <button onClick={handleClick}>Yo!</button>
         <p>{msg}</p>
       </header>
-    </div> */}
+    </div> */
 
 
 
