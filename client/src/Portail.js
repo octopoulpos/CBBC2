@@ -5,8 +5,8 @@ import Login from "./components/Login";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 
-  var isLoggedIn = true;
-  var isRegistered = true;
+  var isLoggedIn = false;
+  var isRegistered = false;
 
 const Portail = () => {
 

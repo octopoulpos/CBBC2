@@ -9,7 +9,7 @@ const Nav = () => {
             <nav className="menu">
                 <a href="/">Accueil</a>
                 <a href="/apropos">À propos</a>
-                <a href="/contact">Contact</a>
+                <a href="/Root">Contact</a>
                 <a href="/cbbc-enedis">CBBC-Enedis app</a>
             </nav>
 

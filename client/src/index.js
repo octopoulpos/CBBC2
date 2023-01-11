@@ -9,9 +9,9 @@ import {
 import "./index.css";
 import App from "./App";
 import Portail from "./Portail";
-import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Contact from './routes/contact';
+import Root from "./routes/root";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "contact",
+        path: "contacts/:contactId",
         element: <Contact />,
       },
     ],
@@ -33,10 +33,6 @@ const router = createBrowserRouter([
   {
     path: "/cbbc-enedis",
     element: <Portail />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
   },
 ]);
 
