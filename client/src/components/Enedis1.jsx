@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 
 
@@ -32,7 +32,7 @@ const LoginButton = () => {
   };
   return (
 
-<img
+    <img
       src={require("./boutonEne-txtnoir.png")}
       alt="Connection au portail Enedis"
       onClick={handleLogin}
@@ -40,6 +40,13 @@ const LoginButton = () => {
     />
 
   );
+};
+
+const CallbackTest = () => {
+  useEffect(() => {
+    // Check if code parameter is present in the query string
+      console.log(window.location.search.substring(6));
+    },[]); // Empty dependency array to run the effect only once
 };
 
 const Callback = () => {
@@ -53,19 +60,19 @@ const Callback = () => {
     }
 
     // Exchange authorization code for access and refresh tokens
-    axios.post('https://gw.hml.api.enedis.fr/v1/oauth2/token&'+ 
+    axios.post('https://gw.hml.api.enedis.fr/v1/oauth2/token&' +
       "grant_type=authorization_code&code=" + window.location.search.substring(6) +
       "client_id=" + CLIENT_ID + "&client_secret=d3b594fc-3253-4ed6-b471-d709bb88b23c" +
       "&redirect_uri=" + REDIRECT_URI
     )
-    
-    // axios.post('https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/token', {
-    //   grant_type: 'authorization_code',
-    //   code: window.location.search.substring(6),
-    //   client_id: CLIENT_ID,
-    //   client_secret: 'PRM:11453290002823',
-    //   redirect_uri: REDIRECT_URI
-    // })
+
+      // axios.post('https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/token', {
+      //   grant_type: 'authorization_code',
+      //   code: window.location.search.substring(6),
+      //   client_id: CLIENT_ID,
+      //   client_secret: 'PRM:11453290002823',
+      //   redirect_uri: REDIRECT_URI
+      // })
       .then(response => {
         console.log(response.data);
         // Store access and refresh tokens in session
@@ -117,4 +124,4 @@ const AppEne = () => {
 
 
 export default LoginButton;
-export { LoginButton, AppEne }
+export { LoginButton, AppEne, CallbackTest }
