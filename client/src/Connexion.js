@@ -5,7 +5,7 @@ import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 
   var isLoggedIn = false;
-  var isRegistered = false;
+  var isRegistered = true;
 
 const Connexion = () => {
 

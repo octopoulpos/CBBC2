@@ -5,7 +5,7 @@ import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 import DivX from './components/DivX';
 
-  var isLoggedIn = false;
+  var isLoggedIn = true;
 
 const Portail = () => {
 
