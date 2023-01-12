@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 
-// const CLIENT_ID = Installer react-dotenv.....REACT_APP_API_ID;
+// const CLIENT_ID /////// Installer react-dotenv.....REACT_APP_API_ID+++
 const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
+// const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
 // const DURATION = '7'; // duration is the duration of the consent that you want (1, 7, 15 or 30 days)
 const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
 
@@ -20,18 +21,6 @@ const LoginButton = () => {
 
     // Redirect user to login page on Enedis
 
-    // code origine : (chatgpt+doc enedis?)
-    //   const redirectUrl =
-    //     'https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/authorize' +
-    //     '?' +
-    //     `client_id=${CLIENT_ID}` +
-    //     `&state=${state}` +
-    //     `&duration=${DURATION}` +
-    //     '&response_type=code' +
-    //     `&redirect_uri=${REDIRECT_URI}`;
-    //   window.location.replace(redirectUrl);
-    // };
-    // !!test!! bac à cable : 
     const redirectUrl =
       'https://gw.hml.api.enedis.fr/v1/oauth2/authorize' +
       '?' +
@@ -57,19 +46,18 @@ const Callback = () => {
   React.useEffect(() => {
     // Check if state parameter matches the one stored in session
     const storedState = sessionStorage.getItem('state');
+    console.log(window.location.search.substring(6));
     if (storedState !== window.location.search.substring(6)) {
       console.error('Error: state does not match');
       return;
     }
 
     // Exchange authorization code for access and refresh tokens
-    axios.post('https://gw.hml.api.enedis.fr/v1/oauth2/token', {
-      grant_type: 'authorization_code',
-      code: window.location.search.substring(6),
-      client_id: CLIENT_ID,
-      client_secret: 'd3b594fc-3253-4ed6-b471-d709bb88b23c',
-      redirect_uri: REDIRECT_URI
-    })
+    axios.post('https://gw.hml.api.enedis.fr/v1/oauth2/token&'+ 
+      "grant_type=authorization_code&code=" + window.location.search.substring(6) +
+      "client_id=" + CLIENT_ID + "&client_secret=d3b594fc-3253-4ed6-b471-d709bb88b23c" +
+      "&redirect_uri=" + REDIRECT_URI
+    )
     
     // axios.post('https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/token', {
     //   grant_type: 'authorization_code',
