@@ -1,53 +1,21 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 35vmin;
-  pointer-events: none;
-  margin-top: 10vmin;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 90s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-html {
-  font-family: "Montserrat", sans-serif;
-}
 
 body {
-  font-family: sans-serif;
-  background-color: #559ec8;
-  text-align: left;
+  background-image: url('./components/bg_0.png');
+  /* background: linear-gradient(to bottom, transparent, rgb(86, 86, 86)),url('./components/bg_0.png'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .bottom {
@@ -118,8 +86,8 @@ body {
 }
 
 form input {
-  border: 1px solid rgba(252, 252, 252, 0.4);
-  background-color: rgba(252, 252, 252, 0.2);
+  border: 1px solid rgba(242, 178, 178, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   width: 250px;
   border-radius: 3px;
   font-family: "Source Sans Pro", sans-serif;
@@ -128,17 +96,16 @@ form input {
   display: block;
   text-align: center;
   font-size: 18px;
-  color: white;
   font-weight: 300;
 }
 
 form button {
   appearance: none;
   outline: 0;
-  background-color: white;
+  background-color: rgb(255, 167, 95);
   border: 0;
   padding: 10px 15px;
-  color: #50a3a2;
+  color: #075958;
   border-radius: 3px;
   width: 250px;
   font-size: 18px;
@@ -162,18 +129,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
-  background-color: #282c34;
   font-size: 18px;
 }
 
 .menu {
   position: fixed;
   margin-top: 40%;
+  text-align: center;
 }
 
 nav a {
-  color: #C58940;
+  color: #975602;
+  background: rgba(0,0,0,0.6);
   position: relative;
   font-family: "Arvo", cursive;
   font-weight: 600;
@@ -181,7 +148,8 @@ nav a {
   text-decoration: none;
   margin-left: 20px;
   display: block;
-  padding-top: 35%;
+  padding-top: 15%;
+  padding-bottom: 15%;
 }
 
 nav a:hover {
@@ -191,7 +159,7 @@ nav a:hover {
 nav a:before {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 25%;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -207,7 +175,7 @@ nav a:hover:before {
 }
 
 header h1 {
-  color: #C58940;
+  color: #774304;
   font-family: "Arvo", cursive;
   font-weight: 500;
 }
@@ -244,6 +212,14 @@ h3 {
   color: #fff;
   flex: 10;
   margin: 3%;
+}
+
+.tooltip {
+  background-color: #68a43c;
+  position:fixed;
+  width: 900px;
+  height: 400px;
+  margin-left: 300px;
 }
 
 .top {

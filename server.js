@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const axios = require('axios');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // ajouté pour test 
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -81,20 +83,79 @@ app.route("/users")
     });
 
 
-    ////////////////Requests Targetting A Specific Users///////////////////////////////////////
+////////////////Requests Targetting A Specific Users///////////////////////////////////////
 app.route("/users/:userNom")
 
-.get(function (req, res) {
-    User.findOne({nom: req.params.userTitle}, function(err, foundUser){
-        if (foundUser) {
-            res.send(foundUser);
-        } else {
-            res.send("Cet utilisateur n'est pas enregistré")
-        }
+    .get(function (req, res) {
+        User.findOne({ nom: req.params.userTitle }, function (err, foundUser) {
+            if (foundUser) {
+                res.send(foundUser);
+            } else {
+                res.send("Cet utilisateur n'est pas enregistré")
+            }
+        });
     });
-});
 
+
+
+///test POST..
+
+app.route("/cbbc-enedis")
+    .get((req, res) => {
+        const code = window.location.search.substring(6);
+        console.log(code)
+        res.json({ code });
+    })
+    .post((req, res) => {
+        const code = req.body.code;
+        const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
+        const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
+        const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
+
+        axios.post(`https://gw.hml.api.enedis.fr/v1/oauth2/token?redirect_uri=${REDIRECT_URI}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=authorization_code&code=${code}`, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then(response => {
+                console.log(response.data);
+                console.log(response.status);
+                res.json(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+                res.json(error);
+            });
+    });
+
+// app.post('/cbbc-enedis', (req, res) => {
+//     const code = 'your_authorization_code';
+//     const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
+//     const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
+//     const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
+
+//     axios.post(`https://gw.hml.api.enedis.fr/v1/oauth2/token?redirect_uri=${REDIRECT_URI}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=authorization_code&code=${code}`,
+//         {
+//             headers: {
+//                 'Content-Type': 'application/x-www-form-urlencoded'
+//             }
+//         })
+//         .then(response => {
+//             console.log(response.data);
+//             console.log(response.status);
+//             res.json(response.data);
+//         })²
+//         .catch(error => {
+//             console.log(error);
+//             res.json(error);
+//         });
+// });
+
+
+
+
+
+///
 app.listen(PORT, () => {
     console.log(`Serveur lancé sur le port : ${PORT}`)
 });
-

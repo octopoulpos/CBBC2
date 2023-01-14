@@ -45,8 +45,8 @@ const LoginButton = () => {
 const CallbackTest = () => {
   useEffect(() => {
     // Check if code parameter is present in the query string
-      console.log(window.location.search.substring(6));
-    },[]); // Empty dependency array to run the effect only once
+    console.log(window.location.search.substring(6));
+  }, []); // Empty dependency array to run the effect only once
 };
 
 const Callback = () => {
@@ -59,20 +59,19 @@ const Callback = () => {
       return;
     }
 
-    // Exchange authorization code for access and refresh tokens
-    axios.post('https://gw.hml.api.enedis.fr/v1/oauth2/token&' +
-      "grant_type=authorization_code&code=" + window.location.search.substring(6) +
-      "client_id=" + CLIENT_ID + "&client_secret=d3b594fc-3253-4ed6-b471-d709bb88b23c" +
-      "&redirect_uri=" + REDIRECT_URI
-    )
-
-      // axios.post('https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/token', {
-      //   grant_type: 'authorization_code',
-      //   code: window.location.search.substring(6),
-      //   client_id: CLIENT_ID,
-      //   client_secret: 'PRM:11453290002823',
-      //   redirect_uri: REDIRECT_URI
-      // })
+// Exchange authorization code for access and refresh tokens
+    const code = 'your_authorization_code';
+    const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
+    const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
+    const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
+    
+    axios
+      .post(`https://gw.hml.api.enedis.fr/v1/oauth2/token?redirect_uri=${REDIRECT_URI}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=authorization_code&code=${code}`,
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
       .then(response => {
         console.log(response.data);
         // Store access and refresh tokens in session

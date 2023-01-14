@@ -4,12 +4,12 @@ const HoverTooltip = ({ children, tooltip }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div
+    <div 
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
       {children}
-      {isHovering && <div>{tooltip}</div>}
+      {isHovering && <div className="tooltip">{tooltip}</div>}
     </div>
   );
 };

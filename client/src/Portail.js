@@ -5,7 +5,7 @@ import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 import DivX from './components/DivX';
 
-  var isLoggedIn = true;
+var isLoggedIn = true;
 
 const Portail = () => {
 
@@ -24,9 +24,10 @@ const Portail = () => {
           isLoggedIn === true ?
             <BoutonConnectEnedis /> : null
         }
+        <button id="auth-button">Obtenir un jeton d'accès</button>
 
       </header>
-      
+
     </div>
   );
 
