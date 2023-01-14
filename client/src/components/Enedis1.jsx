@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+// import axios from 'axios';
 
 
 // const CLIENT_ID /////// Installer react-dotenv.....REACT_APP_API_ID+++
@@ -43,84 +43,94 @@ const LoginButton = () => {
 };
 
 const CallbackTest = () => {
-  useEffect(() => {
+  const handleTest = () => {
     // Check if code parameter is present in the query string
     console.log(window.location.search.substring(6));
-  }, []); // Empty dependency array to run the effect only once
-};
-
-const Callback = () => {
-  React.useEffect(() => {
-    // Check if state parameter matches the one stored in session
-    const storedState = sessionStorage.getItem('state');
-    console.log(window.location.search.substring(6));
-    if (storedState !== window.location.search.substring(6)) {
-      console.error('Error: state does not match');
-      return;
-    }
-
-// Exchange authorization code for access and refresh tokens
-    const code = 'your_authorization_code';
-    const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
-    const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
-    const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
-    
-    axios
-      .post(`https://gw.hml.api.enedis.fr/v1/oauth2/token?redirect_uri=${REDIRECT_URI}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=authorization_code&code=${code}`,
-        {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
-      .then(response => {
-        console.log(response.data);
-        // Store access and refresh tokens in session
-        sessionStorage.setItem('access_token', response.data.access_token);
-        sessionStorage.setItem('refresh_token', response.data.refresh_token);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-
-  return (
-    <div>
-      Loading...
-    </div>
-  );
-};
-
-
-const AppEne = () => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-  const handleLogout = () => {
-    sessionStorage.removeItem('access_token');
-    sessionStorage.removeItem('refresh_token');
-    setIsLoggedIn(false);
   };
-
-  let content;
-  if (isLoggedIn) {
-    content = (
-      <div>
-        <button onClick={handleLogout}>Logout</button>
-        {/* Render protected content here */}
-      </div>
-    );
-  } else if (window.location.pathname === '/callback') {
-    content = <Callback />;
-  } else {
-    content = <LoginButton setIsLoggedIn={setIsLoggedIn} />;
-  }
-
   return (
-    <div>
-      {content}
-    </div>
+
+    <img
+      src={require("./boutonEne-txtnoir.png")}
+      alt="Connection au portail Enedis"
+      onClick={handleTest}
+      style={{ cursor: 'pointer', maxWidth: '250px' }}
+    />
+
   );
 };
+
+// const Callback = () => {
+//   React.useEffect(() => {
+//     // Check if state parameter matches the one stored in session
+//     const storedState = sessionStorage.getItem('state');
+//     console.log(window.location.search.substring(6));
+//     if (storedState !== window.location.search.substring(6)) {
+//       console.error('Error: state does not match');
+//       return;
+//     }
+
+// // Exchange authorization code for access and refresh tokens
+//     const code = 'your_authorization_code';
+//     const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
+//     const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
+//     const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
+    
+//     axios
+//       .post(`https://gw.hml.api.enedis.fr/v1/oauth2/token?redirect_uri=${REDIRECT_URI}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=authorization_code&code=${code}`,
+//         {
+//           headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded'
+//           }
+//         })
+//       .then(response => {
+//         console.log(response.data);
+//         // Store access and refresh tokens in session
+//         sessionStorage.setItem('access_token', response.data.access_token);
+//         sessionStorage.setItem('refresh_token', response.data.refresh_token);
+//       })
+//       .catch(error => {
+//         console.error(error);
+//       });
+//   }, []);
+
+//   return (
+//     <div>
+//       Loading...
+//     </div>
+//   );
+// };
+
+
+// const AppEne = () => {
+//   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+//   const handleLogout = () => {
+//     sessionStorage.removeItem('access_token');
+//     sessionStorage.removeItem('refresh_token');
+//     setIsLoggedIn(false);
+//   };
+
+//   let content;
+//   if (isLoggedIn) {
+//     content = (
+//       <div>
+//         <button onClick={handleLogout}>Logout</button>
+//         {/* Render protected content here */}
+//       </div>
+//     );
+//   } else if (window.location.pathname === '/callback') {
+//     content = <Callback />;
+//   } else {
+//     content = <LoginButton setIsLoggedIn={setIsLoggedIn} />;
+//   }
+
+//   return (
+//     <div>
+//       {content}
+//     </div>
+//   );
+// };
 
 
 export default LoginButton;
-export { LoginButton, AppEne, CallbackTest }
+export { LoginButton, CallbackTest }
