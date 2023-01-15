@@ -4,7 +4,7 @@ import BoutonConnectEnedis from "./components/BoutonConnectEnedis";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 import DivX from './components/DivX';
-import { CallbackTest } from './components/Enedis1';
+import { Callback } from './components/Enedis1';
 
 var isLoggedIn = true;
 
@@ -26,7 +26,8 @@ const Portail = () => {
             <BoutonConnectEnedis /> : null
         }
         <button id="auth-button">Obtenir un jeton d'accès</button>
-        <CallbackTest />
+        {/* <CallbackTest /> */}
+        <Callback />
 
       </header>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 
 
@@ -13,11 +13,12 @@ const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
 const LoginButton = () => {
   const handleLogin = () => {
     // Generate state parameter with random string
-    // let state = (Math.random() + 1).toString(36).substring(7);
+    let state = (Math.random() + 1).toString(36).substring(7);
 
     // // Add test client number (from 0 to 4) to the end of state (cf documentation)
-    // const testClientId = 0; // Replace with the test client number you want to use
-    // state = state + testClientId;
+    const testClientId = 0; // Replace with the test client number you want to use
+    state = state + testClientId;
+    console.log(state);
 
     // Redirect user to login page on Enedis
 
@@ -33,7 +34,7 @@ const LoginButton = () => {
   return (
 
     <img
-      src={require("./boutonEne-txtnoir.png")}
+      src={require("../static/boutonEne-txtnoir.png")}
       alt="Connection au portail Enedis"
       onClick={handleLogin}
       style={{ cursor: 'pointer', maxWidth: '250px' }}
@@ -42,63 +43,47 @@ const LoginButton = () => {
   );
 };
 
-const CallbackTest = () => {
-  const handleTest = () => {
-    // Check if code parameter is present in the query string
-    console.log(window.location.search.substring(6));
-  };
-  return (
-
-    <img
-      src={require("./boutonEne-txtnoir.png")}
-      alt="Connection au portail Enedis"
-      onClick={handleTest}
-      style={{ cursor: 'pointer', maxWidth: '250px' }}
-    />
-
-  );
-};
-
-// const Callback = () => {
-//   React.useEffect(() => {
-//     // Check if state parameter matches the one stored in session
-//     const storedState = sessionStorage.getItem('state');
+// const CallbackTest = () => {
+//   const handleTest = () => {
+//     // Check if code parameter is present in the query string
 //     console.log(window.location.search.substring(6));
-//     if (storedState !== window.location.search.substring(6)) {
-//       console.error('Error: state does not match');
-//       return;
-//     }
-
-// // Exchange authorization code for access and refresh tokens
-//     const code = 'your_authorization_code';
-//     const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
-//     const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
-//     const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
-    
-//     axios
-//       .post(`https://gw.hml.api.enedis.fr/v1/oauth2/token?redirect_uri=${REDIRECT_URI}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=authorization_code&code=${code}`,
-//         {
-//           headers: {
-//             'Content-Type': 'application/x-www-form-urlencoded'
-//           }
-//         })
-//       .then(response => {
-//         console.log(response.data);
-//         // Store access and refresh tokens in session
-//         sessionStorage.setItem('access_token', response.data.access_token);
-//         sessionStorage.setItem('refresh_token', response.data.refresh_token);
-//       })
-//       .catch(error => {
-//         console.error(error);
-//       });
-//   }, []);
-
+//   };
 //   return (
-//     <div>
-//       Loading...
-//     </div>
+
+//     <img
+  
+//       alt="consol log code"
+//       onClick={handleTest}
+//       style={{ cursor: 'pointer', maxWidth: '250px' }}
+//     />
+
 //   );
 // };
+
+const Callback = () => {
+   const code = window.location.search.substring(6);
+  
+    const [callbackData, setCallbackData] = useState("none");
+
+    useEffect(() => {
+      fetch(`http://localhost:5000/auth?code=${code}`, {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }
+      })
+      .then(res => res.json())
+      .then(res => setCallbackData(JSON.stringify(res)))
+    }, [code]);
+   
+    console.log(code);
+    return (
+      <div>
+        <h2> {callbackData} </h2>
+      </div>
+    );
+};
 
 
 // const AppEne = () => {
@@ -133,4 +118,4 @@ const CallbackTest = () => {
 
 
 export default LoginButton;
-export { LoginButton, CallbackTest }
+export { LoginButton, Callback }

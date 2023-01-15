@@ -12,11 +12,19 @@ const Nav = () => {
             <nav className="menu">
 
                 <a href="/">Accueil</a>
-               
-                <a href="/Connexion">Connexion</a>
+                <HoverTooltip tooltip="XXXXXXXXXXXX">
+                    <a href="/Root">Blanchisserie Services</a>
+                </HoverTooltip>
                 <HoverTooltip tooltip="XXXXXXXXXXXX">
                     <a href="/Root">Energie</a>
                 </HoverTooltip>
+                <HoverTooltip tooltip="XXXXXXXXXXXX">
+                    <a href="/Root">Photovoltaïque</a>
+                </HoverTooltip>
+                <HoverTooltip tooltip="XXXXXXXXXXXX">
+                    <a href="/Root">Web Services Informatique</a>
+                </HoverTooltip>
+                <a href="/Connexion">Connexion</a>
                 <a href="/cbbc-enedis">CBBC-Enedis app</a>
                 <a href="/apropos">Contact</a>
             </nav>

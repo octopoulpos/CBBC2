@@ -1,6 +1,4 @@
 
-
-
 .App-header {
   min-height: 100vh;
   /* display: flex; */
@@ -9,10 +7,20 @@
   justify-content: center;
 }
 
+.acceuil {
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+    width: 900px;
+    height: 400px;
+    padding: 1%;
+    margin-left: 450px;
+    margin-top: 240px;
+    z-index: -2;
+  }
 
 body {
-  background-image: url('./components/bg_0.png');
-  /* background: linear-gradient(to bottom, transparent, rgb(86, 86, 86)),url('./components/bg_0.png'); */
+  background-image: url('./static/bg_1.png');
+  background: linear-gradient(to bottom, transparent, rgb(41, 41, 41)),url('./static/bg_1.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -134,13 +142,19 @@ header {
 
 .menu {
   position: fixed;
-  margin-top: 40%;
+  margin-top: 46%;
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: none;
+  }
 }
 
 nav a {
   color: #975602;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.2);
   position: relative;
   font-family: "Arvo", cursive;
   font-weight: 600;
@@ -148,8 +162,9 @@ nav a {
   text-decoration: none;
   margin-left: 20px;
   display: block;
-  padding-top: 15%;
-  padding-bottom: 15%;
+  padding-top: 12%;
+  padding-bottom: 12%;
+  width: 210px;
 }
 
 nav a:hover {
@@ -174,7 +189,7 @@ nav a:hover:before {
   opacity: 1;
 }
 
-header h1 {
+h1 {
   color: #774304;
   font-family: "Arvo", cursive;
   font-weight: 500;
@@ -198,8 +213,10 @@ h3 {
 }
 
 .logo {
-  width: 280px;
-  margin-bottom: 20px;
+  width: 250px;
+  position: absolute;
+  margin-left: 80%;
+  margin-top: 40%;
 }
 
 .main {
@@ -214,11 +231,15 @@ h3 {
   margin: 3%;
 }
 
+p {
+  color: #c1c1c1;
+}
+
 .tooltip {
-  background-color: #68a43c;
+  background-color: rgba(0,0,0,0.8);
   position:fixed;
-  width: 900px;
-  height: 400px;
+  width: 700px;
+  height: 300px;
   margin-left: 300px;
 }
 
