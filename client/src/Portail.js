@@ -13,9 +13,9 @@ const Portail = () => {
   return (
     <div className="App">
 
-      <Nav />
-      <header className="App-header">
 
+      <header className="App-header">
+        <Nav />
         <Logo /><h1 className="App-title">Portail de connexion</h1>
         {
           isLoggedIn === false ?

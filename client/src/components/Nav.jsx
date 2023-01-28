@@ -1,28 +1,28 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import HoverTooltip from './HoverTooltip';
-
-
+import Logo from "./Logo";
 
 const Nav = () => {
     return (
         <header>
-            {/* <h1>BLANCHISSERIE INDUSTRIELLE</h1>
-            <h2>OUTILS ET SERVICES </h2> */}
+            <Logo />
             <nav className="menu">
 
                 <a href="/">Accueil</a>
                 <HoverTooltip tooltip="XXXXXXXXXXXX">
-                    <a href="/Root">Blanchisserie Services</a>
+                    <a href="/Root">Blanchisserie</a>
                 </HoverTooltip>
+                <HoverTooltip tooltip="XXXXXXXXXXXX" >
+                    <a href="/Root" >Photovoltaïque</a>
+                </HoverTooltip>
+
                 <HoverTooltip tooltip="XXXXXXXXXXXX">
                     <a href="/Root">Energie</a>
                 </HoverTooltip>
+
                 <HoverTooltip tooltip="XXXXXXXXXXXX">
-                    <a href="/Root">Photovoltaïque</a>
-                </HoverTooltip>
-                <HoverTooltip tooltip="XXXXXXXXXXXX">
-                    <a href="/Root">Web Services Informatique</a>
+                    <a href="/Root">Informatique</a>
                 </HoverTooltip>
                 <a href="/Connexion">Connexion</a>
                 <a href="/cbbc-enedis">CBBC-Enedis app</a>
@@ -33,4 +33,6 @@ const Nav = () => {
     );
 };
 
+
 export default Nav;
+

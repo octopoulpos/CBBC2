@@ -1,20 +1,22 @@
 import React from 'react';
 import './App.css';
 import Nav from "./components/Nav";
-import Logo from "./components/Logo";
+import NavButton from './components/NavButton';
 import Acceuil from './components/Acceuil';
+
 
 function App() {
 
   return (
     <div className="App">
 
+      <header></header>
+
+      <NavButton />
       <Nav />
       <Acceuil />
-      <header className="App-header">
-        <Logo />
-      </header>
-
+      <Acceuil />
+      <Acceuil />
     </div>
   );
 
