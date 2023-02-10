@@ -15,7 +15,11 @@ const oAuth = (req, res, next) => {
     axios.post(`https://gw.hml.api.enedis.fr/v1/oauth2/token?redirect_uri=${REDIRECT_URI}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=authorization_code&code=${code}`, {
         method: 'post',
         headers: {
+            'Accept' : '*/*',
+            'Accept-Encoding' : 'gzip, deflate, br',
+            'Connection' : 'keep-alive',
             'Content-Type': 'application/x-www-form-urlencoded',
+           
         },
     })
         .then(response => {

@@ -43,30 +43,13 @@ const LoginButton = () => {
   );
 };
 
-// const CallbackTest = () => {
-//   const handleTest = () => {
-//     // Check if code parameter is present in the query string
-//     console.log(window.location.search.substring(6));
-//   };
-//   return (
-
-//     <img
-
-//       alt="consol log code"
-//       onClick={handleTest}
-//       style={{ cursor: 'pointer', maxWidth: '250px' }}
-//     />
-
-//   );
-// };
-
 const Callback = () => {
   const code = window.location.search.substring(6);
   const [callbackData, setCallbackData] = useState("Loading...");
 
   useEffect(() => {
     fetch(`http://localhost:5000/auth?code=${code}`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -89,32 +72,6 @@ const Callback = () => {
     </div>
   );
 };
-
-// const Callback = () => {
-
-//   const code = window.location.search.substring(6);
-//   const [callbackData, setCallbackData] = useState("none");
-
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/auth?code=${code}`, {
-//       method: 'GET',
-//       headers: {
-//         "Content-Type": "application/json",
-//         Accept: "application/json",
-//       }
-//     })
-//       .then(res => res.json())
-//       .then(res => setCallbackData(JSON.stringify(res)))
-//   }, [code]);
-
-//   console.log(code + " from Enedis1 Callback");
-//   return (
-//     <div>
-//       <h2> {callbackData} </h2>
-//     </div>
-//   );
-// };
-
 
 // const AppEne = () => {
 //   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
