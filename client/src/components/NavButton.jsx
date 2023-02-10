@@ -46,7 +46,7 @@ const NavButton = () => {
                     <nav className={`nav2 ${showNav ? '' : 'hidden'}`}>
                         <a href="/">Accueil</a>
                         <a href="/Root" >Photovoltaïque</a>
-                        <a href="/Root">Blanchisserie</a>
+                        <a href="/Blanchisserie">Blanchisserie</a>
                         <a href="/Root">Energie</a>
                         <a href="/Root">Informatique</a>
                         <a href="/Connexion">Connexion</a>

@@ -15,8 +15,7 @@ function App() {
       <NavButton />
       <Nav />
       <Acceuil />
-      <Acceuil />
-      <Acceuil />
+    
     </div>
   );
 

@@ -5,6 +5,7 @@
 
 .acceuil {
   background-color: rgba(255, 255, 255, 0.95);
+  display:inline-flex;
   border-radius: 10px;
   width: 80%;
   height: 50%;

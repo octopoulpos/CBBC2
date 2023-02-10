@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import HoverTooltip from './HoverTooltip';
 import Logo from "./Logo";
 
@@ -11,18 +11,18 @@ const Nav = () => {
 
                 <a href="/">Accueil</a>
                 <HoverTooltip tooltip="XXXXXXXXXXXX">
-                    <a href="/Root">Blanchisserie</a>
+                    <a href="/Blanchisserie">Blanchisserie</a>
                 </HoverTooltip>
                 <HoverTooltip tooltip="XXXXXXXXXXXX" >
-                    <a href="/Root" >Photovoltaïque</a>
+                    <a href="/PV" >Photovoltaïque</a>
                 </HoverTooltip>
 
                 <HoverTooltip tooltip="XXXXXXXXXXXX">
-                    <a href="/Root">Energie</a>
+                    <a href="/energie">Energie</a>
                 </HoverTooltip>
 
                 <HoverTooltip tooltip="XXXXXXXXXXXX">
-                    <a href="/Root">Informatique</a>
+                    <a href="/informatique">Informatique</a>
                 </HoverTooltip>
                 <a href="/Connexion">Connexion</a>
                 <a href="/cbbc-enedis">CBBC-Enedis app</a>
