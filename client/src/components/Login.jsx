@@ -4,7 +4,6 @@ import Input from "./Input";
 function Login(props) {
   return (
     <div className="container">
-      {/* <h1>xxx</h1> */}
       <form method="post" action="/users" className="form">
         <Input type="text" placeholder="Nom d'utilisateur" name="nom"/>
         <Input type="password" placeholder="Password" name="password" />

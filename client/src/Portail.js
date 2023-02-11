@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import BoutonConnectEnedis from "./components/BoutonConnectEnedis";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 import DivX from './components/DivX';
@@ -21,12 +20,7 @@ const Portail = () => {
           isLoggedIn === false ?
             <DivX /> : null
         }
-        {
-          isLoggedIn === true ?
-            <BoutonConnectEnedis /> : null
-        }
-        <button id="auth-button">Obtenir un jeton d'accès</button>
-        {/* <CallbackTest /> */}
+          
         <Callback />
 
       </header>

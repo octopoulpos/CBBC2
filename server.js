@@ -35,14 +35,6 @@ const usersSchema = {
 };
 const User = mongoose.model("User", usersSchema);
 
-
-// app.get('/api/xxx', (req, res) => {
-//     res.send({
-//         msg: 'Connected to api'
-//     })
-// });
-
-
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, './client/build/index.html'))
 })

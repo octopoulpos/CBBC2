@@ -25,7 +25,6 @@ const Nav = () => {
                     <a href="/informatique">Informatique</a>
                 </HoverTooltip>
                 <a href="/Connexion">Connexion</a>
-                <a href="/cbbc-enedis">CBBC-Enedis app</a>
                 <a href="/apropos">Contact</a>
             </nav>
 

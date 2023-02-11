@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-
 
 // const CLIENT_ID /////// Installer react-dotenv.....REACT_APP_API_ID+++
 const CLIENT_ID = "b99082ce-2a5a-4a52-95bb-6d1093983ccc";
-// const CLIENT_SECRET = "d3b594fc-3253-4ed6-b471-d709bb88b23c"
 // const DURATION = '7'; // duration is the duration of the consent that you want (1, 7, 15 or 30 days)
 const REDIRECT_URI = 'https://cb-bc.fr/cbbc-enedis';
 
@@ -50,10 +47,6 @@ const Callback = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/auth?code=${code}`, {
       method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      }
     })
       .then(res => {
         if (!res.ok) {
@@ -73,36 +66,9 @@ const Callback = () => {
   );
 };
 
-// const AppEne = () => {
-//   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-//   const handleLogout = () => {
-//     sessionStorage.removeItem('access_token');
-//     sessionStorage.removeItem('refresh_token');
-//     setIsLoggedIn(false);
-//   };
-
-//   let content;
-//   if (isLoggedIn) {
-//     content = (
-//       <div>
-//         <button onClick={handleLogout}>Logout</button>
-//         {/* Render protected content here */}
-//       </div>
-//     );
-//   } else if (window.location.pathname === '/callback') {
-//     content = <Callback />;
-//   } else {
-//     content = <LoginButton setIsLoggedIn={setIsLoggedIn} />;
-//   }
-
-//   return (
-//     <div>
-//       {content}
-//     </div>
-//   );
-// };
-
 
 export default LoginButton;
 export { LoginButton, Callback }
+
+
+
