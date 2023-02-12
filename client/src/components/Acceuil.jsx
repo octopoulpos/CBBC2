@@ -1,7 +1,9 @@
 import React from "react";
+import Card from "./Card";
 
 function Acceuil(props) {
     return (
+        
         <div className="acceuil">
             <h1>CBBC - conseils et services à destination des blanchisseries industrielles.</h1>
             <div className="acceuil2">

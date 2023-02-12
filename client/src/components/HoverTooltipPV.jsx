@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 
-const HoverTooltip = ({ children, tooltip }) => {
+const HoverTooltipPV = ({ children, tooltip }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
@@ -13,9 +13,9 @@ const HoverTooltip = ({ children, tooltip }) => {
       {isHovering && <div className="tooltip">
         {
           <Card
-             name="Blanchisserie"
-            img="https://cdn.midjourney.com/39c910b7-968a-42d2-b1b9-33bb3fc98265/grid_0.png"
-            description="Découvrez nos services dédiés aux blanchisseries industrielles."
+             name="Photovoltaïque"
+            img="https://dualsun.com/wp-content/uploads/2022/05/2-toiture-solaire-usine-mozzarella-dualsun.jpg"
+            description="Etudes d'installation de centrales photovoltaïques - Autoconsommation en industrie."
           />
         }
         {tooltip}
@@ -25,4 +25,4 @@ const HoverTooltip = ({ children, tooltip }) => {
   );
 };
 
-export default HoverTooltip;
+export default HoverTooltipPV;

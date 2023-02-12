@@ -9,9 +9,11 @@ import {
 import "./index.css";
 import App from "./App";
 import Portail from "./Portail";
-import Connexion from './Connexion';
+import PortailEne from "./PortailEne";
+import Wdc from './Wdc';
 import ErrorPage from "./error-page";
 import Contact from './routes/contact';
+import Connexion from './Connexion';
 import Root from "./routes/root";
 
 const router = createBrowserRouter([
@@ -20,9 +22,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
   },
+
   {
-    path: "/Connexion",
-    element: <Connexion />,
+    path: "/wdc",
+    element: <Wdc />,
     errorElement: <ErrorPage />,
   },
   {
@@ -35,6 +38,14 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
     ],
+  },
+  {
+    path: "/Connexion",
+    element: <Connexion />,
+  },
+  {
+    path: "/portail-enedis",
+    element: <PortailEne />,
   },
   {
     path: "/cbbc-enedis",
@@ -52,11 +63,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-/* <BrowserRouter>
-<App />
-</BrowserRouter>, */
-
-/* <React.StrictMode>
-<App />
-</React.StrictMode>, */

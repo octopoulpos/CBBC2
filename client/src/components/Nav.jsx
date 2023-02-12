@@ -1,7 +1,11 @@
 
 import React from 'react';
 import HoverTooltip from './HoverTooltip';
+import HoverTooltipPV from './HoverTooltipPV';
+import HoverTooltipNRJ from './HoverTooltipNRJ';
+import HoverTooltipInf from './HoverTooltipInf';
 import Logo from "./Logo";
+
 
 const Nav = () => {
     return (
@@ -10,20 +14,20 @@ const Nav = () => {
             <nav className="menu">
 
                 <a href="/">Accueil</a>
-                <HoverTooltip tooltip="XXXXXXXXXXXX">
+                <HoverTooltip>
                     <a href="/Blanchisserie">Blanchisserie</a>
                 </HoverTooltip>
-                <HoverTooltip tooltip="XXXXXXXXXXXX" >
+                <HoverTooltipPV>
                     <a href="/PV" >Photovoltaïque</a>
-                </HoverTooltip>
+                </HoverTooltipPV>
 
-                <HoverTooltip tooltip="XXXXXXXXXXXX">
+                <HoverTooltipNRJ>
                     <a href="/energie">Energie</a>
-                </HoverTooltip>
+                </HoverTooltipNRJ>
 
-                <HoverTooltip tooltip="XXXXXXXXXXXX">
+                <HoverTooltipInf>
                     <a href="/informatique">Informatique</a>
-                </HoverTooltip>
+                </HoverTooltipInf>
                 <a href="/Connexion">Connexion</a>
                 <a href="/apropos">Contact</a>
             </nav>

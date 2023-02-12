@@ -6,20 +6,20 @@ function Card(props) {
         <div>
             <div className="card">
                 <div className="top">
-                    <p>{props.id}</p>
                     <h2 className="name">{props.name}</h2>
-                    <img className="circle-img"
+                    <img className="circle-img2"
                         src={props.img}
                         alt="avatar_img"
                     />
                 </div>
                 <div className="bottom">
-                    <p className="info">{props.description}</p>
+                    <p>{props.description}</p>
                 </div>
             </div>
         </div>
     );
 }
+
 
 export default Card;
 

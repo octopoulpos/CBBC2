@@ -3,6 +3,10 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const axios = require('axios');
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
+const LocalStrategy = require('passport-local').Strategy;
 require('dotenv').config();
 const cors = require('cors');
 
@@ -22,24 +26,49 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('client/build'));
 
+app.use(session({
+    secret: "ourlittlesecret.",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 const authAPIEndpoint = "http://localhost:5000/auth";
 
 mongoose.connect("mongodb+srv://cb:4316doco@cluster0.69hoyi7.mongodb.net/wikiDB", { useNewUrlParser: true });
 
-const usersSchema = {
+const userSchema = new mongoose.Schema ({
     nom: String,
     email: String,
     password: String,
     passwordcc: String
-};
-const User = mongoose.model("User", usersSchema);
+});
+
+userSchema.plugin(passportLocalMongoose);
+
+const User = mongoose.model("User", userSchema);
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, './client/build/index.html'))
 })
 
-
+app.get('/portail-enedis', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    if (!req.user) {
+      res.redirect('/login');
+    } else {
+      // If authentication succeeds, return the user profile
+      res.json({
+        user: req.user
+      });
+    }
+  });
 
 ////////////////Requests Targetting All Users///////////////////////////////////////
 app.route("/users")
@@ -58,19 +87,31 @@ app.route("/users")
         console.log(req.body.nom);
         console.log(req.body.password);
 
-        const newUser = new User({
-            nom: req.body.nom,
-            password: req.body.password,
-            passwordcc: req.body.passwordcc
+User.register({username: req.body.nom}, req.body.password, function(err, user){
+    if (err) {
+        console.log(err);
+        res.redirect("/Connexion")
+    } else {
+        passport.authenticate("local")(req, res, function(){
+            res.redirect("/portail-enedis");
         });
+    }
+});
 
-        newUser.save(function (err) {
-            if (!err) {
-                res.send("Vous êtes maintenant enregistré.");
-            } else {
-                res.send(err);
-            }
-        });
+
+        // const newUser = new User({
+        //     nom: req.body.nom,
+        //     password: req.body.password,
+        //     passwordcc: req.body.passwordcc
+        // });
+
+        // newUser.save(function (err) {
+        //     if (!err) {
+        //         res.redirect("/Connexion");
+        //     } else {
+        //         res.send(err);
+        //     }
+        // });
     });
 
 
@@ -123,6 +164,11 @@ app.route("/auth")
 
 
 
+app.listen(PORT, () => {
+    console.log(`Serveur lancé sur le port : ${PORT}`)
+});
+
+
 // app.get("/auth", async (req, res) => {
 
 //     res.send({
@@ -149,9 +195,3 @@ app.route("/auth")
 //         }
 //     }
 // });
-
-
-
-app.listen(PORT, () => {
-    console.log(`Serveur lancé sur le port : ${PORT}`)
-});

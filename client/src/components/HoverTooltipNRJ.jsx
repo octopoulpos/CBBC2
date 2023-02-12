@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 
-const HoverTooltip = ({ children, tooltip }) => {
+const HoverTooltipNRJ = ({ children, tooltip }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
@@ -13,9 +13,9 @@ const HoverTooltip = ({ children, tooltip }) => {
       {isHovering && <div className="tooltip">
         {
           <Card
-             name="Blanchisserie"
-            img="https://cdn.midjourney.com/39c910b7-968a-42d2-b1b9-33bb3fc98265/grid_0.png"
-            description="Découvrez nos services dédiés aux blanchisseries industrielles."
+             name="Energie"
+            img="https://cdn.midjourney.com/85b2ebe6-616c-43bc-91f9-2c7f1cebb669/grid_0.png"
+            description="Audit de la consommation énergétique de votre usine - Services dédiés à la gestion de votre énergie."
           />
         }
         {tooltip}
@@ -25,4 +25,4 @@ const HoverTooltip = ({ children, tooltip }) => {
   );
 };
 
-export default HoverTooltip;
+export default HoverTooltipNRJ;

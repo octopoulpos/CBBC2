@@ -1,6 +1,5 @@
 .App-header {
   min-height: 100vh;
-
   display: grid;
 }
 
@@ -41,15 +40,38 @@
 
 
 body {
-  background-image: url('./static/bg_1.png');
-  background: linear-gradient(to bottom, transparent, rgb(41, 41, 41)), url('./static/bg_1.png');
+  background-image: url('./static/bg_2.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
+
+
+/* ---------- Card CSS ----------------- */
+
+.card {
+  border-radius: 15px;
+  padding: 25px 12px;
+  background-color: #b2b1b8;
+  margin: 10px 0 0 0;
+  box-shadow: 0 2px 5px rgb(0, 0, 0);
+  max-width: 450px;
+  height: 180px;
+}
+
+.top {
+  border-radius: 20px;
+  height: 70px;
+  width: 100%;
+  background-color: rgba(242, 242, 242);
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
 .bottom {
-  margin-top: 150px;
+ width: 55%;
 }
 
 .bottom p {
@@ -57,18 +79,24 @@ body {
   font-weight: 600;
 }
 
-.card {
-  border-radius: 15px;
-  padding: 25px 12px;
-  background-color: #b2b1b8;
-  margin: 100px 0 0 0;
-  box-shadow: 0 2px 5px rgb(0, 0, 0);
-  max-width: 450px;
+.name {
+  font-size: 1, 5em;
+  color: #013d96;
+  flex: 10;
 }
 
 .card img {
-  margin: 50px 20px 0 0;
+  margin: 30px 10px 0 0;
 }
+
+.circle-img2 {
+  border-radius: 30%;
+  border: 7px solid #013d96;
+  width: 150px;
+  height: 150px;
+}
+
+/* ---------- Card CSS ----------------- */
 
 .circle-img {
   border-radius: 30%;
@@ -77,6 +105,7 @@ body {
   width: 250px;
   height: 250px;
 }
+
 
 .container {
   margin: 1%;
@@ -128,9 +157,36 @@ body {
   margin-left: 3%;
 }
 
+.projet {
+  background-color: rgba(5, 148, 55, 0.9);
+  border: 3px solid rgba(191, 189, 37, 0.4);
+  border-radius: 5px;
+  padding: 2% 5% 2% 5%;
+  margin: 2% 0 0 10%;
+  width: 60%;
+}
+
+/* ProgressBar.css */
+.progress-bar {
+  height: 20px;
+  width: 50%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar-filled {
+  height: 100%;
+  width: 0;
+  background-color: #1976d2;
+  border-radius: 10px;
+  transition: width 0.25s ease-in-out;
+}
+
 form input {
   border: 1px solid rgba(242, 178, 178, 0.4);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(193, 250, 195, 0.4);
   width: 250px;
   border-radius: 3px;
   font-family: "Source Sans Pro", sans-serif;
@@ -262,20 +318,6 @@ nav a:hover:before {
   transition: visibility 2s linear, opacity 0.5s linear, transform 0.5s;
 }
 
-/* 
-.nav2 {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 3%;
-  position: fixed;
-  margin-top: 65px;
-}
-
-.nav2.hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
-} */
-
 h1 {
   font-family: "Arvo", cursive;
   font-weight: 500;
@@ -305,13 +347,6 @@ h3 {
   flex-wrap: wrap;
 }
 
-.name {
-  font-size: 1, 5em;
-  color: #fff;
-  flex: 10;
-  margin: 3%;
-}
-
 .tooltip {
   position: fixed;
   margin-top: 20px;
@@ -320,16 +355,7 @@ h3 {
   z-index: 2;
 }
 
-.top {
-  border-radius: 25px 25px 0 0;
-  height: 140px;
-  width: 100%;
-  background-color: rgba(242, 242, 242);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-}
+
 
 /* ------------------------------------------------------------------------------------------------ */
 
