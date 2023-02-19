@@ -161,9 +161,34 @@ body {
   background-color: rgba(5, 148, 55, 0.9);
   border: 3px solid rgba(191, 189, 37, 0.4);
   border-radius: 5px;
+  display:flex;
   padding: 2% 5% 2% 5%;
   margin: 2% 0 0 10%;
   width: 60%;
+}
+
+.projetA {
+  width: 75%;
+}
+.projetB {
+  width: 25%;
+}
+
+.semaine {
+  background-color: rgba(5, 148, 55, 0.9);
+  border: 3px solid rgba(191, 189, 37, 0.4);
+  border-radius: 5px;
+  display:flex;
+  padding: 2% 5% 2% 5%;
+  margin: 2% 0 0 10%;
+  width: 60%;
+}
+
+.semaineA {
+  width: 75%;
+}
+.semaineB {
+  width: 25%;
 }
 
 /* ProgressBar.css */
@@ -290,6 +315,15 @@ nav a:hover:before {
 @media (max-width: 1200px) {
   .menu {
     display: none;
+  }
+  .projet {
+    display: block;
+  }
+  .projetA {
+    width: 100%;
+  }
+  .projetB {
+    width: 100%;
   }
 }
 

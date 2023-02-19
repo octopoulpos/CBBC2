@@ -11,6 +11,7 @@ import App from "./App";
 import Portail from "./Portail";
 import PortailEne from "./PortailEne";
 import Wdc from './Wdc';
+import WdcS from './WdcS';
 import ErrorPage from "./error-page";
 import Contact from './routes/contact';
 import Connexion from './Connexion';
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/wdc",
     element: <Wdc />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/wdcsemaines",
+    element: <WdcS />,
     errorElement: <ErrorPage />,
   },
   {

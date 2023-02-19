@@ -2,17 +2,17 @@ import React from 'react';
 import './App.css';
 import Nav from "./components/Nav";
 import NavButton from './components/NavButton';
-import ProjectsList from "./components/ProjectsList";
+import SemainesList from "./components/SemainesList";
 
 
-const Wdc = () => {
+const WdcS = () => {
 
   return (
     <div>
       <NavButton />
       <Nav />
       <header className="App-header">
-      <ProjectsList />
+      <SemainesList />
       
       </header>
     </div>
@@ -20,4 +20,4 @@ const Wdc = () => {
 
 }
 
-export default Wdc;
+export default WdcS;
