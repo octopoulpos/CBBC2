@@ -11,8 +11,8 @@ const semaines = [
     {
       id: 202308,
       name: "S08",
-      done : " -- ",
-      jours : "--",
+      done : " L: Littoral : Planning, QSP, HERREWYN, STS, JEFR+DE, consult FRADIN charp // Vichy confirmation fonctionnement DK, prise en main projet // périgueux planification équipe .. ; Mardi : check ttes dates install, point planning Gianni  consult CSB .., occitane prise en main dossier (PMV..), début planif K Vichy..; Jeudi : visite Littoral, check avec tuyauteur, point client (découpe..), check manut ; Vendredi : réunion Littoral, planning d'installation, clarification découpe + points techniques .. traçage fosses.. incertitudes implantation TGP.. ",
+      jours : "Lundi + Mardi + Jeudi + Vendredi => facturé 4 jours",
       suite: "--",
       notes: "-- ",
     },
