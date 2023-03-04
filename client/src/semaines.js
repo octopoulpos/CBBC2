@@ -16,6 +16,14 @@ const semaines = [
       suite: "--",
       notes: "-- ",
     },
+    {
+      id: 202308,
+      name: "S09",
+      done : "L : prise en main Boulogne, prépa réunion, consult DDC, suivi Litto, prise en main Grenoble.. M : visite Boulogne, check manut, réunion projet, check points techniques sur site .. J : planning Boulogne + commandes + check ss traitants, prépa install // Périgueux : descriptif DK, check Grenoble Glen, Littoral modif planning, check possibilités .. Vmatin : Littoral màj planning, màj équipes, check dispos.. Vichy prépa .. ",
+      jours : "Lundi + Mardi + J + Vmatin ",
+      suite: "--",
+      notes: "-- ",
+    },
   ];
   
   export default semaines;

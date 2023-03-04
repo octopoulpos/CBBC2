@@ -25,6 +25,7 @@
     "passport-local-mongoose": "^7.1.2",
     "qs": "^6.11.0",
     "react-router-dom": "^6.6.2",
-    "reactstrap": "^9.1.5"
+    "reactstrap": "^9.1.5",
+    "xml2js": "^0.4.23"
   }
 }

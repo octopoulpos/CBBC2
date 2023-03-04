@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "./Card";
 
 function Acceuil(props) {
     return (
@@ -20,7 +19,7 @@ function Acceuil(props) {
                     <p className="p2">Audit et conseils pour l'optimisation de vos énergies.</p>
                     <p className="p2">Conseil pour l'installation de centrales photovoltaïques.</p>
                     <p className="p2">Services informatiques, création et maintenance de sites internet, création et maintenance d'application de gestion de votre énergie / de gestion de votre production.</p>
-                    <p>N'hésitez pas à naviguer sur le site pour en savoir plus ou a nous contacter directement via l'onglet "Contact" du site </p>
+                    <p>N'hésitez pas à naviguer sur le site pour en savoir plus ou à nous contacter directement via l'onglet "Contact" du site </p>
 
                 </div>
 

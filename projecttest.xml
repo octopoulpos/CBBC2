@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xsi:schemaLocation="Project_x0020_Overview http://jegrsqlaxprod/ReportServer_AXPROD?%2FJENSEN-GROUP%2FGroup%20Reports%2FProject%20Overview&amp;rs%3ACommand=Render&amp;rs%3AFormat=XML&amp;rs%3ASessionID=qgdf4wz23dxqvciaerneaj55&amp;rc%3ASchema=True" Name="Project Overview"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="Project_x0020_Overview">
+    <Tablix8>
+        <Details_Collection>
+            <Details ProjectName="BLIE DU LITTORAL - Restructuration lavoir &amp; finition plat" Textbox148="1.0002571058985696339355910927" ProjectManager="BESLAY" Textbox149="1072518.6800000000000000" Textbox143="0.0594359649122807017543859649" Textbox150="1140000.0000000000000000" Textbox155="1140000.0000000000000000" Textbox140="0.0594359649122807017543859649" ExchangeRateDescription="Date of creation:" ExchangeRateDate="2022-11-08T00:00:00" JPP20Number="Q00205829" />
+        </Details_Collection>
+    </Tablix8>
+    <Tablix7>
+        <Textbox127 LedgerAmount3="0" />
+    </Tablix7>
+    <Tablix2 LedgerAmount1="0" AccountingCurrency="EUR" Textbox31="0" Textbox34="67481.3200000000000000" AccountingCurrency1="EUR" Textbox36="0.0591941403508771929824561404" />
+    <Tablix3 DeliverRemainderAmount="1140000.0000000000000000" Textbox60="EUR">
+        <Details1_Collection>
+            <Details1 ItemNumber="Futurail" LineText="Boucle de chargement Futurail" DeliveryDate1="2023-05-12T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="48581.6500000000000000" PurchaseOrder="CF00068719" PurchLineCreatedDate="2022-11-09T10:37:45" PurchaseLineAmount="41104.0000000000000000" />
+            <Details1 ItemNumber="SRsubsteel" LineText="Charpente boucle de chargement" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="7745.8700000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="TPFreight" LineText="Transport &amp; livraison JEUS" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="7427.5500000000000000" PurchaseOrder="CF00069233" PurchLineCreatedDate="2023-01-02T15:58:55" PurchaseLineAmount="7177.2800000000000000" />
+            <Details1 ItemNumber="TPRigging" LineText="Manutention &amp; mise en place Futurail" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="7274.0400000000000000" PurchaseOrder="CF00069234" PurchLineCreatedDate="2023-01-02T15:58:56" PurchaseLineAmount="6855.0000000000000000" />
+            <Details1 ItemNumber="JEinstalcom" LineText="Installation &amp; mise en service Futurail" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="12117.5100000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="TPFreight" LineText="Transport &amp; livraison Lavage s�chage" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="47232.1700000000000000" PurchaseOrder="CF00069232" PurchLineCreatedDate="2023-01-02T15:58:29" PurchaseLineAmount="50700.0000000000000000" />
+            <Details1 ItemNumber="TPRigging" LineText="Manutention &amp; mise en place Lavage s�chage" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="13508.2100000000000000" PurchaseOrder="CF00069231" PurchLineCreatedDate="2023-01-02T15:58:29" PurchaseLineAmount="14500.0000000000000000" />
+            <Details1 ItemNumber="JEinstalcom" LineText="Installation &amp; mise en service Lavage s�chage" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="10899.7300000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="SRsubsafgua" LineText="Carters droite et gauche pour la Napkin &amp; Bottum-Up" DeliveryDate1="2023-08-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="0" PurchaseOrder="CF00069235" PurchLineCreatedDate="2023-01-02T15:59:12" PurchaseLineAmount="1000.0000000000000000" />
+            <Details1 ItemNumber="TPFreight" LineText="Transport &amp; livraison JEDK" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="21133.9400000000000000" PurchaseOrder="CF00069229" PurchLineCreatedDate="2023-01-02T15:57:21" PurchaseLineAmount="14800.0000000000000000" />
+            <Details1 ItemNumber="TPRigging" LineText="Manutention &amp; mise en place Train de repassage" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="20705.5400000000000000" PurchaseOrder="CF00069230" PurchLineCreatedDate="2023-01-02T15:57:22" PurchaseLineAmount="14500.0000000000000000" />
+            <Details1 ItemNumber="JEinstalcom" LineText="Installation &amp; mise en service Train de repassage" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="12708.9200000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="JATW5M2V06012" LineText="Tunnel washer JENSEN TW5-60/12" DeliveryDate1="2023-05-12T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="230596.6100000000000000" PurchaseOrder="CF00068717" PurchLineCreatedDate="2022-11-09T10:37:39" PurchaseLineAmount="220577.5000000000000000" />
+            <Details1 ItemNumber="JAD5M2U090G00" LineText="Transfer drying tumbler JENSEN D5-90, gas heated" DeliveryDate1="2023-05-12T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="48670.2400000000000000" PurchaseOrder="CF00068717" PurchLineCreatedDate="2022-11-09T10:37:40" PurchaseLineAmount="40838.0000000000000000" />
+            <Details1 ItemNumber="JAD5M10000000" LineText="Automatic lint removal system - JENSEN" DeliveryDate1="2023-05-12T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="3276.4600000000000000" PurchaseOrder="CF00068717" PurchLineCreatedDate="2022-11-09T10:37:41" PurchaseLineAmount="2656.0000000000000000" />
+            <Details1 ItemNumber="JAI5G12M1S235" LineText="JENSEN I5 gas 2 x 1200 x 3500" DeliveryDate1="2023-05-12T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="108714.6200000000000000" PurchaseOrder="CF00068717" PurchLineCreatedDate="2022-11-09T10:37:41" PurchaseLineAmount="102371.5000000000000000" />
+            <Details1 ItemNumber="WTM401200000" LineText="Centrifugal Extractor Z 1200Plus, incl. regenerative braking system" DeliveryDate1="2023-05-12T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="161666.9000000000000000" PurchaseOrder="CF00068720" PurchLineCreatedDate="2022-11-09T10:37:45" PurchaseLineAmount="150920.0000000000000000" />
+            <Details1 ItemNumber="FTM023R3500" LineText="KliQ Plus 3500" DeliveryDate1="2023-06-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="167729.6600000000000000" PurchaseOrder="CF00068718" PurchLineCreatedDate="2022-11-09T10:37:42" PurchaseLineAmount="146320.0000000000000000" />
+            <Details1 ItemNumber="FTM077612023" LineText="Classic - E3 - 2 LF in 1 and 2 lanes and 2 XF in 2 lanes or 3 XF in 1L" DeliveryDate1="2023-06-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="83537.6400000000000000" PurchaseOrder="CF00068718" PurchLineCreatedDate="2022-11-09T10:37:42" PurchaseLineAmount="81930.0000000000000000" />
+            <Details1 ItemNumber="FTM094910001" LineText="Max model I, controlled by folders PLC" DeliveryDate1="2023-06-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="9928.7200000000000000" PurchaseOrder="CF00068718" PurchLineCreatedDate="2022-11-09T10:37:43" PurchaseLineAmount="9350.0000000000000000" />
+            <Details1 ItemNumber="FTM094910001" LineText="Max model I, controlled by folders PLC" DeliveryDate1="2023-06-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="9928.7200000000000000" PurchaseOrder="CF00068718" PurchLineCreatedDate="2022-11-09T10:37:43" PurchaseLineAmount="9350.0000000000000000" />
+            <Details1 ItemNumber="FTM089240825" LineText="Napkin &amp; Bottom Up 3300 - 4x825 mm" DeliveryDate1="2023-06-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="86462.1000000000000000" PurchaseOrder="CF00068718" PurchLineCreatedDate="2022-11-09T10:37:44" PurchaseLineAmount="74635.0000000000000000" />
+            <Details1 ItemNumber="Warranty" LineText="Garantie 36 mois / 6000 heures" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="13569.0000000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="SRsubconsu" LineText="Annexes s�cheuse repasseuse" DeliveryDate1="2023-08-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="6584.2000000000000000" PurchaseOrder="CF00069228" PurchLineCreatedDate="2023-01-02T15:56:48" PurchaseLineAmount="6200.0000000000000000" />
+        </Details1_Collection>
+    </Tablix3>
+    <Tablix6 Textbox50="EUR" Textbox113="999780.2800000000000000" Textbox97="EUR">
+        <Details3_Collection>
+            <Details3 PurchaseOrder1="CF00068717" Supplier="JENSENCHINA" LineText1="Tunnel washer JENSEN TW5-60/12" DeliveryDate="2023-02-24T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="220577.5000000000000000" Currency="EUR" DeliverRemainderAmount2="220577.5000000000000000" />
+            <Details3 PurchaseOrder1="CF00068717" Supplier="JENSENCHINA" LineText1="Transfer drying tumbler JENSEN D5-90, gas heated" DeliveryDate="2023-02-24T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="40838.0000000000000000" Currency="EUR" DeliverRemainderAmount2="40838.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068717" Supplier="JENSENCHINA" LineText1="Automatic lint removal system - JENSEN" DeliveryDate="2023-02-24T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="2656.0000000000000000" Currency="EUR" DeliverRemainderAmount2="2656.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068717" Supplier="JENSENCHINA" LineText1="JENSEN I5 gas 2 x 1200 x 3500" DeliveryDate="2023-02-24T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="102371.5000000000000000" Currency="EUR" DeliverRemainderAmount2="102371.5000000000000000" />
+            <Details3 PurchaseOrder1="CF00068718" Supplier="JENSENDK" LineText1="KliQ Plus 3500" DeliveryDate="2023-06-02T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="146320.0000000000000000" Currency="EUR" DeliverRemainderAmount2="146320.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068718" Supplier="JENSENDK" LineText1="Classic - E3 - 2 LF in 1 and 2 lanes and 2 XF in 2 lanes or 3 XF in 1L" DeliveryDate="2023-06-02T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="81930.0000000000000000" Currency="EUR" DeliverRemainderAmount2="81930.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068718" Supplier="JENSENDK" LineText1="Max model I, controlled by folders PLC" DeliveryDate="2023-06-02T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="9350.0000000000000000" Currency="EUR" DeliverRemainderAmount2="9350.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068718" Supplier="JENSENDK" LineText1="Max model I, controlled by folders PLC" DeliveryDate="2023-06-02T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="9350.0000000000000000" Currency="EUR" DeliverRemainderAmount2="9350.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068718" Supplier="JENSENDK" LineText1="Napkin &amp; Bottom Up 3300 - 4x825 mm" DeliveryDate="2023-06-02T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="74635.0000000000000000" Currency="EUR" DeliverRemainderAmount2="74635.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068719" Supplier="JENUSAEURO" LineText1="Main order JPP Q00205829 dated 2022-11-02 - Boucle de chargement Futurail - quotation n� 210090" DeliveryDate="2023-02-24T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="41104.0000000000000000" Currency="EUR" DeliverRemainderAmount2="41104.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068719" Supplier="JENUSAEURO" LineText1="Additional under guarding as Var1 - Quote by email dated 2023-01-31" DeliveryDate="2023-02-24T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="3996.0000000000000000" Currency="EUR" DeliverRemainderAmount2="3996.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00068720" Supplier="SENKING" LineText1="Centrifugal Extractor Z 1200Plus, incl. regenerative braking system" DeliveryDate="2023-05-05T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="150920.0000000000000000" Currency="EUR" DeliverRemainderAmount2="150920.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069228" Supplier="JENSEN" LineText1="ESTIM JPP Annexes s�cheuse repasseuse" DeliveryDate="2023-08-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="6200.0000000000000000" Currency="EUR" DeliverRemainderAmount2="6200.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069229" Supplier="BECHHANSEN" LineText1="ESTIM JPP - Transport &amp; livraison JEDK" DeliveryDate="2023-08-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="14800.0000000000000000" Currency="EUR" DeliverRemainderAmount2="14800.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069230" Supplier="JENSEN" LineText1="ESTIM JPP- Manutention &amp; mise en place Train de repassage" DeliveryDate="2023-08-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="14500.0000000000000000" Currency="EUR" DeliverRemainderAmount2="14500.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069231" Supplier="JENSEN" LineText1="ESTIM JPP - Manutention &amp; mise en place Lavage s�chage" DeliveryDate="2023-08-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="14500.0000000000000000" Currency="EUR" DeliverRemainderAmount2="14500.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069232" Supplier="SENKING" LineText1="ESTIM JPP - Transport &amp; livraison Lavage s�chage" DeliveryDate="2023-08-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="50700.0000000000000000" Currency="EUR" DeliverRemainderAmount2="50700.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069233" Supplier="HYH" LineText1="ESTIM JPP - Transport &amp; livraison JEUS" DeliveryDate="2023-08-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="7000.0000000000000000" Currency="USD" DeliverRemainderAmount2="7177.2800000000000000" />
+            <Details3 PurchaseOrder1="CF00069234" Supplier="JENSEN" LineText1="ESTIM JPP - Manutention &amp; mise en place Futurail" DeliveryDate="2023-08-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="6855.0000000000000000" Currency="EUR" DeliverRemainderAmount2="6855.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069235" Supplier="JENSEN" LineText1="ESTIM JPP- Carters droite et gauche pour la Napkin &amp; Bottum-Up" DeliveryDate="2023-08-30T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="1000.0000000000000000" Currency="EUR" DeliverRemainderAmount2="1000.0000000000000000" />
+        </Details3_Collection>
+    </Tablix6>
+    <Tablix9>
+        <ForecastModel_Collection>
+            <ForecastModel ForecastModel="Mprev" CostAmount2="457.4200000000000000" CostAmount3="32019.400000" Textbox176="EUR">
+                <Details4_Collection>
+                    <Details4 Category="HR_FORECAS" SchedFromDate="2023-01-02T00:00:00" Hours="457.4200000000000000" CostAmount="32019.400000" Description="ESTIM JPP install (32020�)" />
+                </Details4_Collection>
+            </ForecastModel>
+            <ForecastModel ForecastModel="Hour_FS" CostAmount2="210.0000000000000000" CostAmount3="11200.000000" Textbox176="EUR">
+                <Details4_Collection>
+                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-04-21T00:00:00" WorkCentre="FRA_DERRIE" Hours="60.0000000000000000" CostAmount="4200.000000" Description="Installation WO33445" />
+                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-04-21T00:00:00" WorkCentre="S.T.S." Hours="40.0000000000000000" CostAmount="4000.000000" Description="Installation WO33303" />
+                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-04-15T00:00:00" WorkCentre="QSP" Hours="30.0000000000000000" CostAmount="3000.000000" Description="Installation WO33537" />
+                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-04-21T00:00:00" WorkCentre="FRS" Hours="70.0000000000000000" CostAmount="0" Description="Installation WO33465" />
+                    <Details4 Category="HR_INSTALL" SchedFromDate="1900-01-01T00:00:00" WorkCentre="" Hours="10.0000000000000000" CostAmount="0" Description="Installation WO33476" />
+                </Details4_Collection>
+            </ForecastModel>
+        </ForecastModel_Collection>
+    </Tablix9>
+    <Tablix10 Textbox112="40719.000000">
+        <Details5_Collection>
+            <Details5 PurchaseOrder2="WarrantyProvision" Supplier2="2023-01-02T00:00:00" LineText2="Garantie 24 mois" DeliverRemainderAmount3="40719.000000" />
+        </Details5_Collection>
+    </Tablix10>
+    <Tablix11 Textbox114="0" />
+    <Tablix4>
+        <Details2_Collection>
+            <Details2 Notes="OFFRE JENSEN sign�e_Blie du Littoral&#xA;Montant = 1 140 000,00� HT&#xA;&#xA;* DELAI d�part usines :&#xA;- JEUS : 24/02/2023 / Futurail Classified&#xA;- JECN : 24/02/2023 / TW5-60/12 - D5-90 - I5 2x1200x3500&#xA;- JEDE : 05/05/2023 / Z1200&#xA;- JEDK : 02/06/2023 / KliQ 3500 - Classic E3 - Max - Napkin BU&#xA;&#xA;* GARANTIE : 36 mois / 6000 heures&#xA;&#xA;* CONDITIONS DE PAIEMENT :&#xA;- 20% � la commande&#xA;- 70% � la livraison&#xA;- 10% � la r�ception&#xA;" ExistsFile="*" />
+            <Details2 Notes="Q00205829-14 PIF &amp; AX report_BLIE DU LITTORAL_Blie compl�te" ExistsFile="*" />
+        </Details2_Collection>
+    </Tablix4>
+</Report>

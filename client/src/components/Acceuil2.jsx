@@ -14,11 +14,11 @@ function Acceuil2(props) {
                     style={{ cursor: 'pointer' }}
                 />
                 <div className="acceuil3">
-                <p>L'énergie à toujours été un élément essentiel dans la production d'une blanchisserie industrielle, l'évolution récente des équilibres géostratégiques mondiaux, la raréfaction des énergies fossiles et la volonté collective de limiter nos émmisions de CO2 rendent l'enjeux de l'énergie d'autant plus important. La maîtrise de vos dépenses en énergie devient maintenant fondamentale pour assurer la continuité de vos services.</p>
+                <p>L'énergie a toujours été un élément essentiel dans la production d'une blanchisserie industrielle. L'évolution récente des équilibres géostratégiques mondiaux, la raréfaction des énergies fossiles et la volonté collective de limiter nos émisions de CO2 rendent l'enjeu de l'énergie d'autant plus important. La maîtrise de vos dépenses en énergie devient maintenant fondamentale pour assurer la continuité de vos services.</p>
                 <p>Vous aider dans cette mission :</p>
                
-                <p className="p2">Réalisez un audit de votre process.</p>
-                <p className="p2">Organisez un suivi constant de vos dépenses énergétiques et évitez les dérivent.</p>
+                <p className="p2">En réalisant un audit de votre process.</p>
+                <p className="p2">En organisant un suivi constant de vos dépenses énergétiques pour éviter les dérives.</p>
                 </div>
 
             </div>
