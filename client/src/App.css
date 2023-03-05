@@ -118,6 +118,19 @@ body {
   font-weight: 200;
 }
 
+.debrief {
+  border: 3px solid rgba(12, 104, 215, 0.9);
+  border-radius: 5px;
+  margin: 1%;
+  width: 100%;
+  visibility:collapse;
+}
+
+.debrief.visible {
+  visibility: visible;
+}
+
+
 .divX {
   border: 3px solid rgba(191, 189, 37, 0.4);
   border-radius: 5px;
@@ -170,8 +183,22 @@ body {
 .projetA {
   width: 75%;
 }
+
+.projetA h2:hover {
+  color: rgb(16, 6, 202);
+}
+
 .projetB {
   width: 25%;
+  margin: 5% 0 0 2%;
+}
+
+.projectCal {
+  border: 3px solid rgba(191, 189, 37, 0.4);
+  border-radius: 5px;
+
+  width: 40%;
+ 
 }
 
 .semaine {

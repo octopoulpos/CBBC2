@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 import Nav from "./components/Nav";
 import NavButton from './components/NavButton';
-import ProjectsList from "./components/ProjectsList";
+// import ProjectsList from "./components/ProjectsList";
+import ProjectsListMongo from "./components/ProjectsListMongo";
+
 
 
 const Wdc = () => {
@@ -12,8 +14,10 @@ const Wdc = () => {
       <NavButton />
       <Nav />
       <header className="App-header">
-      <ProjectsList />
-      
+        {/* <ProjectsList /> */}
+
+        <ProjectsListMongo />
+
       </header>
     </div>
   );
