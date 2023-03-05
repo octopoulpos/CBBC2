@@ -96,6 +96,15 @@ body {
   height: 150px;
 }
 
+.circle-imgPM {
+  border-radius: 30%;
+  border: 7px solid #013d96;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+
+}
+
 /* ---------- Card CSS ----------------- */
 
 .circle-img {
@@ -130,6 +139,17 @@ body {
   visibility: visible;
 }
 
+.assist {
+  border: 3px solid rgba(12, 104, 215, 0.9);
+  border-radius: 5px;
+  margin: 1%;
+  width: 100%;
+  display: none;
+}
+
+.assist.visible {
+  display: block;
+}
 
 .divX {
   border: 3px solid rgba(191, 189, 37, 0.4);
@@ -186,6 +206,10 @@ body {
 
 .projetA h2:hover {
   color: rgb(16, 6, 202);
+}
+
+.projedsdsdsdsdsdsA h2:hover {
+  color: rgb(140, 0, 19);
 }
 
 .projetB {
