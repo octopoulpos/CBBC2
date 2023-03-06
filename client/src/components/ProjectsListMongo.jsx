@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ProjectMongo from "./ProjectMongo";
-// import ProjectCalendar from './ProjectCalendar';
 import axios from "axios";
 
 const ProjectsListMongo = () => {
   const [projects, setProjects] = useState([]);
+
 
   useEffect(() => {
     axios
@@ -31,7 +31,6 @@ const ProjectsListMongo = () => {
           margePIF={project.margePIF}
           margeCurrent={project.margeCurrent}
           totalCommandes={project.totalCommandes}
-
           percent={project.prixVente}
           totalCN={project.sommeCN}
           totalDK={project.sommeDK}
@@ -44,14 +43,10 @@ const ProjectsListMongo = () => {
           listeDK={project.lineText1Concatenateddk}
           listeDE={project.lineText1Concatenatedde}
           listeUS={project.lineText1Concatenatedus}
-       
           notes={project.quote}
         />
       ))}
 
-      {/* <div className="projectCal" >
-        <ProjectCalendar />
-      </div> */}
 
     </div>
   );
