@@ -24,6 +24,14 @@ const semaines = [
       suite: "--",
       notes: "-- ",
     },
+    {
+      id: 202308,
+      name: "S10",
+      done : "L : Grenoble prépa visite, check plan, check possibilité planning/équipes.. Sodi..Kanne..; contact Occitane ; check INWATEC Boisset ... ,Périgueux check CDC/contract  ",
+      jours : "Lundi + Mardi matin ",
+      suite: "--",
+      notes: "-- ",
+    },
   ];
   
   export default semaines;

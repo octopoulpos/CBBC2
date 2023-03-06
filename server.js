@@ -17,7 +17,6 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3400', 'https://cb-bc.fr'] }));
 
-// app.use(express.urlencoded({ extended: true })); // ajouté pour test 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
