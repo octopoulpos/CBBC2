@@ -81,6 +81,15 @@ const projectSchema = new mongoose.Schema({
     totalCommandes: Number,
     checkSumProject: Boolean,
     newField: Number,
+    newField1: Number,
+    newField2: Number,
+    newField3: Number,
+    newField4: Number,
+    newField5: Number,
+    newField6: Number,
+    newField7: Number,
+    newField8: Number,
+    newField9: Number,
 });
 
 
@@ -311,6 +320,7 @@ const Project = mongoose.model("Project", projectSchema);
             totalTotal: totalTotal,
             totalCommandes: totalCommandes,
             checkSumProject: checkSumProject,
+
         };
 
 
@@ -385,7 +395,17 @@ app.route('/projects')
             jecnDates,
             jeusDates,
             totalTotal,
-            totalCommandes
+            totalCommandes,
+            newField,
+            newField1,
+            newField2,
+            newField3,
+            newField4,
+            newField5,
+            newField6,
+            newField7,
+            newField8,
+            newField9,
         } = req.body;
 
         const project = new Project({
@@ -434,33 +454,37 @@ app.route('/projects')
         });
     })
 
-app.patch('/debrief', (req, res) => {
-   
-    const filter = req.body.filter;
-    const update = req.body.update;
 
-    // Find the project by quote and update the newField
-    Project.findOneAndUpdate(filter, update,
-        { new: true }, // return the updated document
-        (err, doc) => {
-            if (err) {
-                console.error(err);
-                res.status(500).json({ error: 'An error occurred while updating the document.' });
-            } else {
-                console.log(doc);
-                res.status(200).json({ message: 'Document updated successfully.' });
+      
+    
+
+    app.patch('/debrief', (req, res) => {
+
+        const filter = req.body.filter;
+        const update = req.body.update;
+
+        // Find the project by quote and update the newField
+        Project.findOneAndUpdate(filter, update,
+            { new: true }, // return the updated document
+            (err, doc) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).json({ error: 'An error occurred while updating the document.' });
+                } else {
+                    console.log(doc);
+                    res.status(200).json({ message: 'Document updated successfully.' });
+                }
             }
-        }
-    );
-});
+        );
+    });
+  
 
 
-
-app.use(session({
-    secret: "ourlittlesecret.",
-    resave: false,
-    saveUninitialized: false
-}));
+    app.use(session({
+        secret: "ourlittlesecret.",
+        resave: false,
+        saveUninitialized: false
+    }));
 
 app.use(passport.initialize());
 app.use(passport.session());

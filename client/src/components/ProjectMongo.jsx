@@ -49,12 +49,36 @@ const ProjectMongo = (props) => {
         { name: "Autre JEFR", Total: props.totalNoManut + " €", liste: "" },
     ]
 
+    const dataDebrief = [
+        { name: "0", Total: props.newField + " €", liste: "" },
+        { name: "1", Total: props.newField1 + " €", liste: "" },
+        { name: "2", Total: props.newField2 + " €", liste: "" },
+        { name: "3", Total: props.newField3 + " €", liste: "" },
+        { name: "4", Total: props.newField4 + " €", liste: "" },
+        { name: "5", Total: props.newField5 + " €", liste: "" },
+        { name: "6", Total: props.newField6 + " €", liste: "" },
+        { name: "7", Total: props.newField7 + " €", liste: "" },
+        { name: "8", Total: props.newField8 + " €", liste: "" },
+        { name: "9", Total: props.newField9 + " €", liste: "" },
+
+
+
+    ]
 
     const filteredData = data.filter(item => {
         const total = item.Total;
-        return total !== undefined && parseFloat(total.replace(" €", "").replace(",", ".")) !== 0;
+        const parsedTotal = parseFloat(total.replace(" €", "").replace(",", "."));
+        return !isNaN(parsedTotal) && parsedTotal !== 0;
     });
-
+    // const filteredData = data.filter(item => {
+    //     const total = item.Total;
+    //     return total !== undefined && parseFloat(total.replace(" €", "").replace(",", ".")) !== 0;
+    // });
+    const filteredDataDebrief = dataDebrief.filter(item => {
+        const total = item.Total;
+        const parsedTotal = parseFloat(total.replace(" €", "").replace(",", "."));
+        return !isNaN(parsedTotal) && parsedTotal !== 0;
+    });
 
     const dataWithValues = data.filter(item => {
         const total = item.Total;
@@ -82,25 +106,32 @@ const ProjectMongo = (props) => {
         setPrix(event.target.value);
     };
 
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(props.quote);
+        const fieldNumber = parseInt(quoi);
+        const update = { $set: { [`newField${fieldNumber}`]: prix } }; // update the corresponding newField with prix
         const filter = { quote: props.quote };
-        const update = { $set: { newField: prix } }; // update the value of newField with prix
         fetch("/debrief", {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ filter, update }),
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ filter, update }),
         })
-        
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      };
-
-
+            .then((response) => response.json())
+            // .then((data) => {
+            //     console.log(data);
+            //     // Handle the response from the server
+            //     if (data.modifiedCount === 1) {
+            //         alert("New fields added successfully!");
+            //     } else {
+            //         alert("Failed to add new fields!");
+            //         console.log(JSON.stringify({ filter, update }))
+            //     }
+            // })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    };
 
 
     //////
@@ -169,6 +200,15 @@ const ProjectMongo = (props) => {
                                     </tr>
                                 )
                             })}
+                            {filteredDataDebrief.map((val, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{val.name}</td>
+                                        <td>{val.Total}</td>
+                                        <td>{val.liste}</td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
 
@@ -228,7 +268,7 @@ const ProjectMongo = (props) => {
 
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Rentrer dépense :
+                        Case N° :
                         <input type="text" value={quoi} onChange={handleQuoiChange} />
                     </label>
                     <label>

@@ -1,63 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xsi:schemaLocation="Project_x0020_Overview http://jegrsqlaxprod/ReportServer_AXPROD?%2FJENSEN-GROUP%2FGroup%20Reports%2FProject%20Overview&amp;rs%3ACommand=Render&amp;rs%3AFormat=XML&amp;rs%3ASessionID=0032q2450e0lth55hsse0n55&amp;rc%3ASchema=True" Name="Project Overview"
+<Report xsi:schemaLocation="Project_x0020_Overview http://jegrsqlaxprod/ReportServer_AXPROD?%2FJENSEN-GROUP%2FGroup%20Reports%2FProject%20Overview&amp;rs%3ACommand=Render&amp;rs%3AFormat=XML&amp;rs%3ASessionID=bmyqn4550y5hhmufe2xupa55&amp;rc%3ASchema=True" Name="Project Overview"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="Project_x0020_Overview">
     <Tablix8>
         <Details_Collection>
-            <Details ProjectName="GCS GRENOBLE - Marché 2022E082 Plieuse éponges" Textbox148="1.0202872846339752085444764949" ProjectManager="BESLAY" Textbox149="104697.8000000000000000" Textbox143="0.0443302041424526896140664581" Textbox150="107376.0000000000000000" Textbox155="107376.0000000000000000" Textbox140="0.0443302041424526896140664581" ExchangeRateDescription="Date of creation:" ExchangeRateDate="2023-01-02T00:00:00" JPP20Number="Q00208325" />
+            <Details ProjectName="Blanchisserie BOISSET - Projet tri du linge sale (THOR)" Textbox148="0.999996102825451547627969722" ProjectManager="BESLAY" Textbox149="333573.7000000000000000" Textbox143="0.1104666666666666666666666667" Textbox150="375000.0000000000000000" Textbox155="375000.0000000000000000" Textbox140="0.1104666666666666666666666667" ExchangeRateDescription="Date of creation:" ExchangeRateDate="2022-12-12T00:00:00" JPP20Number="Q00208627" />
         </Details_Collection>
     </Tablix8>
     <Tablix7>
-        <Textbox127 LedgerAmount3="0" />
+        <TransactionYear_Collection>
+            <TransactionYear TransactionYear="2022" LedgerAmount2="0.3700000000000000" />
+            <TransactionYear TransactionYear="2023" LedgerAmount2="-92239.0000000000000000" />
+        </TransactionYear_Collection>
+        <Textbox127 LedgerAmount3="-92238.6300000000000000" />
     </Tablix7>
-    <Tablix2 LedgerAmount1="0" AccountingCurrency="EUR" Textbox31="0" Textbox34="2678.2000000000000000" AccountingCurrency1="EUR" Textbox36="0.0249422589777976456563850395" />
-    <Tablix3 DeliverRemainderAmount="107376.0000000000000000" Textbox60="EUR">
+    <Tablix2 LedgerAmount1="-92238.6300000000000000" AccountingCurrency="EUR" Textbox31="0" Textbox34="41426.3000000000000000" AccountingCurrency1="EUR" Textbox36="0.1104701333333333333333333333">
+        <MainAccountTypeEnum_Collection>
+            <MainAccountTypeEnum Textbox17="TOTAL COSTS:" Textbox13="92238.6300000000000000" Textbox26="EUR">
+                <MainAccount_Collection>
+                    <MainAccount MainAccountNumber="604200" MainAccountName="PROJ - PURCHASE  &amp; SERVICES" LedgerAmount="92238.6300000000000000" />
+                </MainAccount_Collection>
+            </MainAccountTypeEnum>
+        </MainAccountTypeEnum_Collection>
+    </Tablix2>
+    <Tablix3 DeliverRemainderAmount="375000.0000000000000000" Textbox60="EUR">
         <Details1_Collection>
-            <Details1 ItemNumber="FTM106C1EU31" LineText="Tematic Pro - towels - roll-off conveyor 3x1 (470,670,470 mm)" DeliveryDate1="2023-04-28T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="43106.1300000000000000" PurchaseOrder="CF00069222" PurchLineCreatedDate="2023-01-02T14:57:55" PurchaseLineAmount="39173.0000000000000000" />
-            <Details1 ItemNumber="SRsubconsu" LineText="Tapis de collecte PMV (devis 20220258-2)" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="6639.5500000000000000" PurchaseOrder="CF00069226" PurchLineCreatedDate="2023-01-02T14:59:39" PurchaseLineAmount="9548.0000000000000000" />
-            <Details1 ItemNumber="SRsubnetw" LineText="Automatisme (Devis SODILEC 2022.531)" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="15056.3000000000000000" PurchaseOrder="CF00069227" PurchLineCreatedDate="2023-01-02T14:59:39" PurchaseLineAmount="14090.0000000000000000" />
-            <Details1 ItemNumber="TPFreight" LineText="Transport JEDK" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="3299.5800000000000000" PurchaseOrder="CF00069220" PurchLineCreatedDate="2023-01-02T14:57:54" PurchaseLineAmount="2700.0000000000000000" />
-            <Details1 ItemNumber="TPRigging" LineText="Manutention" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="1666.5500000000000000" PurchaseOrder="CF00069221" PurchLineCreatedDate="2023-01-02T14:57:55" PurchaseLineAmount="1500.0000000000000000" />
-            <Details1 ItemNumber="JEinstalcom" LineText="Installation" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="5221.8700000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
-            <Details1 ItemNumber="JEother" LineText="Kit de pièces détachées" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="1099.9300000000000000" PurchaseOrder="CF00069224" PurchLineCreatedDate="2023-01-02T14:58:37" PurchaseLineAmount="1099.0000000000000000" />
-            <Details1 ItemNumber="SRsubnetw" LineText="Automatisme Kannegiesser" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="27998.0900000000000000" PurchaseOrder="CF00069225" PurchLineCreatedDate="2023-01-02T14:58:39" PurchaseLineAmount="28000.0000000000000000" />
-            <Details1 ItemNumber="Warranty" LineText="Garantie 24 mois / 4000 heures" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="588.0000000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
-            <Details1 ItemNumber="TPFreight" LineText="Transport PMV" DeliveryDate1="2023-07-03T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="2700.0000000000000000" PurchaseOrder="CF00069223" PurchLineCreatedDate="2023-01-02T14:57:56" PurchaseLineAmount="2700.0000000000000000" />
+            <Details1 ItemNumber="IGSL01" LineText="IGSL01 - Soil Sorting Line" DeliveryDate1="2023-11-10T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="355323.8400000000000000" PurchaseOrder="CF00069196" PurchLineCreatedDate="2022-12-28T15:56:05" PurchaseLineAmount="307462.1000000000000000" />
+            <Details1 ItemNumber="TPFreight" LineText="Transport" DeliveryDate1="2024-01-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="6428.6600000000000000" PurchaseOrder="CF00069218" PurchLineCreatedDate="2023-01-02T14:39:59" PurchaseLineAmount="6000.0000000000000000" />
+            <Details1 ItemNumber="TPRigging" LineText="Manutention" DeliveryDate1="2024-01-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="5277.2500000000000000" PurchaseOrder="CF00069219" PurchLineCreatedDate="2023-01-02T14:40:00" PurchaseLineAmount="5000.0000000000000000" />
+            <Details1 ItemNumber="JEproject" LineText="Suivi installation technicien JEFR" DeliveryDate1="2024-01-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="3358.2500000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="SRsubsafbox" LineText="Mise en conformité installation" DeliveryDate1="2024-01-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="0" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="Warranty" LineText="Garantie 24 mois / 4000 heures" DeliveryDate1="2024-01-31T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="4612.0000000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
         </Details1_Collection>
     </Tablix3>
-    <Tablix6 Textbox50="EUR" Textbox113="98810.0000000000000000" Textbox97="EUR">
+    <Tablix6 Textbox50="EUR" Textbox113="226223.4700000000000000" Textbox97="EUR">
         <Details3_Collection>
-            <Details3 PurchaseOrder1="CF00069220" Supplier="BECHHANSEN" LineText1="JPP - Transport JEDK" DeliveryDate="2023-04-21T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="2700.0000000000000000" Currency="EUR" DeliverRemainderAmount2="2700.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069221" Supplier="JENSEN" LineText1="JPP (sté de manut à définir) - Manutention" DeliveryDate="2023-04-28T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="1500.0000000000000000" Currency="EUR" DeliverRemainderAmount2="1500.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069222" Supplier="JENSENDK" LineText1="Tematic Pro - towels - roll-off conveyor 3x1 (470,670,470 mm)" DeliveryDate="2023-04-21T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="39173.0000000000000000" Currency="EUR" DeliverRemainderAmount2="39173.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069223" Supplier="SIS" LineText1="JPP - Transport PMV" DeliveryDate="2023-04-21T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="2700.0000000000000000" Currency="EUR" DeliverRemainderAmount2="2700.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069224" Supplier="JENSEN" LineText1="JPP - Kit de pièces détachées" DeliveryDate="2023-07-03T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="1099.0000000000000000" Currency="EUR" DeliverRemainderAmount2="1099.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069225" Supplier="KANNEGFRAN" LineText1="Modification automatisme plieuses Kannegiesser - Offres 950761305-950761298-950761303-950761304" DeliveryDate="2023-04-28T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="28000.0000000000000000" Currency="EUR" DeliverRemainderAmount2="28000.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069226" Supplier="PMV" LineText1="PMV order confirmation 20233022 - Jenway conveyors" DeliveryDate="2023-04-24T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="9548.0000000000000000" Currency="EUR" DeliverRemainderAmount2="9548.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069227" Supplier="SODILEC" LineText1="Automatisme tapis de collecte - Devis SODILEC 2022.531BIS" DeliveryDate="2023-04-28T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="14090.0000000000000000" Currency="EUR" DeliverRemainderAmount2="14090.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069196" Supplier="INWATEC" LineText1="IGSL01 - Soil Sorting Line" DeliveryDate="2023-11-10T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="307462.1000000000000000" Currency="EUR" DeliverRemainderAmount2="307462.1000000000000000" />
+            <Details3 PurchaseOrder1="CF00069196" Supplier="INWATEC" LineText1="Acompte 30% à la commande sur facture 53154 du 29/11/2022" DeliveryDate="2022-12-12T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="-92238.6300000000000000" Currency="EUR" DeliverRemainderAmount2="-92238.6300000000000000" />
+            <Details3 PurchaseOrder1="CF00069218" Supplier="BECHHANSEN" LineText1="ESTIM JPP- Transport" DeliveryDate="2024-01-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="6000.0000000000000000" Currency="EUR" DeliverRemainderAmount2="6000.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00069219" Supplier="JENSEN" LineText1="ESTIM JPP- Manutention" DeliveryDate="2024-01-31T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="5000.0000000000000000" Currency="EUR" DeliverRemainderAmount2="5000.0000000000000000" />
         </Details3_Collection>
     </Tablix6>
     <Tablix9>
         <ForecastModel_Collection>
-            <ForecastModel ForecastModel="Mprev" CostAmount2="67.1400000000000000" CostAmount3="4699.800000" Textbox176="EUR">
+            <ForecastModel ForecastModel="Mprev" CostAmount2="114.2800000000000000" CostAmount3="7999.600000" Textbox176="EUR">
                 <Details4_Collection>
-                    <Details4 Category="HR_FORECAS" SchedFromDate="2023-01-02T00:00:00" Hours="67.1400000000000000" CostAmount="4699.800000" Description="JPP - Installation JEFR (4700€)" />
+                    <Details4 Category="HR_FORECAS" SchedFromDate="2023-01-02T00:00:00" Hours="100.0000000000000000" CostAmount="7000.000000" Description="ESTIM JPP installation (7000€)" />
+                    <Details4 Category="HR_FORECAS" SchedFromDate="2023-01-02T00:00:00" Hours="14.2800000000000000" CostAmount="999.600000" Description="ESTIM JPP mise en conformité (1000€)" />
                 </Details4_Collection>
             </ForecastModel>
         </ForecastModel_Collection>
     </Tablix9>
-    <Tablix10 Textbox112="1188.000000">
+    <Tablix10 Textbox112="7112.000000">
         <Details5_Collection>
-            <Details5 PurchaseOrder2="WarrantyProvision" Supplier2="2023-01-02T00:00:00" LineText2="Garantie 24 mois / 4000 heures" DeliverRemainderAmount3="1188.000000" />
+            <Details5 PurchaseOrder2="WarrantyProvision" Supplier2="2023-01-02T00:00:00" LineText2="Garantie 24 mois" DeliverRemainderAmount3="7112.000000" />
         </Details5_Collection>
     </Tablix10>
     <Tablix11 Textbox114="0" />
     <Tablix4>
         <Details2_Collection>
-            <Details2 Notes="Q00208325-4 PIF &amp; AX report_GCS GRENOBLE_Plieuse éponges Tem" ExistsFile="*" />
-            <Details2 Notes="Marché GCS GRENOBLE_Plieuse éponges&#xA;Montant marché = 107 376,00€ HT&#xA;&#xA;* DELAI : départ JEDK le 21/04/2023&#xA;&#xA;* GARANTIE (offre) : 24 mois / 4000 heures&#xA;&#xA;* CONDITIONS DE PAIEMENT : selon CCAG-FCS article 11 - paiement à 50 jours " ExistsFile="*" />
-            <Details2 Notes="2022E082_CCAP" ExistsFile="*" />
-            <Details2 Notes="2022E082_CCTP" ExistsFile="*" />
+            <Details2 Notes="Offre Q00208627 signée&#xA;Montant = 375 000,00€HT&#xA;&#xA;* DELAI : départ Inwatec le 03/11/2023&#xA;&#xA;* GARANTIE : 12 mois / 2000 heures&#xA;&#xA;* CONDITIONS DE PAIEMENT : &#xA;- Financement crédit-bail (chèque de caution 50000,00€ chez Irena)&#xA;&#xA;" ExistsFile="*" />
+            <Details2 Notes="Q00208627-4.PIF &amp; AX report_Blie BOISSET_Soil sorting line" ExistsFile="*" />
+            <Details2 Notes="cheque de caution" ExistsFile="*" />
+            <Details2 Notes="Confirmation de commande Robot mise a l unite" ExistsFile="*" />
         </Details2_Collection>
     </Tablix4>
 </Report>

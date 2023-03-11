@@ -58,6 +58,16 @@ const ProjectsListMongo = () => {
             listeDE={project.lineText1Concatenatedde}
             listeUS={project.lineText1Concatenatedus}
     
+            newField={project.newField}
+            newField1={project.newField1}
+            newField2={project.newField2}
+            newField3={project.newField3}
+            newField4={project.newField4}
+            newField5={project.newField5}
+            newField6={project.newField6}
+            newField7={project.newField7}
+            newField8={project.newField8}
+            newField9={project.newField9}
           />
         ))}
     </div>
