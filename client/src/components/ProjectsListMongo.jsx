@@ -19,35 +19,46 @@ const ProjectsListMongo = () => {
 
   return (
     <div>
-      {projects.map((project) => (
-        <ProjectMongo
-          key={project._id}
-          today={project.today}
-          name={project.nom}
-          ewdk={project.jedkDates}
-          ewde={project.jedeDates}
-          ewcn={project.jecnDates}
-          ewus={project.jeusDates}
-          margePIF={project.margePIF}
-          margeCurrent={project.margeCurrent}
-          totalCommandes={project.totalCommandes}
-          percent={project.prixVente}
-          totalCN={project.sommeCN}
-          totalDK={project.sommeDK}
-          totalDE={project.sommeDE}
-          totalUS={project.sommeUS}
-          transport={project.transport}
-          totalManut={project.manutention}
-          totalNoManut={project.noManut}
-          listeCN={project.lineText1Concatenatedcn}
-          listeDK={project.lineText1Concatenateddk}
-          listeDE={project.lineText1Concatenatedde}
-          listeUS={project.lineText1Concatenatedus}
-          notes={project.quote}
-        />
-      ))}
+      {projects
+        .sort((a, b) => a?.nom?.localeCompare(b?.nom)) // sort projects by 'nom' property
+        .map((project) => (
+          <ProjectMongo
+            key={project._id}
+            today={project.today}
+            name={project.nom}
+            ewdk={project.jedkDates}
+            ewde={project.jedeDates}
+            ewcn={project.jecnDates}
+            ewus={project.jeusDates}
+            margePIF={project.margePIF}
+            margeCurrent={project.margeCurrent}
+            totalCommandes={project.totalCommandes}
+            percent={project.prixVente}
+            totalCN={project.sommeCN}
+            totalDK={project.sommeDK}
+            totalDE={project.sommeDE}
+            totalUS={project.sommeUS}
+            totalKANNE={project.sommeKANNE}
+            totalSODI={project.sommeSODI}
+            totalPMV={project.sommePMV}
+            totalOLDAM={project.sommeOLDAM}
+            totalTCS={project.sommeTCS}
+            totalSATELEC={project.sommeSATELEC}
+            totalAPAVE={project.sommeAPAVE}
 
 
+            warranty={project.warranty}
+            services={project.services}
+            transport={project.transport}
+            totalManut={project.manutention}
+            totalNoManut={project.noManut}
+            listeCN={project.lineText1Concatenatedcn}
+            listeDK={project.lineText1Concatenateddk}
+            listeDE={project.lineText1Concatenatedde}
+            listeUS={project.lineText1Concatenatedus}
+            notes={project.quote}
+          />
+        ))}
     </div>
   );
 };

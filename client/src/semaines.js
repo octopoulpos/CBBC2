@@ -27,10 +27,10 @@ const semaines = [
     {
       id: 202308,
       name: "S10",
-      done : "L : Grenoble prépa visite, check plan, check possibilité planning/équipes.. Sodi..Kanne..; contact Occitane ; check INWATEC Boisset ... ,Périgueux check CDC/contract  ",
-      jours : "Lundi + Mardi matin ",
+      done : "L : Grenoble prépa visite, check plan, check possibilité planning/équipes.. Sodi..Kanne..; contact Occitane ; check INWATEC Boisset ... ,Périgueux check CDC/contract ; Mardi : point sur site avec client, check implantation, check manutention..  ; Mercredi : Point BOISSET/INWATEC/THERMOPATCH , CR Grenoble, propo planning , check commandes, check fonctionnement .. Vendredi matin : Grenoble++ planning, interférences Kanne/sodi, réponse client, plans, modif tapis.. Boisset échanges INW/client ..   ",
+      jours : "Lundi + 3H Mardi [visite Grenoble]//temps en voiture pas compté + Mercredi + Vmatin  ",
       suite: "--",
-      notes: "-- ",
+      notes: "Mars : à facturer, en cours fin de semaine : S09=1+0,5 S10=2+0,5 == 4 jours (+ compte 3h qui trainent pour la visite de Grenoble, on verra ce que j'en fait, je ne te facture pas le temps en voiture pour cette journée ) ",
     },
   ];
   

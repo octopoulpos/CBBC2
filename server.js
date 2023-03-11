@@ -56,6 +56,15 @@ const projectSchema = new mongoose.Schema({
     sommeDK: Number,
     sommeUS: Number,
     sommeDE: Number,
+    sommeKANNE: Number,
+    sommeSODI: Number,
+    sommePMV: Number,
+    sommeOLDAM: Number,
+    sommeTCS: Number,
+    sommeSATELEC: Number,
+    sommeAPAVE: Number,
+    warranty: Number,
+    services: Number,
     transport: Number,
     lineText1Concatenatedcn: String,
     lineText1Concatenateddk: String,
@@ -87,16 +96,16 @@ const Project = mongoose.model("Project", projectSchema);
         const prixVente = Math.round(result.Report.Tablix8[0].Details_Collection[0].Details[0].$.Textbox150);
         const margePIF = Math.round((result.Report.Tablix8[0].Details_Collection[0].Details[0].$.Textbox140) * 10000) / 100;
         console.log(`Project Name: ${projectName}`);
-        console.log(`Quote: ${quote}`);
-        console.log(`prixVente: ${prixVente} €`);
-        console.log(`margePIF: ${margePIF} %`);
 
         const margeCurrent = Math.round((result.Report.Tablix2[0].$.Textbox36) * 10000) / 100;
         const margeCurrent2 = Math.round(result.Report.Tablix2[0].$.Textbox34);
-        console.log(`margeCurrent: ${margeCurrent} %`);
-        console.log(`margeCurrent2: ${margeCurrent2} €`);
+
 
         const totalCommandes = Math.round(result.Report.Tablix6[0].$.Textbox113);
+        const warranty = Math.round(result.Report.Tablix10[0].$.Textbox112);
+        const services = Math.round(result.Report.Tablix9[0].ForecastModel_Collection[0].ForecastModel[0].$.CostAmount3);
+        console.log("XXXXXX   " + warranty + "   XXXXX   " + services);
+
 
         const details3 = result.Report.Tablix6[0].Details3_Collection[0].Details3;
         const totalAmountJECN = details3
@@ -116,12 +125,43 @@ const Project = mongoose.model("Project", projectSchema);
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
         const totalAmountTransport = details3
-            .filter(obj => obj.$.Supplier === 'HYH' || obj.$.Supplier === 'BECHHANSEN')
+            .filter(obj => obj.$.Supplier === 'HYH' || obj.$.Supplier === 'BECHHANSEN' || obj.$.Supplier === 'SIS')
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
 
 
-        console.log(totalAmountJECN);
+        const totalAmountOLDAM = details3
+            .filter(obj => obj.$.Supplier === 'DIRECTOLDHAM')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountTCS = details3
+            .filter(obj => obj.$.Supplier === 'DIRECTTCS')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountSATELEC = details3
+            .filter(obj => obj.$.Supplier === 'DIRECTSATELEC')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountAPAVE = details3
+            .filter(obj => obj.$.Supplier === 'APAVE')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountKANNE = details3
+            .filter(obj => obj.$.Supplier === 'KANNEGFRAN')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountSODI = details3
+            .filter(obj => obj.$.Supplier === 'SODILEC')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountPMV = details3
+            .filter(obj => obj.$.Supplier === 'PMV')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+
+
+
+
 
 
         // Créer une liste des éléments dans les lignes JENSENCHINA + créer une variable gaz true or false /////////
@@ -245,6 +285,19 @@ const Project = mongoose.model("Project", projectSchema);
             sommeDK: totalAmountJEDK,
             sommeUS: totalAmountJEUS,
             sommeDE: totalAmountJEDE,
+            sommeKANNE: totalAmountKANNE,
+            sommeSODI: totalAmountSODI,
+            sommePMV: totalAmountPMV,
+
+
+            sommeOLDAM: totalAmountOLDAM,
+            sommeTCS: totalAmountTCS,
+            sommeSATELEC: totalAmountSATELEC,
+            sommeAPAVE: totalAmountAPAVE,
+
+
+            warranty: warranty,
+            services: services,
             transport: totalAmountTransport,
             lineText1Concatenatedcn: lineText1Concatenatedcn,
             lineText1Concatenateddk: lineText1Concatenateddk,
@@ -264,6 +317,26 @@ const Project = mongoose.model("Project", projectSchema);
         };
 
 
+
+        const existingProject = await Project.findOne({ quote: quote });
+
+        if (existingProject) {
+            Project.findOneAndUpdate({ quote: quote }, projectData, { new: true }, (error, project) => {
+                if (error) {
+                    console.error(error);
+                } else {
+                    console.log(project);
+                }
+            });
+        } else {
+            Project.create(projectData, (error, project) => {
+                if (error) {
+                    console.error(error);
+                } else {
+                    console.log(project);
+                }
+            });
+        }
 
         // Project.create(projectData, (error, project) => {
         //     if (error) {
@@ -300,6 +373,16 @@ app.route('/projects')
             sommeDK,
             sommeUS,
             sommeDE,
+            sommeKANNE,
+            sommeSODI,
+            sommePMV,
+            sommeOLDAM,
+            sommeTCS,
+            sommeSATELEC,
+            sommeAPAVE,
+
+            warranty,
+            services,
             transport,
             lineText1Concatenatedcn,
             lineText1Concatenateddk,
@@ -325,6 +408,16 @@ app.route('/projects')
             sommeDK,
             sommeUS,
             sommeDE,
+            sommeKANNE,
+            sommeSODI,
+            sommePMV,
+            sommeOLDAM,
+            sommeTCS,
+            sommeSATELEC,
+            sommeAPAVE,
+
+            warranty,
+            services,
             transport,
             lineText1Concatenatedcn,
             lineText1Concatenateddk,

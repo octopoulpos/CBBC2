@@ -29,27 +29,88 @@ const ProjectMongo = (props) => {
         setDeliveryDates(formattedDeliveryDates);
     }, [props]);
 
-    /////
+    ///// paramètres du tableau AX //////
     const data = [
         { name: "JEDK", Total: props.totalDK + " €", liste: props.listeDK },
         { name: "JEDE", Total: props.totalDE + " €", liste: props.listeDE },
         { name: "JECN", Total: props.totalCN + " €", liste: props.listeCN },
         { name: "JEUS", Total: props.totalUS + " €", liste: props.listeUS },
+        { name: "KANNE", Total: props.totalKANNE + " €", liste: "" },
+        { name: "SODI", Total: props.totalSODI + " €", liste: "" },
+        { name: "PMV", Total: props.totalPMV + " €", liste: "" },
+        { name: "OLDAM", Total: props.totalOLDAM + " €", liste: "" },
+        { name: "TCS", Total: props.totalTCS + " €", liste: "" },
+        { name: "SATELEC", Total: props.totalSATELEC + " €", liste: "" },
+        { name: "APAVE", Total: props.totalAPAVE + " €", liste: "" },
         { name: "Manutention/Install", Total: props.totalManut + " €", liste: "" },
         { name: "Transport", Total: props.transport + " €", liste: "" },
+        { name: "warranty", Total: props.warranty + " €", liste: "" },
+        { name: "services", Total: props.services + " €", liste: "" },
         { name: "Autre JEFR", Total: props.totalNoManut + " €", liste: "" },
     ]
 
-    const totalData = props.totalDK + props.totalDE + props.totalCN + props.totalUS + props.totalManut + props.totalNoManut + props.transport + " €";
-    const totalCommandes = props.totalCommandes;
 
-    ////
+    const filteredData = data.filter(item => {
+        const total = item.Total;
+        return total !== undefined && parseFloat(total.replace(" €", "").replace(",", ".")) !== 0;
+    });
+
+
+    const dataWithValues = data.filter(item => {
+        const total = item.Total;
+        return typeof total === 'string' && total.trim().length > 0;
+    });
+
+    const totalData = Math.round(dataWithValues.reduce((total, item) => {
+        const value = parseFloat(item.Total.replace(" €", "").replace(",", "."));
+        return isNaN(value) ? total : total + value;
+    }, 0)).toFixed(0) + " €";
+
+    // const totalCommandes = props.totalCommandes;
+    const totalCommandesWarrantyService = props.totalCommandes + props.warranty + props.services;
+
+    //////// create a form to update the DB ///////////////
+
+    const [quoi, setQuoi] = useState("");
+    const [prix, setPrix] = useState("");
+
+    const handleQuoiChange = (event) => {
+        setQuoi(event.target.value);
+    };
+
+    const handlePrixChange = (event) => {
+        setPrix(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const projectDataNew = { quoi, prix };
+        fetch("/debrief", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(projectDataNew),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                // Do something with the response data
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    };
+
+    //////
 
     const [showDebrief, setShowDebrief] = useState(false);
+    const [showAX, setShowAX] = useState(false);
     const [showAssist, setShowAssist] = useState(false);
 
     const toggleDebrief = () => {
         setShowDebrief(!showDebrief);
+    };
+    const toggleAX = () => {
+        setShowAX(!showAX);
     };
     const toggleAssist = () => {
         setShowAssist(!showAssist);
@@ -59,52 +120,77 @@ const ProjectMongo = (props) => {
         <div className="projet">
             <div className="projetA">
 
-                <h2 style={{ cursor: 'pointer' }} onClick={toggleDebrief}>{props.name} </h2>
+                <h2 style={{ cursor: 'pointer' }} onClick={toggleAX}>{props.name} </h2>
+                <div className={`ax ${showAX ? "visible" : ""}`}>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Total</th>
+                                <th>Liste</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredData.map((val, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{val.name}</td>
+                                        <td>{val.Total}</td>
+                                        <td>{val.liste}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+
+                </div>
+                <h2 style={{ cursor: 'pointer' }} onClick={toggleDebrief}> Débriefing </h2>
                 <div className={`debrief ${showDebrief ? "visible" : ""}`}>
 
                     <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Total</th>
-                            <th>Liste</th>
-                        </tr>
-                        {data.map((val, key) => {
-                            return (
-                                <tr key={key}>
-                                    <td>{val.name}</td>
-                                    <td>{val.Total}</td>
-                                    <td>{val.liste}</td>
-                                </tr>
-                            )
-                        })}
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Total</th>
+                                <th>Liste</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredData.map((val, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{val.name}</td>
+                                        <td>{val.Total}</td>
+                                        <td>{val.liste}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
                     </table>
 
                 </div>
                 <ProgressBar percentage={props.percent} />
-                <h3>
-                    Delivery date DK :{" "}
-                    {deliveryDates["ewdk"] && deliveryDates["ewdk"].length > 0
-                        ? deliveryDates["ewdk"]
-                        : "-"}
-                </h3>
-                <h3>
-                    Delivery date DE :{" "}
-                    {deliveryDates["ewde"] && deliveryDates["ewde"].length > 0
-                        ? deliveryDates["ewde"]
-                        : "-"}
-                </h3>
-                <h3>
-                    Delivery date CN :{" "}
-                    {deliveryDates["ewcn"] && deliveryDates["ewcn"].length > 0
-                        ? deliveryDates["ewcn"]
-                        : "-"}
-                </h3>
-                <h3>
-                    Delivery date US :{" "}
-                    {deliveryDates["ewus"] && deliveryDates["ewus"].length > 0
-                        ? deliveryDates["ewus"]
-                        : "-"}
-                </h3>
+                {deliveryDates["ewdk"] && deliveryDates["ewdk"].length > 0 && (
+                    <h3>
+                        Delivery date DK: {deliveryDates["ewdk"]}
+                    </h3>
+                )}
+                {deliveryDates["ewde"] && deliveryDates["ewde"].length > 0 && (
+                    <h3>
+                        Delivery date DE: {deliveryDates["ewde"]}
+                    </h3>
+                )}
+                {deliveryDates["ewcn"] && deliveryDates["ewcn"].length > 0 && (
+                    <h3>
+                        Delivery date CN: {deliveryDates["ewcn"]}
+                    </h3>
+                )}
+                {deliveryDates["ewus"] && deliveryDates["ewus"].length > 0 && (
+                    <h3>
+                        Delivery date US: {deliveryDates["ewus"]}
+                    </h3>
+                )}
                 <h3><br></br></h3>
                 <img
                     onClick={toggleAssist}
@@ -132,8 +218,21 @@ const ProjectMongo = (props) => {
                 <h4>Last AX import : {props.today}</h4>
                 <h4>Marge PIF : {props.margePIF}</h4>
                 <h4>Marge en cours : {props.margeCurrent}</h4>
-                <h4>Total Commandes AX : {totalCommandes + " €"}</h4>
+                <h4>Total AX : {totalCommandesWarrantyService + " €"}</h4>
                 <h4>Total Commandes en cours  : {totalData + " €"}</h4>
+
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        Rentrer dépense :
+                        <input type="text" value={quoi} onChange={handleQuoiChange} />
+                    </label>
+                    <label>
+                        Coût :
+                        <input type="text" value={prix} onChange={handlePrixChange} />
+                    </label>
+                    <button type="submit">Submit</button>
+                </form>
+      
             </div>
         </div>
     );

@@ -127,6 +127,18 @@ body {
   font-weight: 200;
 }
 
+.ax {
+  border: 3px solid rgba(12, 104, 215, 0.9);
+  border-radius: 5px;
+  margin: 1%;
+  width: 100%;
+  visibility:collapse;
+}
+
+.ax.visible {
+  visibility: visible;
+}
+
 .debrief {
   border: 3px solid rgba(12, 104, 215, 0.9);
   border-radius: 5px;
@@ -208,9 +220,6 @@ body {
   color: rgb(16, 6, 202);
 }
 
-.projedsdsdsdsdsdsA h2:hover {
-  color: rgb(140, 0, 19);
-}
 
 .projetB {
   width: 25%;
