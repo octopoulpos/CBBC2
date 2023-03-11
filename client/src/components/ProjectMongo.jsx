@@ -82,23 +82,26 @@ const ProjectMongo = (props) => {
         setPrix(event.target.value);
     };
 
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        const projectDataNew = { quoi, prix };
+        console.log(props.quote);
+        const filter = { quote: props.quote };
+        const update = { $set: { newField: prix } }; // update the value of newField with prix
         fetch("/debrief", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(projectDataNew),
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ filter, update }),
         })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                // Do something with the response data
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-    };
+        
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      };
+
+
+
 
     //////
 
@@ -176,6 +179,8 @@ const ProjectMongo = (props) => {
                         Delivery date DK: {deliveryDates["ewdk"]}
                     </h3>
                 )}
+
+
                 {deliveryDates["ewde"] && deliveryDates["ewde"].length > 0 && (
                     <h3>
                         Delivery date DE: {deliveryDates["ewde"]}
@@ -214,7 +219,7 @@ const ProjectMongo = (props) => {
             </div>
             <div className="projetB">
 
-                <h4>quote : {props.notes}</h4>
+                <h4>quote : {props.quote}</h4>
                 <h4>Last AX import : {props.today}</h4>
                 <h4>Marge PIF : {props.margePIF}</h4>
                 <h4>Marge en cours : {props.margeCurrent}</h4>
@@ -232,7 +237,7 @@ const ProjectMongo = (props) => {
                     </label>
                     <button type="submit">Submit</button>
                 </form>
-      
+
             </div>
         </div>
     );

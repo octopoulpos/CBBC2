@@ -80,6 +80,7 @@ const projectSchema = new mongoose.Schema({
     totalTotal: Number,
     totalCommandes: Number,
     checkSumProject: Boolean,
+    newField: Number,
 });
 
 
@@ -228,10 +229,6 @@ const Project = mongoose.model("Project", projectSchema);
         const jedeDates = [...senkingDates];
         const jeusDates = [...jenusaeuroDates];
 
-        console.log(jecnDates);
-        console.log(jedkDates);
-        console.log(jedeDates);
-        console.log(jeusDates);
 
 
         /////////// Sum up DeliverRemainderAmountCurrency when Supplier is "JENSEN" and LineText1 includes "Manutention"
@@ -317,10 +314,11 @@ const Project = mongoose.model("Project", projectSchema);
         };
 
 
-
         const existingProject = await Project.findOne({ quote: quote });
 
         if (existingProject) {
+
+
             Project.findOneAndUpdate({ quote: quote }, projectData, { new: true }, (error, project) => {
                 if (error) {
                     console.error(error);
@@ -337,20 +335,11 @@ const Project = mongoose.model("Project", projectSchema);
                 }
             });
         }
-
-        // Project.create(projectData, (error, project) => {
-        //     if (error) {
-        //         console.error(error);
-        //     } else {
-        //         console.log(project);
-        //     }
-        // });
-
-
     } catch (err) {
         console.error(err);
     }
 })();
+
 
 
 app.route('/projects')
@@ -434,6 +423,8 @@ app.route('/projects')
             totalCommandes
         });
 
+
+
         project.save((err) => {
             if (err) {
                 res.status(500).send({ message: err.message });
@@ -441,9 +432,27 @@ app.route('/projects')
                 res.status(201).json(project);
             }
         });
-    });
+    })
 
+app.patch('/debrief', (req, res) => {
+   
+    const filter = req.body.filter;
+    const update = req.body.update;
 
+    // Find the project by quote and update the newField
+    Project.findOneAndUpdate(filter, update,
+        { new: true }, // return the updated document
+        (err, doc) => {
+            if (err) {
+                console.error(err);
+                res.status(500).json({ error: 'An error occurred while updating the document.' });
+            } else {
+                console.log(doc);
+                res.status(200).json({ message: 'Document updated successfully.' });
+            }
+        }
+    );
+});
 
 
 

@@ -23,7 +23,8 @@ const ProjectsListMongo = () => {
         .sort((a, b) => a?.nom?.localeCompare(b?.nom)) // sort projects by 'nom' property
         .map((project) => (
           <ProjectMongo
-            key={project._id}
+            key={project.quote}
+            quote={project.quote}
             today={project.today}
             name={project.nom}
             ewdk={project.jedkDates}
@@ -56,7 +57,7 @@ const ProjectsListMongo = () => {
             listeDK={project.lineText1Concatenateddk}
             listeDE={project.lineText1Concatenatedde}
             listeUS={project.lineText1Concatenatedus}
-            notes={project.quote}
+    
           />
         ))}
     </div>
