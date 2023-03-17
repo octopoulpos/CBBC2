@@ -5,7 +5,6 @@ import axios from "axios";
 const ProjectsListMongo = () => {
   const [projects, setProjects] = useState([]);
 
-
   useEffect(() => {
     axios
       .get("/projects")
@@ -17,10 +16,12 @@ const ProjectsListMongo = () => {
       });
   }, []);
 
+
   return (
     <div>
       {projects
-        .sort((a, b) => a?.nom?.localeCompare(b?.nom)) // sort projects by 'nom' property
+        //.sort((a, b) => a?.nom?.localeCompare(b?.nom)) 
+        .sort((a, b) => new Date(b.today) - new Date(a.today))  
         .map((project) => (
           <ProjectMongo
             key={project.quote}
@@ -31,6 +32,8 @@ const ProjectsListMongo = () => {
             ewde={project.jedeDates}
             ewcn={project.jecnDates}
             ewus={project.jeusDates}
+            ewiw={project.jeiwDates}
+            prixVente={project.prixVente}
             margePIF={project.margePIF}
             margeCurrent={project.margeCurrent}
             totalCommandes={project.totalCommandes}
@@ -39,6 +42,7 @@ const ProjectsListMongo = () => {
             totalDK={project.sommeDK}
             totalDE={project.sommeDE}
             totalUS={project.sommeUS}
+            totalIW={project.sommeIW}
             totalKANNE={project.sommeKANNE}
             totalSODI={project.sommeSODI}
             totalPMV={project.sommePMV}
@@ -57,8 +61,8 @@ const ProjectsListMongo = () => {
             listeDK={project.lineText1Concatenateddk}
             listeDE={project.lineText1Concatenatedde}
             listeUS={project.lineText1Concatenatedus}
-    
-            newField={project.newField}
+
+            newField0={project.newField0}
             newField1={project.newField1}
             newField2={project.newField2}
             newField3={project.newField3}
@@ -68,6 +72,17 @@ const ProjectsListMongo = () => {
             newField7={project.newField7}
             newField8={project.newField8}
             newField9={project.newField9}
+
+            dField0={project.dField0}
+            dField1={project.dField1}
+            dField2={project.dField2}
+            dField3={project.dField3}
+            dField4={project.dField4}
+            dField5={project.dField5}
+            dField6={project.dField6}
+            dField7={project.dField7}
+            dField8={project.dField8}
+            dField9={project.dField9}
           />
         ))}
     </div>

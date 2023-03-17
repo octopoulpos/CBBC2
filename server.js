@@ -56,6 +56,7 @@ const projectSchema = new mongoose.Schema({
     sommeDK: Number,
     sommeUS: Number,
     sommeDE: Number,
+    sommeIW: Number,
     sommeKANNE: Number,
     sommeSODI: Number,
     sommePMV: Number,
@@ -77,10 +78,11 @@ const projectSchema = new mongoose.Schema({
     jedeDates: [Date],
     jecnDates: [Date],
     jeusDates: [Date],
+    jeiwDates: [Date],
     totalTotal: Number,
     totalCommandes: Number,
     checkSumProject: Boolean,
-    newField: Number,
+    newField0: Number,
     newField1: Number,
     newField2: Number,
     newField3: Number,
@@ -90,6 +92,16 @@ const projectSchema = new mongoose.Schema({
     newField7: Number,
     newField8: Number,
     newField9: Number,
+    dField0: String,
+    dField1: String,
+    dField2: String,
+    dField3: String,
+    dField4: String,
+    dField5: String,
+    dField6: String,
+    dField7: String,
+    dField8: String,
+    dField9: String,
 });
 
 
@@ -132,6 +144,10 @@ const Project = mongoose.model("Project", projectSchema);
             .reduce((sum, amount) => sum + amount, 0);
         const totalAmountJEDE = details3
             .filter(obj => obj.$.Supplier === 'SENKING')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountINWATEC = details3
+            .filter(obj => obj.$.Supplier === 'INWATEC')
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
         const totalAmountTransport = details3
@@ -208,6 +224,13 @@ const Project = mongoose.model("Project", projectSchema);
 
         console.log(lineText1Concatenatedus);
 
+        // Créer une liste des éléments dans les lignes JEUS + créer une variable gaz true or false /////////
+        const INWATECItems = result.Report.Tablix6[0].Details3_Collection[0].Details3.filter(item => item.$.Supplier === 'INWATEC');
+        const lineText1Valuesiw = jeusItems.map(item => item.$.LineText1);
+        const lineText1Concatenatediw = lineText1Valuesus.join(' + ');
+
+        console.log(lineText1Concatenatediw);
+
         /////////////////////////// extraction delivery dates //////////////////////////////////////////
 
         const jecnItemsdeliv = result.Report.Tablix6[0].Details3_Collection[0].Details3;
@@ -216,6 +239,7 @@ const Project = mongoose.model("Project", projectSchema);
         const jensendkDates = new Set();
         const senkingDates = new Set();
         const jenusaeuroDates = new Set();
+        const iwDates = new Set();
 
         jecnItemsdeliv.forEach(item => {
             const supplier = item.$.Supplier;
@@ -230,6 +254,8 @@ const Project = mongoose.model("Project", projectSchema);
                 senkingDates.add(dateString);
             } else if (supplier === 'JENUSAEURO') {
                 jenusaeuroDates.add(dateString);
+            } else if (supplier === 'INWATEC') {
+                jenusaeuroDates.add(dateString);
             }
         });
 
@@ -237,6 +263,7 @@ const Project = mongoose.model("Project", projectSchema);
         const jedkDates = [...jensendkDates];
         const jedeDates = [...senkingDates];
         const jeusDates = [...jenusaeuroDates];
+        const jeiwDates = [...iwDates];
 
 
 
@@ -291,6 +318,7 @@ const Project = mongoose.model("Project", projectSchema);
             sommeDK: totalAmountJEDK,
             sommeUS: totalAmountJEUS,
             sommeDE: totalAmountJEDE,
+            sommeIW: totalAmountINWATEC,
             sommeKANNE: totalAmountKANNE,
             sommeSODI: totalAmountSODI,
             sommePMV: totalAmountPMV,
@@ -316,7 +344,7 @@ const Project = mongoose.model("Project", projectSchema);
             jedeDates: jedeDates,
             jecnDates: jecnDates,
             jeusDates: jeusDates,
-
+            jeiwDates: jeiwDates,
             totalTotal: totalTotal,
             totalCommandes: totalCommandes,
             checkSumProject: checkSumProject,
@@ -372,6 +400,7 @@ app.route('/projects')
             sommeDK,
             sommeUS,
             sommeDE,
+            sommeIW,
             sommeKANNE,
             sommeSODI,
             sommePMV,
@@ -394,9 +423,10 @@ app.route('/projects')
             jedeDates,
             jecnDates,
             jeusDates,
+            jeiwDates,
             totalTotal,
             totalCommandes,
-            newField,
+            newField0,
             newField1,
             newField2,
             newField3,
@@ -406,6 +436,16 @@ app.route('/projects')
             newField7,
             newField8,
             newField9,
+            dField0,
+            dField1,
+            dField2,
+            dField3,
+            dField4,
+            dField5,
+            dField6,
+            dField7,
+            dField8,
+            dField9,
         } = req.body;
 
         const project = new Project({
@@ -417,6 +457,7 @@ app.route('/projects')
             sommeDK,
             sommeUS,
             sommeDE,
+            sommeIW,
             sommeKANNE,
             sommeSODI,
             sommePMV,
@@ -439,6 +480,7 @@ app.route('/projects')
             jedeDates,
             jecnDates,
             jeusDates,
+            jeiwDates,
             totalTotal,
             totalCommandes
         });
@@ -455,36 +497,36 @@ app.route('/projects')
     })
 
 
-      
-    
 
-    app.patch('/debrief', (req, res) => {
 
-        const filter = req.body.filter;
-        const update = req.body.update;
 
-        // Find the project by quote and update the newField
-        Project.findOneAndUpdate(filter, update,
-            { new: true }, // return the updated document
-            (err, doc) => {
-                if (err) {
-                    console.error(err);
-                    res.status(500).json({ error: 'An error occurred while updating the document.' });
-                } else {
-                    console.log(doc);
-                    res.status(200).json({ message: 'Document updated successfully.' });
-                }
+app.patch('/debrief', (req, res) => {
+
+    const filter = req.body.filter;
+    const update = req.body.update;
+
+    // Find the project by quote and update the newField
+    Project.findOneAndUpdate(filter, update,
+        { new: true }, // return the updated document
+        (err, doc) => {
+            if (err) {
+                console.error(err);
+                res.status(500).json({ error: 'An error occurred while updating the document.' });
+            } else {
+                console.log(doc);
+                res.status(200).json({ message: 'Document updated successfully.' });
             }
-        );
-    });
-  
+        }
+    );
+});
 
 
-    app.use(session({
-        secret: "ourlittlesecret.",
-        resave: false,
-        saveUninitialized: false
-    }));
+
+app.use(session({
+    secret: "ourlittlesecret.",
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());

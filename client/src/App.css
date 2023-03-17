@@ -151,6 +151,11 @@ body {
   visibility: visible;
 }
 
+.debriefh4 {
+  color: #23058f;
+  background-color: #53b783;
+}
+
 .assist {
   border: 3px solid rgba(12, 104, 215, 0.9);
   border-radius: 5px;
@@ -224,6 +229,9 @@ body {
 .projetB {
   width: 25%;
   margin: 5% 0 0 2%;
+}
+.projetB h4 {
+  margin: 3%;
 }
 
 .projectCal {

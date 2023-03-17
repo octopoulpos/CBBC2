@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
-
+import axios from "axios";
 
 const ProjectMongo = (props) => {
 
@@ -35,6 +35,7 @@ const ProjectMongo = (props) => {
         { name: "JEDE", Total: props.totalDE + " €", liste: props.listeDE },
         { name: "JECN", Total: props.totalCN + " €", liste: props.listeCN },
         { name: "JEUS", Total: props.totalUS + " €", liste: props.listeUS },
+        { name: "JEIW", Total: props.totalIW + " €", liste: props.listeIW },
         { name: "KANNE", Total: props.totalKANNE + " €", liste: "" },
         { name: "SODI", Total: props.totalSODI + " €", liste: "" },
         { name: "PMV", Total: props.totalPMV + " €", liste: "" },
@@ -50,30 +51,39 @@ const ProjectMongo = (props) => {
     ]
 
     const dataDebrief = [
-        { name: "0", Total: props.newField + " €", liste: "" },
-        { name: "1", Total: props.newField1 + " €", liste: "" },
-        { name: "2", Total: props.newField2 + " €", liste: "" },
-        { name: "3", Total: props.newField3 + " €", liste: "" },
-        { name: "4", Total: props.newField4 + " €", liste: "" },
-        { name: "5", Total: props.newField5 + " €", liste: "" },
-        { name: "6", Total: props.newField6 + " €", liste: "" },
-        { name: "7", Total: props.newField7 + " €", liste: "" },
-        { name: "8", Total: props.newField8 + " €", liste: "" },
-        { name: "9", Total: props.newField9 + " €", liste: "" },
-
-
+        { name: "0", Total: props.newField0 + " €", liste: props.dField0 },
+        { name: "1", Total: props.newField1 + " €", liste: props.dField1 },
+        { name: "2", Total: props.newField2 + " €", liste: props.dField2 },
+        { name: "3", Total: props.newField3 + " €", liste: props.dField3 },
+        { name: "4", Total: props.newField4 + " €", liste: props.dField4 },
+        { name: "5", Total: props.newField5 + " €", liste: props.dField5 },
+        { name: "6", Total: props.newField6 + " €", liste: props.dField6 },
+        { name: "7", Total: props.newField7 + " €", liste: props.dField7 },
+        { name: "8", Total: props.newField8 + " €", liste: props.dField8 },
+        { name: "9", Total: props.newField9 + " €", liste: props.dField9 },
 
     ]
+
+    const totalNewFields = [
+        props.newField0,
+        props.newField1,
+        props.newField2,
+        props.newField3,
+        props.newField4,
+        props.newField5,
+        props.newField6,
+        props.newField7,
+        props.newField8,
+        props.newField9
+    ].reduce((accumulator, currentValue) => accumulator + parseFloat(currentValue || 0), 0);
+
 
     const filteredData = data.filter(item => {
         const total = item.Total;
         const parsedTotal = parseFloat(total.replace(" €", "").replace(",", "."));
         return !isNaN(parsedTotal) && parsedTotal !== 0;
     });
-    // const filteredData = data.filter(item => {
-    //     const total = item.Total;
-    //     return total !== undefined && parseFloat(total.replace(" €", "").replace(",", ".")) !== 0;
-    // });
+
     const filteredDataDebrief = dataDebrief.filter(item => {
         const total = item.Total;
         const parsedTotal = parseFloat(total.replace(" €", "").replace(",", "."));
@@ -93,10 +103,18 @@ const ProjectMongo = (props) => {
     // const totalCommandes = props.totalCommandes;
     const totalCommandesWarrantyService = props.totalCommandes + props.warranty + props.services;
 
+    const totalDebrief = props.totalCommandes + props.warranty + props.services + totalNewFields;
+
+    const margeAjustee = Math.round(((1 - (totalDebrief / props.prixVente)) * 100) * 100) / 100;
+
+
+
+
     //////// create a form to update the DB ///////////////
 
     const [quoi, setQuoi] = useState("");
     const [prix, setPrix] = useState("");
+    const [description, setDescription] = useState("");
 
     const handleQuoiChange = (event) => {
         setQuoi(event.target.value);
@@ -106,32 +124,29 @@ const ProjectMongo = (props) => {
         setPrix(event.target.value);
     };
 
+    const handleDescriptionChange = (event) => {
+        setDescription(event.target.value);
+    };
+
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(props.quote);
         const fieldNumber = parseInt(quoi);
-        const update = { $set: { [`newField${fieldNumber}`]: prix } }; // update the corresponding newField with prix
+        const update = { $set: { [`newField${fieldNumber}`]: prix, [`dField${fieldNumber}`]: description } }
+        // const update = { $set: { [`newField${fieldNumber}`]: prix } };
         const filter = { quote: props.quote };
-        fetch("/debrief", {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ filter, update }),
-        })
-            .then((response) => response.json())
-            // .then((data) => {
-            //     console.log(data);
-            //     // Handle the response from the server
-            //     if (data.modifiedCount === 1) {
-            //         alert("New fields added successfully!");
-            //     } else {
-            //         alert("Failed to add new fields!");
-            //         console.log(JSON.stringify({ filter, update }))
-            //     }
-            // })
+        axios
+
+            .patch("/debrief", { filter, update })
+            .then(() => {
+                window.location.reload();
+            })
             .catch((error) => {
                 console.error("Error:", error);
             });
     };
+
 
 
     //////
@@ -219,8 +234,6 @@ const ProjectMongo = (props) => {
                         Delivery date DK: {deliveryDates["ewdk"]}
                     </h3>
                 )}
-
-
                 {deliveryDates["ewde"] && deliveryDates["ewde"].length > 0 && (
                     <h3>
                         Delivery date DE: {deliveryDates["ewde"]}
@@ -234,6 +247,11 @@ const ProjectMongo = (props) => {
                 {deliveryDates["ewus"] && deliveryDates["ewus"].length > 0 && (
                     <h3>
                         Delivery date US: {deliveryDates["ewus"]}
+                    </h3>
+                )}
+                {deliveryDates["ewiw"] && deliveryDates["ewiw"].length > 0 && (
+                    <h3>
+                        Delivery date INWATEC: {deliveryDates["ewiw"]}
                     </h3>
                 )}
                 <h3><br></br></h3>
@@ -261,21 +279,28 @@ const ProjectMongo = (props) => {
 
                 <h4>quote : {props.quote}</h4>
                 <h4>Last AX import : {props.today}</h4>
-                <h4>Marge PIF : {props.margePIF}</h4>
-                <h4>Marge en cours : {props.margeCurrent}</h4>
+                <h4>Prix de vente : {props.prixVente + " €"}</h4>
+                <h4>Marge PIF : {props.margePIF + " %"}</h4>
+                <h4>Marge en cours : {props.margeCurrent + " %"}</h4>
                 <h4>Total AX : {totalCommandesWarrantyService + " €"}</h4>
                 <h4>Total Commandes en cours  : {totalData + " €"}</h4>
+                <h4 className="debriefh4">Total Ajusté  : {totalDebrief + " €"}</h4>
+                <h4 className="debriefh4">Marge Ajusté  : {margeAjustee + " %"}</h4>
 
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Case N° :
+                        N° :
                         <input type="text" value={quoi} onChange={handleQuoiChange} />
                     </label>
                     <label>
                         Coût :
                         <input type="text" value={prix} onChange={handlePrixChange} />
                     </label>
-                    <button type="submit">Submit</button>
+                    <label>
+                        Déscription :
+                        <input type="text" value={description} onChange={handleDescriptionChange} />
+                    </label>
+                    <button type="submit">Envoyer</button>
                 </form>
 
             </div>
