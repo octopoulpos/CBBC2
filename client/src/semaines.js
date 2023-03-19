@@ -1,20 +1,21 @@
 const semaines = [
-    
+      
+   
     {
-      id: 202307,
-      name: "S07",
-      done : " Récupération liste et données projets, prise en main Littoral : préparaion et proposition planning, orga réunion, check plan structure avec FC (!), avance EW Z1200, Boulogne : check plan avec JC, échanges avec AP:validation => change order demande en cours ",
-      jours : "3 jours : mardi, mercredi, jeudi (+bricoles Vendredi) => facturé 3 jours",
-      suite: "Planifier équipes ; débriefer..",
-      notes: "",
+      id: 202308,
+      name: "S11",
+      done : " Grenoble : planning validé, équipes plannifiées, ~débriefé, màj OC DK/PMV, point client... // Littoral : problème poteaux réglé, point tuyauterie ATIS.. // Vichy : prépa visite, !check SILER, prépa planning, // Boisset : Point client/INWATEC ok , clarification fonctionnement //  Occitane : prépa visite ",
+      jours : "Mardi + Jeudi",
+      suite: "--",
+      notes: "Mars : S09=1+0,5 S10=2+0,5 S11=2 === 2j/semaine (+ compte 3h qui trainent pour la visite de Grenoble, on verra ce que j'en fait, je ne te facture pas le temps en voiture pour cette journée ) ",
     },
     {
       id: 202308,
-      name: "S08",
-      done : " L: Littoral : Planning, QSP, HERREWYN, STS, JEFR+DE, consult FRADIN charp // Vichy confirmation fonctionnement DK, prise en main projet // périgueux planification équipe .. ; Mardi : check ttes dates install, point planning Gianni  consult CSB .., occitane prise en main dossier (PMV..), début planif K Vichy..; Jeudi : visite Littoral, check avec tuyauteur, point client (découpe..), check manut ; Vendredi : réunion Littoral, planning d'installation, clarification découpe + points techniques .. traçage fosses.. incertitudes implantation TGP.. ",
-      jours : "Lundi + Mardi + Jeudi + Vendredi => facturé 4 jours",
+      name: "S10",
+      done : "L : Grenoble prépa visite, check plan, check possibilité planning/équipes.. Sodi..Kanne..; contact Occitane ; check INWATEC Boisset ... ,Périgueux check CDC/contract ; Mardi : point sur site avec client, check implantation, check manutention..  ; Mercredi : Point BOISSET/INWATEC/THERMOPATCH , CR Grenoble, propo planning , check commandes, check fonctionnement .. Vendredi matin : Grenoble++ planning, interférences Kanne/sodi, réponse client, plans, modif tapis.. Boisset échanges INW/client ..   ",
+      jours : "Lundi + 3H Mardi [visite Grenoble]//temps en voiture pas compté + Mercredi + Vmatin  ",
       suite: "--",
-      notes: "-- ",
+      notes: "Mars : à facturer, en cours fin de semaine : S09=1+0,5 S10=2+0,5 == 4 jours (+ compte 3h qui trainent pour la visite de Grenoble, on verra ce que j'en fait, je ne te facture pas le temps en voiture pour cette journée ) ",
     },
     {
       id: 202308,
@@ -26,11 +27,19 @@ const semaines = [
     },
     {
       id: 202308,
-      name: "S10",
-      done : "L : Grenoble prépa visite, check plan, check possibilité planning/équipes.. Sodi..Kanne..; contact Occitane ; check INWATEC Boisset ... ,Périgueux check CDC/contract ; Mardi : point sur site avec client, check implantation, check manutention..  ; Mercredi : Point BOISSET/INWATEC/THERMOPATCH , CR Grenoble, propo planning , check commandes, check fonctionnement .. Vendredi matin : Grenoble++ planning, interférences Kanne/sodi, réponse client, plans, modif tapis.. Boisset échanges INW/client ..   ",
-      jours : "Lundi + 3H Mardi [visite Grenoble]//temps en voiture pas compté + Mercredi + Vmatin  ",
+      name: "S08",
+      done : " L: Littoral : Planning, QSP, HERREWYN, STS, JEFR+DE, consult FRADIN charp // Vichy confirmation fonctionnement DK, prise en main projet // périgueux planification équipe .. ; Mardi : check ttes dates install, point planning Gianni  consult CSB .., occitane prise en main dossier (PMV..), début planif K Vichy..; Jeudi : visite Littoral, check avec tuyauteur, point client (découpe..), check manut ; Vendredi : réunion Littoral, planning d'installation, clarification découpe + points techniques .. traçage fosses.. incertitudes implantation TGP.. ",
+      jours : "Lundi + Mardi + Jeudi + Vendredi => facturé 4 jours",
       suite: "--",
-      notes: "Mars : à facturer, en cours fin de semaine : S09=1+0,5 S10=2+0,5 == 4 jours (+ compte 3h qui trainent pour la visite de Grenoble, on verra ce que j'en fait, je ne te facture pas le temps en voiture pour cette journée ) ",
+      notes: "-- ",
+    },
+    {
+      id: 202307,
+      name: "S07",
+      done : " Récupération liste et données projets, prise en main Littoral : préparaion et proposition planning, orga réunion, check plan structure avec FC (!), avance EW Z1200, Boulogne : check plan avec JC, échanges avec AP:validation => change order demande en cours ",
+      jours : "3 jours : mardi, mercredi, jeudi (+bricoles Vendredi) => facturé 3 jours",
+      suite: "Planifier équipes ; débriefer..",
+      notes: "",
     },
   ];
   

@@ -3,10 +3,6 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const axios = require('axios');
-const session = require('express-session');
-const passport = require('passport');
-const passportLocalMongoose = require('passport-local-mongoose');
-const LocalStrategy = require('passport-local').Strategy;
 require('dotenv').config();
 const cors = require('cors');
 
@@ -60,8 +56,6 @@ const projectSchema = new mongoose.Schema({
     sommeKANNE: Number,
     sommeSODI: Number,
     sommePMV: Number,
-    sommeNUOVA: Number,
-    sommeSILER: Number,
     sommeOLDAM: Number,
     sommeTCS: Number,
     sommeSATELEC: Number,
@@ -182,18 +176,11 @@ const Project = mongoose.model("Project", projectSchema);
             .filter(obj => obj.$.Supplier === 'SODILEC')
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountSILER = details3
-            .filter(obj => obj.$.Supplier === 'SILER')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
         const totalAmountPMV = details3
             .filter(obj => obj.$.Supplier === 'PMV')
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountNUOVA = details3
-            .filter(obj => obj.$.Supplier === 'NUOVAFOLATI')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
+
 
 
 
@@ -330,9 +317,8 @@ const Project = mongoose.model("Project", projectSchema);
             sommeIW: totalAmountINWATEC,
             sommeKANNE: totalAmountKANNE,
             sommeSODI: totalAmountSODI,
-            sommeSILER: totalAmountSILER,
             sommePMV: totalAmountPMV,
-            sommeNUOVA: totalAmountNUOVA,
+
 
             sommeOLDAM: totalAmountOLDAM,
             sommeTCS: totalAmountTCS,
@@ -413,9 +399,7 @@ app.route('/projects')
             sommeIW,
             sommeKANNE,
             sommeSODI,
-            sommeSILER,
             sommePMV,
-            sommeNUOVA,
             sommeOLDAM,
             sommeTCS,
             sommeSATELEC,
@@ -472,9 +456,7 @@ app.route('/projects')
             sommeIW,
             sommeKANNE,
             sommeSODI,
-            sommeSILER,
             sommePMV,
-            sommeNUOVA,
             sommeOLDAM,
             sommeTCS,
             sommeSATELEC,
@@ -511,9 +493,6 @@ app.route('/projects')
     })
 
 
-
-
-
 app.patch('/debrief', (req, res) => {
 
     const filter = req.body.filter;
@@ -534,176 +513,7 @@ app.patch('/debrief', (req, res) => {
     );
 });
 
-
-
-app.use(session({
-    secret: "ourlittlesecret.",
-    resave: false,
-    saveUninitialized: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-const authAPIEndpoint = "http://localhost:5000/auth";
-
-
-
-
-
-const userSchema = new mongoose.Schema({
-    nom: String,
-    email: String,
-    password: String,
-    passwordcc: String
-});
-
-userSchema.plugin(passportLocalMongoose);
-
-const User = mongoose.model("User", userSchema);
-
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, './client/build/index.html'))
-})
-
-app.get('/portail-enedis',
-    passport.authenticate('local', { failureRedirect: '/login' }),
-    function (req, res) {
-        if (!req.user) {
-            res.redirect('/login');
-        } else {
-            // If authentication succeeds, return the user profile
-            res.json({
-                user: req.user
-            });
-        }
-    });
-
-////////////////Requests Targetting All Users///////////////////////////////////////
-app.route("/users")
-
-    .get(function (req, res) {
-        User.find(function (err, foundusers) {
-            if (!err) {
-                res.send(foundusers);
-            } else {
-                res.send(err);
-            }
-        })
-    })
-
-    .post(function (req, res) {
-        console.log(req.body.nom);
-        console.log(req.body.password);
-
-        User.register({ username: req.body.nom }, req.body.password, function (err, user) {
-            if (err) {
-                console.log(err);
-                res.redirect("/Connexion")
-            } else {
-                passport.authenticate("local")(req, res, function () {
-                    res.redirect("/portail-enedis");
-                });
-            }
-        });
-
-
-        // const newUser = new User({
-        //     nom: req.body.nom,
-        //     password: req.body.password,
-        //     passwordcc: req.body.passwordcc
-        // });
-
-        // newUser.save(function (err) {
-        //     if (!err) {
-        //         res.redirect("/Connexion");
-        //     } else {
-        //         res.send(err);
-        //     }
-        // });
-    });
-
-
-////////////////Requests Targetting A Specific Users///////////////////////////////////////
-app.route("/users/:userNom")
-
-    .get(function (req, res) {
-        User.findOne({ nom: req.params.userTitle }, function (err, foundUser) {
-            if (foundUser) {
-                res.send(foundUser);
-            } else {
-                res.send("Cet utilisateur n'est pas enregistré")
-            }
-        });
-    });
-
-
-app.use('/auth', oAuth, (req, res) => {
-    console.log('Protected endpoint called');
-    // Your protected endpoint logic here
-});
-
-app.route("/auth")
-    .get(async (req, res) => {
-        console.log("Protected endpoint called");
-
-        res.send({
-            msg: "Connected to auth api",
-        });
-
-        try {
-            const { access_token } = req.oauth;
-            const response = await axios({
-                method: "get",
-                url: authAPIEndpoint,
-                headers: { Authorization: `Bearer ${access_token}` },
-            });
-            res.json(response.data);
-        } catch (error) {
-            console.log(error);
-            if (error.response.status === 401) {
-                res.status(401).json("Unauthorized to access data");
-            } else if (error.response.status === 403) {
-                res.status(403).json("Permission denied");
-            } else {
-                res.status(500).json("MMMhhhh, quelque chose ne va pas ..");
-            }
-        }
-    });
-
-
-
 app.listen(PORT, () => {
     console.log(`Serveur lancé sur le port : ${PORT}`)
 });
 
-
-// app.get("/auth", async (req, res) => {
-
-//     res.send({
-//         msg: 'Connected to auth api'
-//     })
-
-//     try {
-//         const { access_token } = req.oauth;
-//         const response = await axios({
-//             method: "get",
-//             url: authAPIEndpoint,
-//             headers: { Authorization: `Bearer ${access_token}` },
-//         });
-//         res.json(response.data);
-
-//     } catch (error) {
-//         console.log(error);
-//         if (error.response.status === 401) {
-//             res.status(401).json("Unauthorized to access data");
-//         } else if (error.response.status === 403) {
-//             res.status(403).json("Permission denied");
-//         } else {
-//             res.status(500).json("MMMhhhh, quelque chose ne va pas ..");
-//         }
-//     }
-// });

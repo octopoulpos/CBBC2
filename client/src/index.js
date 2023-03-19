@@ -12,6 +12,7 @@ import Portail from "./Portail";
 import PortailEne from "./PortailEne";
 import Wdc from './Wdc';
 import WdcS from './WdcS';
+import Alma from './Alma';
 import ErrorPage from "./error-page";
 import Contact from './routes/contact';
 import Connexion from './Connexion';
@@ -57,7 +58,14 @@ const router = createBrowserRouter([
     path: "/cbbc-enedis",
     element: <Portail />,
   },
+  {
+    path: "/Alma",
+    element: <Alma />,
+    errorElement: <ErrorPage />,
+  },
 ]);
+
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

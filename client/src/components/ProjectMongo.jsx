@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Assistant from "./Assistant";
 import ProgressBar from "./ProgressBar";
 import axios from "axios";
 
@@ -39,6 +40,8 @@ const ProjectMongo = (props) => {
         { name: "KANNE", Total: props.totalKANNE + " €", liste: "" },
         { name: "SODI", Total: props.totalSODI + " €", liste: "" },
         { name: "PMV", Total: props.totalPMV + " €", liste: "" },
+        { name: "NUOVAFOLATI", Total: props.totalNUOVA + " €", liste: "" },
+        { name: "SILER", Total: props.totalSILER + " €", liste: "" },
         { name: "OLDAM", Total: props.totalOLDAM + " €", liste: "" },
         { name: "TCS", Total: props.totalTCS + " €", liste: "" },
         { name: "SATELEC", Total: props.totalSATELEC + " €", liste: "" },
@@ -263,16 +266,10 @@ const ProjectMongo = (props) => {
                     title="Hi dear, how may I help you today ?"
                 />
                 <div className={`assist ${showAssist ? "visible" : ""}`}>
-                    <h3>Hi darling ! I'm your personnal assistant, how may I help you today ?</h3>
-                    <h4>Planning </h4>
-                    <h4>Plan </h4>
-                    <h4>Envoyer email client : validation date d'installation </h4>
-                    <h4>Envoyer email ADV : check transport </h4>
-                    <h4>Envoyer email ST : check équipes </h4>
-                    <h4>Envoyer email WEISHAUPT </h4>
-                    <h4>Consulter pour installation</h4>
-                    <h4>Consulter pour raccordement</h4>
+                  
+                    <Assistant name={props.name}  />
                 </div>
+               
 
             </div>
             <div className="projetB">
