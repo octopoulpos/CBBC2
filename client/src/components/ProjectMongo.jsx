@@ -42,6 +42,7 @@ const ProjectMongo = (props) => {
         { name: "PMV", Total: props.totalPMV + " €", liste: "" },
         { name: "NUOVAFOLATI", Total: props.totalNUOVA + " €", liste: "" },
         { name: "SILER", Total: props.totalSILER + " €", liste: "" },
+        { name: "FRADIN", Total: props.totalFRADIN + " €", liste: "" },
         { name: "OLDAM", Total: props.totalOLDAM + " €", liste: "" },
         { name: "TCS", Total: props.totalTCS + " €", liste: "" },
         { name: "SATELEC", Total: props.totalSATELEC + " €", liste: "" },

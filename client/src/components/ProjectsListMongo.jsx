@@ -46,6 +46,7 @@ const ProjectsListMongo = () => {
             totalKANNE={project.sommeKANNE}
             totalSODI={project.sommeSODI}
             totalSILER={project.sommeSILER}
+            totalFRADIN={project.sommeFRADIN}
             totalPMV={project.sommePMV}
             totalNUOVA={project.sommeNUOVA}
             totalOLDAM={project.sommeOLDAM}

@@ -62,6 +62,7 @@ const projectSchema = new mongoose.Schema({
     sommePMV: Number,
     sommeNUOVA: Number,
     sommeSILER: Number,
+    sommeFRADIN: Number,
     sommeOLDAM: Number,
     sommeTCS: Number,
     sommeSATELEC: Number,
@@ -153,47 +154,76 @@ const Project = mongoose.model("Project", projectSchema);
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
         const totalAmountTransport = details3
-            .filter(obj => obj.$.Supplier === 'HYH' || obj.$.Supplier === 'BECHHANSEN' || obj.$.Supplier === 'SIS')
+            .filter(obj => obj.$.Supplier === 'HYH' || obj.$.Supplier === 'BECHHANSEN' || obj.$.Supplier === 'SIS' || obj.$.Supplier === 'BLS')
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
 
 
-        const totalAmountOLDAM = details3
-            .filter(obj => obj.$.Supplier === 'DIRECTOLDHAM')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountTCS = details3
-            .filter(obj => obj.$.Supplier === 'DIRECTTCS')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountSATELEC = details3
-            .filter(obj => obj.$.Supplier === 'DIRECTSATELEC')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountAPAVE = details3
-            .filter(obj => obj.$.Supplier === 'APAVE')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountKANNE = details3
-            .filter(obj => obj.$.Supplier === 'KANNEGFRAN')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountSODI = details3
-            .filter(obj => obj.$.Supplier === 'SODILEC')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountSILER = details3
-            .filter(obj => obj.$.Supplier === 'SILER')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountPMV = details3
-            .filter(obj => obj.$.Supplier === 'PMV')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
-        const totalAmountNUOVA = details3
-            .filter(obj => obj.$.Supplier === 'NUOVAFOLATI')
-            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
-            .reduce((sum, amount) => sum + amount, 0);
+        /////////////TEST-------------
+        function calculateTotalAmount(supplier, details) {
+            return details
+                .filter(obj => obj.$.Supplier === supplier)
+                .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+                .reduce((sum, amount) => sum + amount, 0);
+        }
+
+        const suppliers = [
+            'DIRECTOLDHAM',
+            'DIRECTTCS',
+            'DIRECTSATELEC',
+            'APAVE',
+            'KANNEGFRAN',
+            'SODILEC',
+            'SILER',
+            'FRADIN',
+            'PMV',
+            'NUOVAFOLATI',
+        ];
+
+        const totalAmounts = {};
+
+        suppliers.forEach(supplier => {
+            totalAmounts[supplier] = calculateTotalAmount(supplier, details3);
+        });
+
+        console.log(totalAmounts);
+
+        // const totalAmountOLDAM = details3
+        //     .filter(obj => obj.$.Supplier === 'DIRECTOLDHAM')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountTCS = details3
+        //     .filter(obj => obj.$.Supplier === 'DIRECTTCS')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountSATELEC = details3
+        //     .filter(obj => obj.$.Supplier === 'DIRECTSATELEC')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountAPAVE = details3
+        //     .filter(obj => obj.$.Supplier === 'APAVE')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountKANNE = details3
+        //     .filter(obj => obj.$.Supplier === 'KANNEGFRAN')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountSODI = details3
+        //     .filter(obj => obj.$.Supplier === 'SODILEC')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountSILER = details3
+        //     .filter(obj => obj.$.Supplier === 'SILER')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountPMV = details3
+        //     .filter(obj => obj.$.Supplier === 'PMV')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
+        // const totalAmountNUOVA = details3
+        //     .filter(obj => obj.$.Supplier === 'NUOVAFOLATI')
+        //     .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+        //     .reduce((sum, amount) => sum + amount, 0);
 
 
 
@@ -328,16 +358,27 @@ const Project = mongoose.model("Project", projectSchema);
             sommeUS: totalAmountJEUS,
             sommeDE: totalAmountJEDE,
             sommeIW: totalAmountINWATEC,
-            sommeKANNE: totalAmountKANNE,
-            sommeSODI: totalAmountSODI,
-            sommeSILER: totalAmountSILER,
-            sommePMV: totalAmountPMV,
-            sommeNUOVA: totalAmountNUOVA,
 
-            sommeOLDAM: totalAmountOLDAM,
-            sommeTCS: totalAmountTCS,
-            sommeSATELEC: totalAmountSATELEC,
-            sommeAPAVE: totalAmountAPAVE,
+
+            sommeOLDAM: totalAmounts.DIRECTOLDHAM,
+            sommeTCS: totalAmounts.DIRECTTCS,
+            sommeSATELEC: totalAmounts.DIRECTSATELEC,
+            sommeAPAVE: totalAmounts.APAVE,
+            sommeKANNE: totalAmounts.KANNEGFRAN,
+            sommeSODI: totalAmounts.SODILEC,
+            sommeSILER: totalAmounts.SILER,
+            sommeFRADIN: totalAmounts.FRADIN,
+            sommePMV: totalAmounts.PMV,
+            sommeNUOVA: totalAmounts.NUOVAFOLATI,
+            // sommeKANNE: totalAmountKANNE,
+            // sommeSODI: totalAmountSODI,
+            // sommeSILER: totalAmountSILER,
+            // sommePMV: totalAmountPMV,
+            // sommeNUOVA: totalAmountNUOVA,
+            // sommeOLDAM: totalAmountOLDAM,
+            // sommeTCS: totalAmountTCS,
+            // sommeSATELEC: totalAmountSATELEC,
+            // sommeAPAVE: totalAmountAPAVE,
 
 
             warranty: warranty,
@@ -414,6 +455,7 @@ app.route('/projects')
             sommeKANNE,
             sommeSODI,
             sommeSILER,
+            sommeFRADIN,
             sommePMV,
             sommeNUOVA,
             sommeOLDAM,
@@ -473,6 +515,7 @@ app.route('/projects')
             sommeKANNE,
             sommeSODI,
             sommeSILER,
+            sommeFRADIN,
             sommePMV,
             sommeNUOVA,
             sommeOLDAM,
@@ -680,30 +723,3 @@ app.listen(PORT, () => {
     console.log(`Serveur lancé sur le port : ${PORT}`)
 });
 
-
-// app.get("/auth", async (req, res) => {
-
-//     res.send({
-//         msg: 'Connected to auth api'
-//     })
-
-//     try {
-//         const { access_token } = req.oauth;
-//         const response = await axios({
-//             method: "get",
-//             url: authAPIEndpoint,
-//             headers: { Authorization: `Bearer ${access_token}` },
-//         });
-//         res.json(response.data);
-
-//     } catch (error) {
-//         console.log(error);
-//         if (error.response.status === 401) {
-//             res.status(401).json("Unauthorized to access data");
-//         } else if (error.response.status === 403) {
-//             res.status(403).json("Permission denied");
-//         } else {
-//             res.status(500).json("MMMhhhh, quelque chose ne va pas ..");
-//         }
-//     }
-// });
