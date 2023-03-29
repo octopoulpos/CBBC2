@@ -10,6 +10,7 @@
     "build": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "proxy": "http://localhost:5000",
   "author": "CB",
   "license": "ISC",
   "dependencies": {
@@ -27,6 +28,7 @@
     "react-calendar-timeline": "^0.28.0",
     "react-router-dom": "^6.6.2",
     "reactstrap": "^9.1.5",
+    "url-loader": "^4.1.1",
     "xml2js": "^0.4.23"
   }
 }

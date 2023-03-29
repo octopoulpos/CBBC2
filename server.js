@@ -10,9 +10,13 @@ const LocalStrategy = require('passport-local').Strategy;
 require('dotenv').config();
 const cors = require('cors');
 
+
 const PORT = process.env.PORT || 5000;
+
 var oAuth = require("./middleware/oAuth");
+// const projectMiddleware = require('./middleware/projectMiddleware'); 
 const app = express();
+// app.use('/projects', projectMiddleware);
 
 app.use(express.json());
 app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3400', 'https://cb-bc.fr'] }));
@@ -22,7 +26,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('client/build'));
 
-///////////////// Convert project xml to json 
+
+// (async () => {
+//     await projectMiddleware(app);
+// })();
+
+
+///////////// Convert project xml to json 
 
 const fs = require('fs');
 const xml2js = require('xml2js');
@@ -67,6 +77,7 @@ const projectSchema = new mongoose.Schema({
     sommeTCS: Number,
     sommeSATELEC: Number,
     sommeAPAVE: Number,
+    paid: Number,
     warranty: Number,
     services: Number,
     transport: Number,
@@ -74,6 +85,7 @@ const projectSchema = new mongoose.Schema({
     lineText1Concatenateddk: String,
     lineText1Concatenatedde: String,
     lineText1Concatenatedus: String,
+    lineText1ConcatenatedAutre: String,
     gaz: Boolean,
     manutention: Number,
     noManut: Number,
@@ -125,12 +137,12 @@ const Project = mongoose.model("Project", projectSchema);
         const margeCurrent = Math.round((result.Report.Tablix2[0].$.Textbox36) * 10000) / 100;
         const margeCurrent2 = Math.round(result.Report.Tablix2[0].$.Textbox34);
 
-
+        const paid = Math.round(result.Report.Tablix2[0].MainAccountTypeEnum_Collection[0].MainAccountTypeEnum[0].$.Textbox13);
         const totalCommandes = Math.round(result.Report.Tablix6[0].$.Textbox113);
         const warranty = Math.round(result.Report.Tablix10[0].$.Textbox112);
         const services = Math.round(result.Report.Tablix9[0].ForecastModel_Collection[0].ForecastModel[0].$.CostAmount3);
-        console.log("XXXXXX   " + warranty + "   XXXXX   " + services);
-
+        console.log("XXXXXXXXXXXXXXXXX   " + paid );
+ 
 
         const details3 = result.Report.Tablix6[0].Details3_Collection[0].Details3;
         const totalAmountJECN = details3
@@ -235,7 +247,6 @@ const Project = mongoose.model("Project", projectSchema);
         const lineText1Concatenatedcn = lineText1Values.join(' + ');
         const gaz = lineText1Concatenatedcn.includes("gas");
 
-        console.log(lineText1Concatenatedcn);
         console.log("JECN gaz = " + gaz);
 
         // Créer une liste des éléments dans les lignes JEDK + créer une variable gaz true or false /////////
@@ -244,7 +255,6 @@ const Project = mongoose.model("Project", projectSchema);
         const lineText1Concatenateddk = lineText1Valuesdk.join(' + ');
         const gazdk = lineText1Concatenateddk.includes("gas");
 
-        console.log(lineText1Concatenateddk);
         console.log("JEDK gaz = " + gazdk);
 
         // Créer une liste des éléments dans les lignes JEDE + créer une variable gaz true or false /////////
@@ -253,7 +263,6 @@ const Project = mongoose.model("Project", projectSchema);
         const lineText1Concatenatedde = lineText1Valuesde.join(' + ');
         const gazde = lineText1Concatenatedde.includes("gas");
 
-        console.log(lineText1Concatenatedde);
         console.log("JEDE gaz = " + gazde);
 
         // Créer une liste des éléments dans les lignes JEUS + créer une variable gaz true or false /////////
@@ -261,14 +270,17 @@ const Project = mongoose.model("Project", projectSchema);
         const lineText1Valuesus = jeusItems.map(item => item.$.LineText1);
         const lineText1Concatenatedus = lineText1Valuesus.join(' + ');
 
-        console.log(lineText1Concatenatedus);
-
         // Créer une liste des éléments dans les lignes JEUS + créer une variable gaz true or false /////////
         const INWATECItems = result.Report.Tablix6[0].Details3_Collection[0].Details3.filter(item => item.$.Supplier === 'INWATEC');
         const lineText1Valuesiw = jeusItems.map(item => item.$.LineText1);
         const lineText1Concatenatediw = lineText1Valuesus.join(' + ');
+       
 
-        console.log(lineText1Concatenatediw);
+        // Créer une liste des éléments dans les lignes JEUS + créer une variable gaz true or false /////////
+        const autreItems = result.Report.Tablix6[0].Details3_Collection[0].Details3.filter(item => item.$.Supplier === 'JENSEN');
+        const lineText1ValuesAutre = autreItems.map(item => item.$.LineText1);
+        const lineText1ConcatenatedAutre = lineText1ValuesAutre.join(' + ');
+        console.log("Autre liste = " + lineText1ConcatenatedAutre);
 
         /////////////////////////// extraction delivery dates //////////////////////////////////////////
 
@@ -370,17 +382,8 @@ const Project = mongoose.model("Project", projectSchema);
             sommeFRADIN: totalAmounts.FRADIN,
             sommePMV: totalAmounts.PMV,
             sommeNUOVA: totalAmounts.NUOVAFOLATI,
-            // sommeKANNE: totalAmountKANNE,
-            // sommeSODI: totalAmountSODI,
-            // sommeSILER: totalAmountSILER,
-            // sommePMV: totalAmountPMV,
-            // sommeNUOVA: totalAmountNUOVA,
-            // sommeOLDAM: totalAmountOLDAM,
-            // sommeTCS: totalAmountTCS,
-            // sommeSATELEC: totalAmountSATELEC,
-            // sommeAPAVE: totalAmountAPAVE,
-
-
+      
+            paid: paid,
             warranty: warranty,
             services: services,
             transport: totalAmountTransport,
@@ -388,6 +391,7 @@ const Project = mongoose.model("Project", projectSchema);
             lineText1Concatenateddk: lineText1Concatenateddk,
             lineText1Concatenatedde: lineText1Concatenatedde,
             lineText1Concatenatedus: lineText1Concatenatedus,
+            lineText1ConcatenatedAutre: lineText1ConcatenatedAutre,
             gaz: gaz,
             manutention: manutention,
             noManut: noManut,
@@ -412,7 +416,8 @@ const Project = mongoose.model("Project", projectSchema);
                 if (error) {
                     console.error(error);
                 } else {
-                    console.log(project);
+                    // console.log(project);
+                    console.log('project updated');
                 }
             });
         } else {
@@ -420,7 +425,7 @@ const Project = mongoose.model("Project", projectSchema);
                 if (error) {
                     console.error(error);
                 } else {
-                    console.log(project);
+                    console.log('project created');
                 }
             });
         }
@@ -463,6 +468,7 @@ app.route('/projects')
             sommeSATELEC,
             sommeAPAVE,
 
+            paid,
             warranty,
             services,
             transport,
@@ -470,6 +476,7 @@ app.route('/projects')
             lineText1Concatenateddk,
             lineText1Concatenatedde,
             lineText1Concatenatedus,
+            lineText1ConcatenatedAutre,
             gaz,
             manutention,
             noManut,
@@ -523,6 +530,7 @@ app.route('/projects')
             sommeSATELEC,
             sommeAPAVE,
 
+            paid,
             warranty,
             services,
             transport,
@@ -530,6 +538,7 @@ app.route('/projects')
             lineText1Concatenateddk,
             lineText1Concatenatedde,
             lineText1Concatenatedus,
+            lineText1ConcatenatedAutre,
             gaz,
             manutention,
             noManut,

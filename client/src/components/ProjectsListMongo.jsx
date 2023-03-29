@@ -5,10 +5,12 @@ import axios from "axios";
 const ProjectsListMongo = () => {
   const [projects, setProjects] = useState([]);
 
+
   useEffect(() => {
     axios
       .get("/projects")
       .then((response) => {
+        console.log("Response data:", response.data); // Add this line to log the data received from the server
         setProjects(response.data);
       })
       .catch((error) => {
@@ -17,11 +19,12 @@ const ProjectsListMongo = () => {
   }, []);
 
 
+  
   return (
     <div>
       {projects
         //.sort((a, b) => a?.nom?.localeCompare(b?.nom)) 
-        .sort((a, b) => new Date(b.today) - new Date(a.today))  
+        .sort((a, b) => new Date(b.today) - new Date(a.today))
         .map((project) => (
           <ProjectMongo
             key={project.quote}
@@ -54,7 +57,7 @@ const ProjectsListMongo = () => {
             totalSATELEC={project.sommeSATELEC}
             totalAPAVE={project.sommeAPAVE}
 
-
+            paid={project.paid}
             warranty={project.warranty}
             services={project.services}
             transport={project.transport}
@@ -64,6 +67,7 @@ const ProjectsListMongo = () => {
             listeDK={project.lineText1Concatenateddk}
             listeDE={project.lineText1Concatenatedde}
             listeUS={project.lineText1Concatenatedus}
+            listeAutre={project.lineText1ConcatenatedAutre}
 
             newField0={project.newField0}
             newField1={project.newField1}

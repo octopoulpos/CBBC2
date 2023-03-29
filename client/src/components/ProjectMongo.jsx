@@ -51,7 +51,7 @@ const ProjectMongo = (props) => {
         { name: "Transport", Total: props.transport + " €", liste: "" },
         { name: "warranty", Total: props.warranty + " €", liste: "" },
         { name: "services", Total: props.services + " €", liste: "" },
-        { name: "Autre JEFR", Total: props.totalNoManut + " €", liste: "" },
+        { name: "Autre JEFR", Total: props.totalNoManut + " €", liste: props.listeAutre },
     ]
 
     const dataDebrief = [
@@ -109,8 +109,9 @@ const ProjectMongo = (props) => {
 
     const totalDebrief = props.totalCommandes + props.warranty + props.services + totalNewFields;
 
-    const margeAjustee = Math.round(((1 - (totalDebrief / props.prixVente)) * 100) * 100) / 100;
-
+    // const margeAjustee = Math.round(((1 - (totalDebrief / props.prixVente)) * 100) * 100) / 100;
+    const paid = isNaN(props.paid) ? 0 : props.paid;
+    const margeAjustee = Math.round(((1 - ((totalDebrief + paid) / props.prixVente)) * 100) * 100) / 100;
 
 
 
@@ -230,8 +231,11 @@ const ProjectMongo = (props) => {
                             })}
                         </tbody>
                     </table>
-
+                    <p>Montants déjà payés : {props.paid} €</p>
                 </div>
+
+
+
                 <ProgressBar percentage={props.percent} />
                 {deliveryDates["ewdk"] && deliveryDates["ewdk"].length > 0 && (
                     <h3>
@@ -267,10 +271,10 @@ const ProjectMongo = (props) => {
                     title="Hi dear, how may I help you today ?"
                 />
                 <div className={`assist ${showAssist ? "visible" : ""}`}>
-                  
-                    <Assistant name={props.name}  />
+
+                    <Assistant name={props.name} quote={props.quote} />
                 </div>
-               
+
 
             </div>
             <div className="projetB">
