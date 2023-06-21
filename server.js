@@ -137,7 +137,9 @@ const Project = mongoose.model("Project", projectSchema);
         const margeCurrent = Math.round((result.Report.Tablix2[0].$.Textbox36) * 10000) / 100;
         const margeCurrent2 = Math.round(result.Report.Tablix2[0].$.Textbox34);
 
-        const paid = Math.round(result.Report.Tablix2[0].MainAccountTypeEnum_Collection[0].MainAccountTypeEnum[0].$.Textbox13);
+        const paid = Math.round(
+            result?.Report?.Tablix2?.[0]?.MainAccountTypeEnum_Collection?.[0]?.MainAccountTypeEnum?.[0]?.$.Textbox13 || 0
+          );
         const totalCommandes = Math.round(result.Report.Tablix6[0].$.Textbox113);
         const warranty = Math.round(result.Report.Tablix10[0].$.Textbox112);
         const services = Math.round(result.Report.Tablix9[0].ForecastModel_Collection[0].ForecastModel[0].$.CostAmount3);

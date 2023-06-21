@@ -102,12 +102,12 @@ const ProjectMongo = (props) => {
     const totalData = Math.round(dataWithValues.reduce((total, item) => {
         const value = parseFloat(item.Total.replace(" €", "").replace(",", "."));
         return isNaN(value) ? total : total + value;
-    }, 0)).toFixed(0) + " €";
+    }, 0)).toFixed(0);
 
     // const totalCommandes = props.totalCommandes;
     const totalCommandesWarrantyService = props.totalCommandes + props.warranty + props.services;
 
-    const totalDebrief = props.totalCommandes + props.warranty + props.services + totalNewFields;
+    const totalDebrief = totalCommandesWarrantyService + totalNewFields;
 
     // const margeAjustee = Math.round(((1 - (totalDebrief / props.prixVente)) * 100) * 100) / 100;
     const paid = isNaN(props.paid) ? 0 : props.paid;
