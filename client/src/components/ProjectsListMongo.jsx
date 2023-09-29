@@ -43,6 +43,7 @@ const ProjectsListMongo = () => {
             percent={project.prixVente}
             totalCN={project.sommeCN}
             totalDK={project.sommeDK}
+            totalSW={project.sommeSW}
             totalDE={project.sommeDE}
             totalUS={project.sommeUS}
             totalIW={project.sommeIW}
@@ -56,6 +57,9 @@ const ProjectsListMongo = () => {
             totalTCS={project.sommeTCS}
             totalSATELEC={project.sommeSATELEC}
             totalAPAVE={project.sommeAPAVE}
+            totalDATAMARS={project.sommeDATAMARS}
+            totalQSP={project.sommeQSP}
+            totalHERREWYN={project.sommeHERREWYN}
 
             paid={project.paid}
             warranty={project.warranty}
@@ -65,6 +69,7 @@ const ProjectsListMongo = () => {
             totalNoManut={project.noManut}
             listeCN={project.lineText1Concatenatedcn}
             listeDK={project.lineText1Concatenateddk}
+            listeSW={project.lineText1Concatenatedsw}
             listeDE={project.lineText1Concatenatedde}
             listeUS={project.lineText1Concatenatedus}
             listeAutre={project.lineText1ConcatenatedAutre}

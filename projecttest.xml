@@ -1,83 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xsi:schemaLocation="Project_x0020_Overview http://jegrsqlaxprod/ReportServer_AXPROD?%2FJENSEN-GROUP%2FGroup%20Reports%2FProject%20Overview&amp;rs%3ACommand=Render&amp;rs%3AFormat=XML&amp;rs%3ASessionID=nzgzi4qdhdweejugegxuc0yy&amp;rc%3ASchema=True" Name="Project Overview"
+<Report xsi:schemaLocation="Project_x0020_Overview http://jegrsqlaxprod/ReportServer_AXPROD?%2FJENSEN-GROUP%2FGroup%20Reports%2FProject%20Overview&amp;rs%3ACommand=Render&amp;rs%3AFormat=XML&amp;rs%3ASessionID=ba1qinvwaoh4ijuz1wggag55&amp;rc%3ASchema=True" Name="Project Overview"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="Project_x0020_Overview">
     <Tablix8>
         <Details_Collection>
-            <Details ProjectName="ANETT VICHY - Ligne de finition et démêlage linge plat" Textbox148="0.981090104095770974975462628" ProjectManager="BESLAY" Textbox149="547774.0000000000000000" Textbox143="0.1014673743365594754917265064" Textbox150="621382.0000000000000000" Textbox155="621382.0000000000000000" Textbox140="0.1014673743365594754917265064" ExchangeRateDescription="Date of creation:" ExchangeRateDate="2022-12-28T00:00:00" JPP20Number="Q00209615" />
+            <Details ProjectName="CHU POITIERS - Marché 230105 - 5ème chargeur de cintres" Textbox148="1.0445531490361407009300679046" ProjectManager="BESLAY" Textbox149="64914.8000000000000000" Textbox143="0.1635800807537012113055181696" Textbox150="74300.0000000000000000" Textbox155="74300.0000000000000000" Textbox140="0.1635800807537012113055181696" ExchangeRateDescription="Date of creation:" ExchangeRateDate="2023-05-04T00:00:00" JPP20Number="Q00210697" />
         </Details_Collection>
     </Tablix8>
     <Tablix7>
-        <Textbox127 LedgerAmount3="0" />
+        <TransactionYear_Collection>
+            <TransactionYear TransactionYear="2023" LedgerAmount2="-990.0000000000000000" />
+        </TransactionYear_Collection>
+        <Textbox127 LedgerAmount3="-990.0000000000000000" />
     </Tablix7>
-    <Tablix2 LedgerAmount1="0" AccountingCurrency="EUR" Textbox31="0" Textbox34="73608.0000000000000000" AccountingCurrency1="EUR" Textbox36="0.1184585327544087212053133177" />
-    <Tablix3 DeliverRemainderAmount="621382.0000000000000000" Textbox60="EUR">
+    <Tablix2 LedgerAmount1="-990.0000000000000000" AccountingCurrency="EUR" Textbox31="0" Textbox34="9385.2000000000000000" AccountingCurrency1="EUR" Textbox36="0.1263149394347240915208613728">
+        <MainAccountTypeEnum_Collection>
+            <MainAccountTypeEnum Textbox17="TOTAL COSTS:" Textbox13="990.0000000000000000" Textbox26="EUR">
+                <MainAccount_Collection>
+                    <MainAccount MainAccountNumber="603702" MainAccountName="PROJETS - ACCESSORIES ON PROJECTS" LedgerAmount="990.0000000000000000" />
+                    <MainAccount MainAccountNumber="603710" MainAccountName="PROJ -  STOCK VARIATION ENTR" LedgerAmount="-990.0000000000000000" />
+                    <MainAccount MainAccountNumber="607030" MainAccountName="SPARE - ACHATS CONSUMSION AX" LedgerAmount="990.0000000000000000" />
+                </MainAccount_Collection>
+            </MainAccountTypeEnum>
+        </MainAccountTypeEnum_Collection>
+    </Tablix2>
+    <Tablix3 DeliverRemainderAmount="74300.0000000000000000" Textbox60="EUR">
         <Details1_Collection>
-            <Details1 ItemNumber="FTM023R3500" LineText="KliQ Plus 3500" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="141526.3600000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:04" PurchaseLineAmount="122796.0000000000000000" />
-            <Details1 ItemNumber="FTM041Y21235" LineText="Kalor S 1200 2 x 1200 x 3500" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="136310.9400000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:04" PurchaseLineAmount="115183.0000000000000000" />
-            <Details1 ItemNumber="FTM077613013" LineText="Classic - C3 - 2 LF in 1 and 3 lanes and 3 XF in 1 lane" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="80744.1000000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:05" PurchaseLineAmount="71060.0000000000000000" />
-            <Details1 ItemNumber="FTM089231166" LineText="Napkin &amp; Bottom Up 3500 - 3x1166 mm" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="96618.2200000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:05" PurchaseLineAmount="69444.0000000000000000" />
-            <Details1 ItemNumber="FTM094910001" LineText="Max model I, controlled by folders PLC" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="11270.5200000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:05" PurchaseLineAmount="10105.0000000000000000" />
-            <Details1 ItemNumber="FTM094J10001" LineText="Max 750, controlled by folders PLC" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="11856.8900000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:06" PurchaseLineAmount="10840.0000000000000000" />
-            <Details1 ItemNumber="FTM0102.A1.2" LineText="Conveyor Systems Band conveyor - 2130 mm to 3030 mm" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="11720.0900000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:06" PurchaseLineAmount="9330.0000000000000000" />
-            <Details1 ItemNumber="MHTJWM-1000" LineText="JENSEN Jenway Conveyors (Please see Jenway design manual in case of doubt about the design)" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="15386.1500000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:06" PurchaseLineAmount="17356.0000000000000000" />
-            <Details1 ItemNumber="FTM01050000A" LineText="Viking 2000 model A (with trough)" DeliveryDate1="2023-09-08T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="47204.3400000000000000" PurchaseOrder="CF00069187" PurchLineCreatedDate="2022-12-28T12:42:07" PurchaseLineAmount="40785.0000000000000000" />
-            <Details1 ItemNumber="SRsubconsu" LineText="Annexe sécheuse" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="3853.1100000000000000" PurchaseOrder="CF00069188" PurchLineCreatedDate="2022-12-28T12:42:27" PurchaseLineAmount="3500.0000000000000000" />
-            <Details1 ItemNumber="TPFreight" LineText="Livraison sur site Train de repassage" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="12550.1400000000000000" PurchaseOrder="CF00069185" PurchLineCreatedDate="2022-12-28T12:42:02" PurchaseLineAmount="11400.0000000000000000" />
-            <Details1 ItemNumber="TPRigging" LineText="Manutention train de repassage" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="11008.9000000000000000" PurchaseOrder="CF00069186" PurchLineCreatedDate="2022-12-28T12:42:03" PurchaseLineAmount="10000.0000000000000000" />
-            <Details1 ItemNumber="JEinstalcom" LineText="Installation, mise en service et suivi" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="18054.6000000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
-            <Details1 ItemNumber="JEother" LineText="Ligne de crédit au magasin de 20K€" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="0" PurchaseOrder="CF00069189" PurchLineCreatedDate="2022-12-28T12:42:52" PurchaseLineAmount="10000.0000000000000000" />
-            <Details1 ItemNumber="TPFreight" LineText="Livraison sur site Viking" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="4183.3800000000000000" PurchaseOrder="CF00069185" PurchLineCreatedDate="2022-12-28T12:42:03" PurchaseLineAmount="3800.0000000000000000" />
-            <Details1 ItemNumber="TPRigging" LineText="Manutention Viking" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="3302.6700000000000000" PurchaseOrder="CF00069186" PurchLineCreatedDate="2022-12-28T12:42:04" PurchaseLineAmount="3000.0000000000000000" />
-            <Details1 ItemNumber="JEinstalcom" LineText="Installation, mise en service et suivi Viking" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="8146.5900000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
-            <Details1 ItemNumber="Warranty" LineText="Garantie 24 mois / 4000 heures" DeliveryDate1="2023-11-30T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="7645.0000000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="Metricon" LineText="Quotation 214607-14 Adaption for Metrifeed N5" DeliveryDate1="2023-11-17T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="44304.4400000000000000" PurchaseOrder="CF00070350" PurchLineCreatedDate="2023-05-04T11:53:25" PurchaseLineAmount="35960.0000000000000000" />
+            <Details1 ItemNumber="SRsubnetw" LineText="Antenne de lecture type INVENGO" DeliveryDate1="2023-12-29T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="5528.6500000000000000" PurchaseOrder="CF00070352" PurchLineCreatedDate="2023-05-04T13:41:38" PurchaseLineAmount="4500.0000000000000000" />
+            <Details1 ItemNumber="TPFreight" LineText="Livraison JESW chez client" DeliveryDate1="2023-12-29T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="3114.4700000000000000" PurchaseOrder="CF00070351" PurchLineCreatedDate="2023-05-04T11:53:26" PurchaseLineAmount="2600.0000000000000000" />
+            <Details1 ItemNumber="TPRigging" LineText="Déchargement, manutention" DeliveryDate1="2023-12-29T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="958.3000000000000000" PurchaseOrder="CF00070349" PurchLineCreatedDate="2023-05-04T11:53:25" PurchaseLineAmount="800.0000000000000000" />
+            <Details1 ItemNumber="JEinstalcom" LineText="Sebastien  CASAGRANDE - Installation" DeliveryDate1="2023-12-29T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="4259.1100000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="Warranty" LineText="Garantie 24 mois / 4000 heures" DeliveryDate1="2023-12-29T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="568.0000000000000000" PurchaseOrder="" PurchaseLineAmount="0" />
+            <Details1 ItemNumber="JEinstalsub" LineText="Devis QSP du 01/02/2023" DeliveryDate1="2023-12-29T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="14374.4800000000000000" PurchaseOrder="CF00070347" PurchLineCreatedDate="2023-05-04T11:53:23" PurchaseLineAmount="11941.8000000000000000" />
+            <Details1 ItemNumber="SRsubnetw" LineText="Devis Edouard Tassart" DeliveryDate1="2023-12-29T00:00:00" ToBeDelivered="1.0000000000000000" DeliverRemainderAmount1="1192.5500000000000000" PurchaseOrder="CF00070348" PurchLineCreatedDate="2023-05-04T11:53:24" PurchaseLineAmount="1120.0000000000000000" />
         </Details1_Collection>
     </Tablix3>
-    <Tablix6 Textbox50="EUR" Textbox113="508599.0000000000000000" Textbox97="EUR">
+    <Tablix6 Textbox50="EUR" Textbox113="58556.8000000000000000" Textbox97="EUR">
         <Details3_Collection>
-            <Details3 PurchaseOrder1="CF00069185" Supplier="BECHHANSEN" LineText1="JPP - Livraison sur site Train de repassage" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="11400.0000000000000000" Currency="EUR" DeliverRemainderAmount2="11400.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069185" Supplier="BECHHANSEN" LineText1="JPP - Livraison sur site Viking" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="3800.0000000000000000" Currency="EUR" DeliverRemainderAmount2="3800.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069186" Supplier="JENSEN" LineText1="JPP - Manutention train de repassage" DeliveryDate="2023-09-08T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="10000.0000000000000000" Currency="EUR" DeliverRemainderAmount2="10000.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069186" Supplier="JENSEN" LineText1="JPP - Manutention Viking" DeliveryDate="2023-09-08T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="3000.0000000000000000" Currency="EUR" DeliverRemainderAmount2="3000.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="KliQ Plus 3500" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="122796.0000000000000000" Currency="EUR" DeliverRemainderAmount2="122796.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="Kalor S 1200 2 x 1200 x 3500" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="115183.0000000000000000" Currency="EUR" DeliverRemainderAmount2="115183.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="Classic - C3 - 2 LF in 1 and 3 lanes and 3 XF in 1 lane" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="71060.0000000000000000" Currency="EUR" DeliverRemainderAmount2="71060.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="Napkin &amp; Bottom Up 3500 - 3x1166 mm" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="69444.0000000000000000" Currency="EUR" DeliverRemainderAmount2="69444.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="Max model I, controlled by folders PLC" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="10105.0000000000000000" Currency="EUR" DeliverRemainderAmount2="10105.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="Max 750, controlled by folders PLC" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="10840.0000000000000000" Currency="EUR" DeliverRemainderAmount2="10840.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="Conveyor Systems Band conveyor - 2130 mm to 3030 mm" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="9330.0000000000000000" Currency="EUR" DeliverRemainderAmount2="9330.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="JENSEN Jenway Conveyors (Please see Jenway design manual in case of doubt about the design)" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="17356.0000000000000000" Currency="EUR" DeliverRemainderAmount2="17356.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069187" Supplier="JENSENDK" LineText1="Viking 2000 model A (with trough)" DeliveryDate="2023-09-01T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="40785.0000000000000000" Currency="EUR" DeliverRemainderAmount2="40785.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069188" Supplier="JENSEN" LineText1="JPP - Annexe sécheuse" DeliveryDate="2023-09-08T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="3500.0000000000000000" Currency="EUR" DeliverRemainderAmount2="3500.0000000000000000" />
-            <Details3 PurchaseOrder1="CF00069189" Supplier="JENSEN" LineText1="JPP - Ligne de crédit au magasin de 20K€" DeliveryDate="2023-11-30T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="10000.0000000000000000" Currency="EUR" DeliverRemainderAmount2="10000.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00070347" Supplier="DIRECTQSP" LineText1="Devis QSP n° 2023/02/01 - Installation 5ème Metrifeed" DeliveryDate="2023-11-17T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="11941.8000000000000000" Currency="EUR" DeliverRemainderAmount2="11941.8000000000000000" />
+            <Details3 PurchaseOrder1="CF00070348" Supplier="GOTLI" LineText1="Devis GOTLI LABS du 06/02/2023 - Ajout 5ème Metrifeed dans Cockpit (intervention à distance via Jenassist)" DeliveryDate="2023-11-17T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="1120.0000000000000000" Currency="EUR" DeliverRemainderAmount2="1120.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00070349" Supplier="JENSEN" LineText1="JPP (sté de manut à définir) - Déchargement, manutention" DeliveryDate="2023-11-17T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="800.0000000000000000" Currency="EUR" DeliverRemainderAmount2="800.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00070350" Supplier="JENSENSWED" LineText1="Quotation 214607-14 Adaption for Metrifeed N5" DeliveryDate="2023-11-09T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="35960.0000000000000000" Currency="EUR" DeliverRemainderAmount2="35960.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00070351" Supplier="SIS" LineText1="JPP - Livraison JESW chez client" DeliveryDate="2023-11-09T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="2600.0000000000000000" Currency="EUR" DeliverRemainderAmount2="2600.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00070352" Supplier="JENSEN" LineText1="JPP - Antenne de lecture type INVENGO" DeliveryDate="2023-12-29T00:00:00" Buyer="PELLET" DeliverRemainderAmountCurrency="4500.0000000000000000" Currency="EUR" DeliverRemainderAmount2="4500.0000000000000000" />
+            <Details3 PurchaseOrder1="CF00071505" Supplier="DIRECTFRADIN" LineText1="Rive et raccord de rive pour tapis alimentation postes MSC" DeliveryDate="2023-09-20T00:00:00" Buyer="MAHOUDEAUX" DeliverRemainderAmountCurrency="1635.0000000000000000" Currency="EUR" DeliverRemainderAmount2="1635.0000000000000000" />
         </Details3_Collection>
     </Tablix6>
     <Tablix9>
         <ForecastModel_Collection>
-            <ForecastModel ForecastModel="Mprev" CostAmount2="340.0000000000000000" CostAmount3="23800.000000" Textbox176="EUR">
+            <ForecastModel ForecastModel="Hour_FS" CostAmount2="150.0000000000000000" CostAmount3="4200.000000" Textbox176="EUR">
                 <Details4_Collection>
-                    <Details4 Category="HR_FORECAS" SchedFromDate="2022-12-28T00:00:00" Hours="340.0000000000000000" CostAmount="23800.000000" Description="JPP - Installation JEFR (23800€)" />
+                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-11-17T00:00:00" WorkCentre="QSP" Hours="50.0000000000000000" CostAmount="0" Description="Installation WO41595" />
+                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-11-17T00:00:00" WorkCentre="CASAGR" Hours="60.0000000000000000" CostAmount="4200.000000" Description="Installation WO41320" />
+                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-11-17T00:00:00" WorkCentre="QSP" Hours="40.0000000000000000" CostAmount="0" Description="Installation WO41321" />
                 </Details4_Collection>
             </ForecastModel>
-            <ForecastModel ForecastModel="Hour_FS" CostAmount2="120.0000000000000000" CostAmount3="8400.000000" Textbox176="EUR">
+            <ForecastModel ForecastModel="Mprev" CostAmount2="57.1400000000000000" CostAmount3="3999.800000" Textbox176="EUR">
                 <Details4_Collection>
-                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-10-06T00:00:00" WorkCentre="FRA_MERLIN" Hours="60.0000000000000000" CostAmount="4200.000000" Description="Installation WO35184" />
-                    <Details4 Category="HR_INSTALL" SchedFromDate="2023-10-06T00:00:00" WorkCentre="HARZLI" Hours="60.0000000000000000" CostAmount="4200.000000" Description="Installation WO35185" />
+                    <Details4 Category="HR_FORECAS" SchedFromDate="2023-05-04T00:00:00" Hours="57.1400000000000000" CostAmount="3999.800000" Description="JPP - Intervention S. Casagrande (4000€)" />
                 </Details4_Collection>
             </ForecastModel>
         </ForecastModel_Collection>
     </Tablix9>
-    <Tablix10 Textbox112="15375.000000">
+    <Tablix10 Textbox112="1168.000000">
         <Details5_Collection>
-            <Details5 PurchaseOrder2="WarrantyProvision" Supplier2="2022-12-28T00:00:00" LineText2="Garantie 24 mois / 4000 heures" DeliverRemainderAmount3="15375.000000" />
+            <Details5 PurchaseOrder2="WarrantyProvision" Supplier2="2023-05-04T00:00:00" LineText2="Garantie 24 mois / 4000 heures" DeliverRemainderAmount3="1168.000000" />
         </Details5_Collection>
     </Tablix10>
     <Tablix11 Textbox114="0" />
     <Tablix4>
         <Details2_Collection>
-            <Details2 Notes="JENSEN-COMMANDE-LIGNE DE FINITION ET DEMELAGE LINGE PLAT-480&#xA;Montant commande = 621 382,00€ HT&#xA;&#xA;* DELAI : départ JEDK 01/09/2023&#xA;&#xA;* GARANTIE : 24 mois / 4000 heures&#xA;&#xA;* CONDITIONS DE PAIEMENT : &#xA;30% à la commande&#xA;40% à la livraison&#xA;Solde 30% à la réception&#xA;" ExistsFile="*" />
-            <Details2 Notes="Offre ANETT Vichy-FINITION LP-PPMP- DEMELAGE-Q00209615-3" ExistsFile="*" />
-            <Details2 Notes="Q00209615-6 PIF &amp; AX report_ANETT VICHY_Train de repassage" ExistsFile="*" />
+            <Details2 Notes="Commande CHU POITIERS IH359919&#xA;Montant commande CHU POITIERS = 74 300,00€ HT / 89 160,00€ TTC&#xA;&#xA;* DELAI : &#xA;- CCP 3.1. Délais d'exécution&#xA;Le délai d’exécution de la prestation est de 6 mois à compter de la date de réception du bon de&#xA;commande par le titulaire.&#xA;- Départ JESW 09/11/2023 à confirmer&#xA;&#xA;* GARANTIE : 24 mois / 4000 heures à compter de la date d’admission&#xA;&#xA;* CONDITIONS DE PAIEMENT :&#xA;CCP Article 11. Acomptes et paiements partiels définitifs&#xA;Les acomptes et paiements partiels définitifs seront versés au titulaire dans les conditions prévues aux&#xA;articles L2191-4 et R2191-20 et suivants du code de la commande publique.&#xA;CCP 12.1. Mode de règlement&#xA;Le délai global de paiement ne pourra excéder 50 jours selon les dispositions de l'article R2192-10 du&#xA;code de la commande publique.&#xA;&#xA;* PENALITES :&#xA;CCP 15.1.Pénalités de retard&#xA;Lorsque le délai global maximum d'exécution fixé à l’article 3.1 Délais d’exécution du présent CCP est&#xA;dépassé, par le fait du titulaire, celui-ci encourt, sans mise en demeure préalable, une pénalité calculée&#xA;au moyen de la formule suivante par dérogation à l'article 14.1.1 du C.C.A.G.-FCS:&#xA;           V x R&#xA;P = --------------- , dans laquelle :&#xA;           100&#xA;P = le montant de la pénalité&#xA;V = la valeur des prestations sur laquelle est calculée la pénalité, cette valeur étant égale au montant&#xA;des prestations en retard ou à la totalité des prestations si le retard d'exécution d'une partie rend&#xA;l'ensemble inutilisable.&#xA;R = le nombre de jours de retard imputable au titulaire. Chaque jour commencé sera considéré comme&#xA;dû.&#xA;" ExistsFile="*" />
+            <Details2 Notes="Nofitication-AE-BPU marché CHU POITIERS" ExistsFile="*" />
+            <Details2 Notes="23S008 CCP" ExistsFile="*" />
+            <Details2 Notes="Q00210697-4 PIF &amp; AX report_CHU POITIERS_5ème Metrifeed" ExistsFile="*" />
         </Details2_Collection>
     </Tablix4>
 </Report>

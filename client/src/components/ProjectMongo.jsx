@@ -33,6 +33,7 @@ const ProjectMongo = (props) => {
     ///// paramètres du tableau AX //////
     const data = [
         { name: "JEDK", Total: props.totalDK + " €", liste: props.listeDK },
+        { name: "JESW", Total: props.totalSW + " €", liste: props.listeSW },
         { name: "JEDE", Total: props.totalDE + " €", liste: props.listeDE },
         { name: "JECN", Total: props.totalCN + " €", liste: props.listeCN },
         { name: "JEUS", Total: props.totalUS + " €", liste: props.listeUS },
@@ -47,6 +48,10 @@ const ProjectMongo = (props) => {
         { name: "TCS", Total: props.totalTCS + " €", liste: "" },
         { name: "SATELEC", Total: props.totalSATELEC + " €", liste: "" },
         { name: "APAVE", Total: props.totalAPAVE + " €", liste: "" },
+        { name: "DATAMARS", Total: props.totalDATAMARS + " €", liste: "" },
+        { name: "QSP", Total: props.totalQSP + " €", liste: "" },
+        { name: "HERREWYN", Total: props.totalHERREWYN + " €", liste: "" },
+
         { name: "Manutention/Install", Total: props.totalManut + " €", liste: "" },
         { name: "Transport", Total: props.transport + " €", liste: "" },
         { name: "warranty", Total: props.warranty + " €", liste: "" },
@@ -240,6 +245,11 @@ const ProjectMongo = (props) => {
                 {deliveryDates["ewdk"] && deliveryDates["ewdk"].length > 0 && (
                     <h3>
                         Delivery date DK: {deliveryDates["ewdk"]}
+                    </h3>
+                )}
+                {deliveryDates["ewsw"] && deliveryDates["ewsw"].length > 0 && (
+                    <h3>
+                        Delivery date DK: {deliveryDates["ewsw"]}
                     </h3>
                 )}
                 {deliveryDates["ewde"] && deliveryDates["ewde"].length > 0 && (

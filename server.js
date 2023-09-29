@@ -64,6 +64,7 @@ const projectSchema = new mongoose.Schema({
     margeCurrent: Number,
     sommeCN: Number,
     sommeDK: Number,
+    sommeSW: Number,
     sommeUS: Number,
     sommeDE: Number,
     sommeIW: Number,
@@ -77,12 +78,16 @@ const projectSchema = new mongoose.Schema({
     sommeTCS: Number,
     sommeSATELEC: Number,
     sommeAPAVE: Number,
+    sommeDATAMARS: Number,
+    sommeQSP: Number,
+    sommeHERREWYN: Number,
     paid: Number,
     warranty: Number,
     services: Number,
     transport: Number,
     lineText1Concatenatedcn: String,
     lineText1Concatenateddk: String,
+    lineText1Concatenatedsw: String,
     lineText1Concatenatedde: String,
     lineText1Concatenatedus: String,
     lineText1ConcatenatedAutre: String,
@@ -90,6 +95,7 @@ const projectSchema = new mongoose.Schema({
     manutention: Number,
     noManut: Number,
     jedkDates: [Date],
+    jeswDates: [Date],
     jedeDates: [Date],
     jecnDates: [Date],
     jeusDates: [Date],
@@ -139,12 +145,12 @@ const Project = mongoose.model("Project", projectSchema);
 
         const paid = Math.round(
             result?.Report?.Tablix2?.[0]?.MainAccountTypeEnum_Collection?.[0]?.MainAccountTypeEnum?.[0]?.$.Textbox13 || 0
-          );
+        );
         const totalCommandes = Math.round(result.Report.Tablix6[0].$.Textbox113);
         const warranty = Math.round(result.Report.Tablix10[0].$.Textbox112);
         const services = Math.round(result.Report.Tablix9[0].ForecastModel_Collection[0].ForecastModel[0].$.CostAmount3);
-        console.log("XXXXXXXXXXXXXXXXX   " + paid );
- 
+        console.log("XXXXXXXXXXXXXXXXX   " + paid);
+
 
         const details3 = result.Report.Tablix6[0].Details3_Collection[0].Details3;
         const totalAmountJECN = details3
@@ -153,6 +159,10 @@ const Project = mongoose.model("Project", projectSchema);
             .reduce((sum, amount) => sum + amount, 0);
         const totalAmountJEDK = details3
             .filter(obj => obj.$.Supplier === 'JENSENDK')
+            .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
+            .reduce((sum, amount) => sum + amount, 0);
+        const totalAmountJESWED = details3
+            .filter(obj => obj.$.Supplier === 'JENSENSWED')
             .map(obj => parseFloat(obj.$['DeliverRemainderAmount2']))
             .reduce((sum, amount) => sum + amount, 0);
         const totalAmountJEUS = details3
@@ -188,10 +198,13 @@ const Project = mongoose.model("Project", projectSchema);
             'APAVE',
             'KANNEGFRAN',
             'SODILEC',
-            'SILER',
-            'FRADIN',
+            'DIRECTSILER',
+            'DIRECTFRADIN',
             'PMV',
             'NUOVAFOLATI',
+            'DIRECTDATAMARS',
+            'DIRECTQSP',
+            'DIRECTHERREWYN',
         ];
 
         const totalAmounts = {};
@@ -259,6 +272,12 @@ const Project = mongoose.model("Project", projectSchema);
 
         console.log("JEDK gaz = " + gazdk);
 
+        // Créer une liste des éléments dans les lignes JESW + créer une variable gaz true or false /////////
+        const jeswItems = result.Report.Tablix6[0].Details3_Collection[0].Details3.filter(item => item.$.Supplier === 'JENSENSWED');
+        const lineText1Valuessw = jeswItems.map(item => item.$.LineText1);
+        const lineText1Concatenatedsw = lineText1Valuessw.join(' + ');
+
+
         // Créer une liste des éléments dans les lignes JEDE + créer une variable gaz true or false /////////
         const jedeItems = result.Report.Tablix6[0].Details3_Collection[0].Details3.filter(item => item.$.Supplier === 'SENKING');
         const lineText1Valuesde = jedeItems.map(item => item.$.LineText1);
@@ -276,7 +295,7 @@ const Project = mongoose.model("Project", projectSchema);
         const INWATECItems = result.Report.Tablix6[0].Details3_Collection[0].Details3.filter(item => item.$.Supplier === 'INWATEC');
         const lineText1Valuesiw = jeusItems.map(item => item.$.LineText1);
         const lineText1Concatenatediw = lineText1Valuesus.join(' + ');
-       
+
 
         // Créer une liste des éléments dans les lignes JEUS + créer une variable gaz true or false /////////
         const autreItems = result.Report.Tablix6[0].Details3_Collection[0].Details3.filter(item => item.$.Supplier === 'JENSEN');
@@ -290,6 +309,7 @@ const Project = mongoose.model("Project", projectSchema);
 
         const jensenchinaDates = new Set();
         const jensendkDates = new Set();
+        const jensenswedDates = new Set();
         const senkingDates = new Set();
         const jenusaeuroDates = new Set();
         const iwDates = new Set();
@@ -303,6 +323,8 @@ const Project = mongoose.model("Project", projectSchema);
                 jensenchinaDates.add(dateString);
             } else if (supplier === 'JENSENDK') {
                 jensendkDates.add(dateString);
+            } else if (supplier === 'JENSENSWED') {
+                jensenswedDates.add(dateString);
             } else if (supplier === 'SENKING') {
                 senkingDates.add(dateString);
             } else if (supplier === 'JENUSAEURO') {
@@ -314,6 +336,7 @@ const Project = mongoose.model("Project", projectSchema);
 
         const jecnDates = [...jensenchinaDates];
         const jedkDates = [...jensendkDates];
+        const jeswedDates = [...jensenswedDates];
         const jedeDates = [...senkingDates];
         const jeusDates = [...jenusaeuroDates];
         const jeiwDates = [...iwDates];
@@ -353,7 +376,7 @@ const Project = mongoose.model("Project", projectSchema);
         }
         console.log(noManut);
 
-        const totalTotal = Math.round(totalAmountJECN + totalAmountJEDK + totalAmountJEUS + totalAmountJEDE + totalAmountTransport + manutention + noManut);
+        const totalTotal = Math.round(totalAmountJECN + totalAmountJEDK + totalAmountJESWED + totalAmountJEUS + totalAmountJEDE + totalAmountTransport + manutention + noManut);
         const checkSumProject = (totalTotal === totalCommandes);
 
         console.log(totalTotal);
@@ -369,6 +392,7 @@ const Project = mongoose.model("Project", projectSchema);
             margeCurrent: margeCurrent,
             sommeCN: totalAmountJECN,
             sommeDK: totalAmountJEDK,
+            sommeSW: totalAmountJESWED,
             sommeUS: totalAmountJEUS,
             sommeDE: totalAmountJEDE,
             sommeIW: totalAmountINWATEC,
@@ -380,17 +404,21 @@ const Project = mongoose.model("Project", projectSchema);
             sommeAPAVE: totalAmounts.APAVE,
             sommeKANNE: totalAmounts.KANNEGFRAN,
             sommeSODI: totalAmounts.SODILEC,
-            sommeSILER: totalAmounts.SILER,
-            sommeFRADIN: totalAmounts.FRADIN,
+            sommeSILER: totalAmounts.DIRECTSILER,
+            sommeFRADIN: totalAmounts.DIRECTFRADIN,
             sommePMV: totalAmounts.PMV,
             sommeNUOVA: totalAmounts.NUOVAFOLATI,
-      
+            sommeDATAMARS: totalAmounts.DIRECTDATAMARS,
+            sommeQSP: totalAmounts.DIRECTQSP,
+            sommeHERREWYN : totalAmounts.DIRECTHERREWYN,
+
             paid: paid,
             warranty: warranty,
             services: services,
             transport: totalAmountTransport,
             lineText1Concatenatedcn: lineText1Concatenatedcn,
             lineText1Concatenateddk: lineText1Concatenateddk,
+            lineText1Concatenatedsw: lineText1Concatenatedsw,
             lineText1Concatenatedde: lineText1Concatenatedde,
             lineText1Concatenatedus: lineText1Concatenatedus,
             lineText1ConcatenatedAutre: lineText1ConcatenatedAutre,
@@ -398,6 +426,7 @@ const Project = mongoose.model("Project", projectSchema);
             manutention: manutention,
             noManut: noManut,
             jedkDates: jedkDates,
+            jeswedDates: jeswedDates,
             jedeDates: jedeDates,
             jecnDates: jecnDates,
             jeusDates: jeusDates,
@@ -469,6 +498,9 @@ app.route('/projects')
             sommeTCS,
             sommeSATELEC,
             sommeAPAVE,
+            sommeDATAMARS,
+            sommeQSP,
+            sommeHERREWYN,
 
             paid,
             warranty,
@@ -476,6 +508,7 @@ app.route('/projects')
             transport,
             lineText1Concatenatedcn,
             lineText1Concatenateddk,
+            lineText1Concatenatedsw,
             lineText1Concatenatedde,
             lineText1Concatenatedus,
             lineText1ConcatenatedAutre,
@@ -483,6 +516,7 @@ app.route('/projects')
             manutention,
             noManut,
             jedkDates,
+            jeswedDates,
             jedeDates,
             jecnDates,
             jeusDates,
@@ -531,6 +565,9 @@ app.route('/projects')
             sommeTCS,
             sommeSATELEC,
             sommeAPAVE,
+            sommeDATAMARS,
+            sommeQSP,
+            sommeHERREWYN,
 
             paid,
             warranty,
@@ -538,6 +575,7 @@ app.route('/projects')
             transport,
             lineText1Concatenatedcn,
             lineText1Concatenateddk,
+            lineText1Concatenatedsw,
             lineText1Concatenatedde,
             lineText1Concatenatedus,
             lineText1ConcatenatedAutre,
@@ -545,6 +583,7 @@ app.route('/projects')
             manutention,
             noManut,
             jedkDates,
+            jeswedDates,
             jedeDates,
             jecnDates,
             jeusDates,
